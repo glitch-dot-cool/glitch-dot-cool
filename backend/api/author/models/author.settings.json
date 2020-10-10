@@ -33,8 +33,8 @@
       "required": true
     },
     "posts": {
-      "via": "authors",
-      "collection": "post"
+      "collection": "post",
+      "via": "authors"
     },
     "user": {
       "unique": true,
@@ -45,6 +45,11 @@
       "type": "component",
       "repeatable": true,
       "component": "links.links"
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": true,
+      "component": "gallery.gallery-item"
     }
   }
 }
