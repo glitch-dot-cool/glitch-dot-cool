@@ -25,8 +25,7 @@ module.exports = {
           // List of the Content Types you want to be able to request from Gatsby.
           "author",
           "post",
-          "gallery_item",
-          "project",
+          "tag",
         ],
         queryLimit: 1000,
       },
