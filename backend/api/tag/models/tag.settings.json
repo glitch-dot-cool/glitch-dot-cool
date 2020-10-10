@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "name": "tag"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 32,
+      "minLength": 2
+    },
+    "posts": {
+      "via": "tags",
+      "collection": "post"
+    }
+  }
+}
