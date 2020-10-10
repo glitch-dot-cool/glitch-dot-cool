@@ -3,6 +3,9 @@
  *  Gatsby's useStaticQuery React hook
  *
  * See: https://www.gatsbyjs.com/docs/use-static-query/
+ *
+ * @TODO add matomo script
+ * @TODO update site meta
  */
 
 import React from "react"
@@ -30,6 +33,13 @@ function SEO({ description, lang, meta, title }) {
 
   return (
     <Helmet
+      link={[
+        {
+          rel: "stylesheet",
+          href:
+            "https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono&display=swap",
+        },
+      ]}
       htmlAttributes={{
         lang,
       }}
