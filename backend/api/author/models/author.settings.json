@@ -1,8 +1,9 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "authors",
   "info": {
-    "name": "Author"
+    "name": "Author",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -33,6 +34,10 @@
     },
     "links": {
       "type": "json"
+    },
+    "posts": {
+      "via": "authors",
+      "collection": "post"
     }
   }
 }
