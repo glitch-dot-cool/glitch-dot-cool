@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_gallery_gallery_items",
+  "info": {
+    "name": "Gallery Item",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "item": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "link": {
+      "type": "string"
+    },
+    "authors": {
+      "collection": "author"
+    }
+  }
+}
