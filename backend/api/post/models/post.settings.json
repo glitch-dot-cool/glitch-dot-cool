@@ -42,8 +42,8 @@
       "default": false
     },
     "authors": {
-      "via": "posts",
       "collection": "author",
+      "via": "posts",
       "dominant": true
     },
     "tags": {
@@ -55,6 +55,16 @@
       "type": "component",
       "repeatable": true,
       "component": "links.links"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "blog",
+        "project",
+        "editorial"
+      ],
+      "default": "blog",
+      "required": true
     }
   }
 }
