@@ -45,6 +45,16 @@
       "collection": "author",
       "via": "posts",
       "dominant": true
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "posts",
+      "dominant": true
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.links"
     }
   }
 }
