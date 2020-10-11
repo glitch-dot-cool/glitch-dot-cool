@@ -1,45 +1,35 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import ReactMarkdown from "react-markdown"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allStrapiAuthor {
+      allStrapiPost {
         edges {
           node {
-            gallery {
-              item {
-                childImageSharp {
-                  fixed {
-                    src
-                  }
-                }
-              }
-              title
-            }
+            body
           }
         }
       }
     }
   `)
 
-  const galleryItems = data.allStrapiAuthor.edges[0].node.gallery
-  console.log(data)
+  const post = data.allStrapiPost.edges[0].node.body
 
   return (
     <Layout>
       <SEO title="Home" />
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        {galleryItems.map(({ item, title }) => (
-          <>
-            <h3>{title}</h3>
-            <img src={item.childImageSharp.fixed.src} />
-          </>
-        ))}
+        <ReactMarkdown
+          source={post}
+          escapeHtml={false}
+          linkTarget="_blank"
+          transformImageUri={x => `http://localhost:1337${x}`}
+        />
       </div>
     </Layout>
   )
