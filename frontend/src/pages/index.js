@@ -15,6 +15,37 @@ const CodeBlock = ({ language, value }) => {
   )
 }
 
+const Video = props => {
+  return (
+    <video width="1024" height="720" controls>
+      <source src={props.src} type="video/mp4" />
+    </video>
+  )
+}
+
+const Audio = props => {
+  return (
+    <audio controls>
+      <source src={props.src} type="audio/mp3" />
+    </audio>
+  )
+}
+
+const EmbeddedMedia = props => {
+  const file_extension = props.src.substring(
+    props.src.length - 3,
+    props.src.length
+  )
+  switch (file_extension) {
+    case "mp3":
+      return <Audio {...props} />
+    case "mp4":
+      return <Video {...props} />
+    default:
+      return <img {...props} />
+  }
+}
+
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -41,6 +72,7 @@ const IndexPage = () => {
           transformImageUri={x => `http://localhost:1337${x}`}
           renderers={{
             code: CodeBlock,
+            image: EmbeddedMedia,
           }}
         />
       </div>
