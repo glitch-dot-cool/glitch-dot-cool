@@ -4,8 +4,8 @@ import ReactMarkdown from "react-markdown"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { atelierSavannaDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/Layout/layout"
+import SEO from "../components/Layout/seo"
 
 const CodeBlock = ({ language, value }) => {
   return (
