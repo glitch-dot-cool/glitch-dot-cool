@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "glitch.cool",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "glitch.cool frontend repo",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Alex Gohorel",
   "dependencies": {
     "gatsby": "^2.24.67",
     "gatsby-image": "^2.4.20",
@@ -30,12 +30,14 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean-dev": "gatsby clean && gatsby develop -H 0.0.0.0 -p 8000",
+    "dev-lan": "gatsby develop -H 0.0.0.0 -p 8000",
+    "build-lan": "gatsby build && gatsby serve -H 0.0.0.0 -p 8000"
   },
   "repository": {
     "type": "git",
