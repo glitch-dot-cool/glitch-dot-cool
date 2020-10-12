@@ -1,12 +1,14 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import { Link } from "../../design-system"
+import { Link } from "../../../design-system"
+import SiteTitle from "./SiteTitle"
 
-const Nav = props => {
+const Nav = () => {
   return (
     <StyledNav>
+      <SiteTitle />
+      <Spacer />
       <Link to="/index">home</Link>
       <Link to="/index">about</Link>
       <Link to="/index">projects</Link>
@@ -16,10 +18,12 @@ const Nav = props => {
   )
 }
 
-Nav.propTypes = {}
-
 export default Nav
 
 const StyledNav = styled.nav`
   display: flex;
+`
+
+const Spacer = styled.div`
+  flex-grow: 1;
 `
