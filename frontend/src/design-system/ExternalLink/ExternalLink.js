@@ -2,17 +2,22 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-const ExternalLink = ({ url, text, dark }) => {
+const ExternalLink = ({ url, children, dark }) => {
   return (
-    <StyledLink dark={dark} href={url} rel="noopener noreferrer">
-      {text}
+    <StyledLink
+      dark={dark}
+      href={url}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {children}
     </StyledLink>
   )
 }
 
 ExternalLink.propTypes = {
   url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 }
 
 export default ExternalLink
