@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { ThemeManagerContext } from "gatsby-styled-components-dark-mode"
 
-import { lightTheme } from "../../styles/theme"
+import { lightTheme } from "../../design-system/theme"
 
 const ThemeToggle = () => {
   const themeContext = useContext(ThemeManagerContext)

@@ -4,6 +4,8 @@ import React from "react"
 
 import ThemeToggle from "./ThemeToggle"
 
+import Nav from "./Nav"
+
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -30,6 +32,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <ThemeToggle />
+      <Nav></Nav>
     </div>
   </header>
 )
