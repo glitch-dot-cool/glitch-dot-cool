@@ -63,6 +63,4 @@ const darkTheme = {
   },
 }
 
-console.log(darkTheme.measurements)
-
 module.exports = { lightTheme, darkTheme }
