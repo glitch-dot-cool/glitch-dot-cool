@@ -31,6 +31,9 @@ const lightTheme = {
     footerHeightMobile: 5,
     breakpointMobileNav: 767,
   },
+  activeNavStyles: {
+    textDecoration: "line-through",
+  },
 }
 
 const darkTheme = {
