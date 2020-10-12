@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link as GatsbyLink } from "gatsby"
 
-const Link = ({ to, children }) => {
-  return <StyledLink to={to}>{children}</StyledLink>
+const Link = ({ children, ...props }) => {
+  return <StyledLink {...props}>{children}</StyledLink>
 }
 
 Link.propTypes = {
