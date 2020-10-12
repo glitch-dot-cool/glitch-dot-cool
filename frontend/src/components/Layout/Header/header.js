@@ -1,8 +1,9 @@
 import React from "react"
-
-import ThemeToggle from "./ThemeToggle"
+import styled from "styled-components"
 
 import Nav from "./Nav"
+import ThemeToggle from "./ThemeToggle"
+import Hamburger from "./Hamburger"
 
 const Header = () => (
   <header
@@ -19,9 +20,16 @@ const Header = () => (
       }}
     >
       <Nav></Nav>
-      <ThemeToggle />
+      <Controls>
+        <ThemeToggle />
+        <Hamburger />
+      </Controls>
     </div>
   </header>
 )
 
 export default Header
+
+const Controls = styled.div`
+  display: flex;
+`
