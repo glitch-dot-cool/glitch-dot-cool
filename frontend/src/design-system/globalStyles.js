@@ -41,9 +41,20 @@ const GlobalStyles = createGlobalStyle`
     p,
     a,
     li,
-    code,
     label {
         font-size: 2rem;
+    }
+
+    pre {
+      border-radius: 3px;
+      padding: 1.5rem !important;
+    }
+
+    code {
+      span {
+        font-family: "Roboto Mono", monospace;
+        font-size: 1.6rem; 
+      }
     }
     
     h1,h2,h3,h4,h5,p,blockquote{
