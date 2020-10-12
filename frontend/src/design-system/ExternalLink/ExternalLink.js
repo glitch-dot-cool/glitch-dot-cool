@@ -17,7 +17,7 @@ const ExternalLink = ({ url, children, dark }) => {
 
 ExternalLink.propTypes = {
   url: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default ExternalLink
