@@ -1,19 +1,25 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import Nav from "./Nav"
 import ThemeToggle from "./ThemeToggle"
 import Hamburger from "./Hamburger"
 
-const Header = () => (
+const Header = ({ toggleDrawer, visible }) => (
   <StyledHeader>
     <Nav></Nav>
     <Controls>
       <ThemeToggle />
-      <Hamburger />
+      <Hamburger toggleDrawer={toggleDrawer} visible={visible} />
     </Controls>
   </StyledHeader>
 )
+
+Header.propTypes = {
+  toggleDrawer: PropTypes.func,
+  visible: PropTypes.bool,
+}
 
 export default Header
 

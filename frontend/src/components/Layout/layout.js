@@ -1,17 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import Header from "./Header/header"
 import Footer from "./Footer/Footer"
+import Backdrop from "./Backdrop"
+import Drawer from "./Drawer"
 import GlobalStyles from "../../design-system/globalStyles"
 
 const Layout = ({ children }) => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen)
+  }
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false)
+  }
+
   return (
     <Background>
       <GlobalStyles />
       <Wrapper>
-        <Header />
+        <Header toggleDrawer={toggleDrawer} visible={isDrawerOpen} />
+        <Drawer visible={isDrawerOpen} />
+        <Backdrop visible={isDrawerOpen} closeDrawer={closeDrawer} />
         <main>{children}</main>
       </Wrapper>
       <Footer />
