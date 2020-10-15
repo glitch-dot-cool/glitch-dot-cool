@@ -20,8 +20,8 @@ const StyledBackdrop = styled.div`
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: ${props => (props.show ? "0.7" : "0")};
-  pointer-events: ${props => (props.show ? "all" : "none")};
+  opacity: ${props => (props.visible ? "0.7" : "0")};
+  pointer-events: ${props => (props.visible ? "all" : "none")};
   transition: 0.2s ease-out all;
   z-index: 2;
 `
