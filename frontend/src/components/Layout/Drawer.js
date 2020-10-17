@@ -36,7 +36,7 @@ const Drawer = ({ visible }) => {
 
           <Link
             style={DrawerTextStyles}
-            to="/about/"
+            to="/about"
             activeStyle={theme.activeNavStyles}
           >
             about
@@ -44,7 +44,7 @@ const Drawer = ({ visible }) => {
 
           <Link
             style={DrawerTextStyles}
-            to="/projects/"
+            to="/projects"
             activeStyle={theme.activeNavStyles}
           >
             projects
@@ -52,7 +52,7 @@ const Drawer = ({ visible }) => {
 
           <Link
             style={DrawerTextStyles}
-            to="/members/"
+            to="/members"
             activeStyle={theme.activeNavStyles}
           >
             members
@@ -60,7 +60,7 @@ const Drawer = ({ visible }) => {
 
           <Link
             style={DrawerTextStyles}
-            to="/contact/"
+            to="/contact"
             activeStyle={theme.activeNavStyles}
           >
             contact
