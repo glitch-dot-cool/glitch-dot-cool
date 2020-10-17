@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link as GatsbyLink } from "gatsby"
 
+import { chromaticAbberation } from "../Animations/animations"
+
 const Link = ({ children, ...props }) => {
   return <StyledLink {...props}>{children}</StyledLink>
 }
@@ -24,5 +26,6 @@ export const StyledLink = styled(props => (
 
   :hover {
     color: ${props => props.theme.colors.scale_3};
+    ${chromaticAbberation}
   }
 `

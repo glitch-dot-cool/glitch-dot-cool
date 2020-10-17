@@ -3,11 +3,14 @@ import PropTypes from "prop-types"
 import styled, { css } from "styled-components"
 import Image from "gatsby-image"
 
+import { Link } from "../../design-system"
+import { slugify } from "../../utils"
+
 const UserCard = ({ user: { author_name: name, avatar } }) => {
   const imgData = avatar[0]?.formats?.thumbnail?.childImageSharp?.fluid
 
   return (
-    <Card>
+    <Card to={`/${slugify(name)}/posts`}>
       {imgData ? <Avatar fluid={imgData} /> : <PlaceholderAvatar />}
       <Name>{name}</Name>
     </Card>
@@ -20,7 +23,7 @@ UserCard.propTypes = {
 
 export default UserCard
 
-const Card = styled.div`
+const Card = styled(Link)`
   display: flex;
   align-items: center;
   width: calc(50% - 1rem);

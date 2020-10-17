@@ -1,5 +1,5 @@
 export { default as Link } from "./Link/Link"
 export { default as ExternalLink } from "./ExternalLink/ExternalLink"
-export * from "./Animations/animations"
+export { flicker, shifter, chromaticAbberation } from "./Animations/animations"
 export * from "./theme"
 export { default as UserCard } from "./UserCard/UserCard"
