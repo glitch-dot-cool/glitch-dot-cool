@@ -23,8 +23,13 @@ const Container = styled.div`
   right: ${props => (props.visible ? "20px" : "0")};
   width: 3rem;
   height: 3rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
   cursor: pointer;
+
+  @media (min-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    display: none;
+  }
 `
 
 const HamburgerIcon = styled.div`
@@ -35,6 +40,7 @@ const HamburgerIcon = styled.div`
   transition: 0.5s ease-out all;
   border-radius: 2px;
   margin-top: 1rem;
+
   &::before,
   &::after {
     content: "";
@@ -46,12 +52,14 @@ const HamburgerIcon = styled.div`
       props.visible ? props.theme.colors.scale_0 : props.theme.colors.scale_3};
     transition: 0.5s ease-out all;
   }
+
   &::before {
     transform: ${props =>
       props.visible
         ? "rotate(45deg) translate3d(0, 0, 0)"
         : "translate3d(0, -0.95rem, 0)"};
   }
+
   &::after {
     transform: ${props =>
       props.visible
