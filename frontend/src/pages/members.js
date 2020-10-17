@@ -1,12 +1,11 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/Layout/layout"
-import { UserCard } from "../design-system"
+import { UserCard, Title } from "../design-system"
 
-const Members = props => {
+const Members = () => {
   const data = useStaticQuery(graphql`
     query {
       allStrapiAuthor {
@@ -33,6 +32,7 @@ const Members = props => {
   const members = data.allStrapiAuthor.nodes
   return (
     <Layout>
+      <Title>members</Title>
       <CardContainer>
         {members.map(member => (
           <UserCard user={member}>{member.author_name}</UserCard>
@@ -41,8 +41,6 @@ const Members = props => {
     </Layout>
   )
 }
-
-Members.propTypes = {}
 
 export default Members
 
