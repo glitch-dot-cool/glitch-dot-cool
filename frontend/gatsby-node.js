@@ -1,5 +1,6 @@
-const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const path = require("path")
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
+const { blogPostsQuery } = require("./src/queries")
 
 exports.createResolvers = ({
   actions,
@@ -34,28 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = path.resolve("src/templates/postTemplate.js")
-  const posts = await graphql(`
-    query {
-      allStrapiPost {
-        nodes {
-          type
-          title
-          skip_frontpage
-          published_date(formatString: "MMMM DD, YYYY")
-          links {
-            url
-            title
-            id
-          }
-          body
-          slug
-          authors {
-            author_name
-          }
-        }
-      }
-    }
-  `)
+  const posts = await graphql(blogPostsQuery)
 
   posts.data.allStrapiPost.nodes.forEach(post => {
     post.authors.forEach(author => {
