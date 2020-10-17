@@ -34,7 +34,7 @@ const Card = styled(Link)`
   &:hover {
     background-color: ${props => props.theme.colors.scale_2};
 
-    h3 {
+    h2 {
       color: ${props => props.theme.colors.scale_5};
     }
   }
