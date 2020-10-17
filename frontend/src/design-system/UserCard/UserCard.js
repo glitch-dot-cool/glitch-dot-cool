@@ -27,7 +27,7 @@ const Card = styled(Link)`
   display: flex;
   align-items: center;
   width: calc(50% - 1rem);
-  background-color: ${props => props.theme.colors.scale_4};
+  background-color: ${props => props.theme.colors.scale_6};
   padding: 2rem;
   margin-top: 2rem;
 
