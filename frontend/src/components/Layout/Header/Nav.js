@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Link } from "../../../design-system"
+import { Link, lightTheme as theme } from "../../../design-system"
 import SiteTitle from "./SiteTitle"
 
 const Nav = () => {
@@ -10,11 +10,21 @@ const Nav = () => {
       <SiteTitle />
       <Spacer />
       <Links>
-        <Link to="/index">home</Link>
-        <Link to="/index">about</Link>
-        <Link to="/index">projects</Link>
-        <Link to="/index">members</Link>
-        <Link to="/index">contact</Link>
+        <Link activeStyle={theme.activeNavStyles} to="/">
+          home
+        </Link>
+        <Link activeStyle={theme.activeNavStyles} to="/index">
+          about
+        </Link>
+        <Link activeStyle={theme.activeNavStyles} to="/index">
+          projects
+        </Link>
+        <Link activeStyle={theme.activeNavStyles} to="/members">
+          members
+        </Link>
+        <Link activeStyle={theme.activeNavStyles} to="/index">
+          contact
+        </Link>
       </Links>
     </StyledNav>
   )

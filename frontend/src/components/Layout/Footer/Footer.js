@@ -14,19 +14,19 @@ const Footer = () => {
           home
         </Link>
 
-        <Link dark="true" to="/about/" activeStyle={theme.activeNavStyles}>
+        <Link dark="true" to="/about" activeStyle={theme.activeNavStyles}>
           about
         </Link>
 
-        <Link dark="true" to="/projects/" activeStyle={theme.activeNavStyles}>
+        <Link dark="true" to="/projects" activeStyle={theme.activeNavStyles}>
           projects
         </Link>
 
-        <Link dark="true" to="/members/" activeStyle={theme.activeNavStyles}>
+        <Link dark="true" to="/members" activeStyle={theme.activeNavStyles}>
           members
         </Link>
 
-        <Link dark="true" to="/contact/" activeStyle={theme.activeNavStyles}>
+        <Link dark="true" to="/contact" activeStyle={theme.activeNavStyles}>
           contact
         </Link>
       </Nav>
