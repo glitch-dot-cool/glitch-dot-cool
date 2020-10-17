@@ -1,4 +1,4 @@
-module.exports.blogPostsQuery = `
+module.exports = `
     query {
       allStrapiPost {
         nodes {
