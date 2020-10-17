@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { ThemeManagerContext } from "gatsby-styled-components-dark-mode"
 
-import { lightTheme } from "../../../design-system/theme"
-
 const ThemeToggle = () => {
   const themeContext = useContext(ThemeManagerContext)
 
@@ -43,13 +41,20 @@ const ThemeIcon = styled.div`
   [data-icon="sun"]:hover {
     color: #fcba03;
   }
+
+  @media (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    svg {
+      margin-top: 2px;
+    }
+  }
 `
 
 const Icon = styled(FontAwesomeIcon)`
   margin-left: 2rem;
 
-  @media only screen and (max-width: ${lightTheme.measurements
-      .breakpointMobileNav}px) {
+  @media only screen and (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
     margin: 0 2rem;
   }
 `
