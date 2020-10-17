@@ -57,7 +57,7 @@ const GlobalStyles = createGlobalStyle`
       }
     }
     
-    h1,h2,h3,h4,h5,p,blockquote{
+    h1,h2,h3,h4,h5,p,blockquote,li{
         color: ${props => props.theme.colors.scale_1};
         transition: 0.6s ease-in-out color;
     }
