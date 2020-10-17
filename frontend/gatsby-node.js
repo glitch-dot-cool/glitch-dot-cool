@@ -1,6 +1,6 @@
 const path = require("path")
 
-const { blogPostsQuery } = require("./src/queries")
+const { blogPostsQuery, profilesQuery } = require("./src/queries")
 const { slugify, createImageSharpResolvers } = require("./gatsby-node-utils")
 
 exports.createResolvers = ({
@@ -38,6 +38,17 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/${slugify(author.author_name)}/${slugify(post.slug)}`,
         context: post,
       })
+    })
+  })
+
+  const profileTemplate = path.resolve("src/templates/profileTemplate.js")
+  const profiles = await graphql(profilesQuery)
+
+  profiles.data.allStrapiAuthor.nodes.forEach(profile => {
+    createPage({
+      component: profileTemplate,
+      path: `/${slugify(profile.author_name)}/posts`,
+      context: profile,
     })
   })
 }
