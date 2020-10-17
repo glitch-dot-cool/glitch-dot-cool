@@ -1,4 +1,4 @@
-export const slugify = string => {
+const slugify = string => {
   const a = "àáäâãåăæçèéëêǵḧìíïîḿńǹñòóöôœøṕŕßśșțùúüûǘẃẍÿź·/_,:;"
   const b = "aaaaaaaaceeeeghiiiimnnnooooooprssstuuuuuwxyz------"
   const p = new RegExp(a.split("").join("|"), "g")
@@ -14,3 +14,5 @@ export const slugify = string => {
     .replace(/^-+/, "") // Trim - from start of text
     .replace(/-+$/, "") // Trim - from end of text
 }
+
+export default slugify

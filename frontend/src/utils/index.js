@@ -1,1 +1,1 @@
-export { default } from "./slugify"
+export { default as slugify } from "./slugify"
