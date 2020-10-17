@@ -13,10 +13,10 @@ const Nav = () => {
         <Link activeStyle={theme.activeNavStyles} to="/">
           home
         </Link>
-        <Link activeStyle={theme.activeNavStyles} to="/index">
+        <Link activeStyle={theme.activeNavStyles} to="/about">
           about
         </Link>
-        <Link activeStyle={theme.activeNavStyles} to="/index">
+        <Link activeStyle={theme.activeNavStyles} to="/projects">
           projects
         </Link>
         <Link activeStyle={theme.activeNavStyles} to="/members">
