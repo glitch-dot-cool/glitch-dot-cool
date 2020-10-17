@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Link } from "../../../design-system"
-import { flicker, shifter } from "../../../design-system"
+import { Link, flicker, shifter } from "../../../design-system"
 
 const SiteTitle = () => {
   return (
