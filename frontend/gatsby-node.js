@@ -1,4 +1,34 @@
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const path = require("path")
+
+exports.createResolvers = ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+}) => {
+  const { createNode } = actions
+
+  createResolvers({
+    StrapiAuthorAvatarFormatsThumbnail: {
+      image: {
+        type: "File",
+        resolve(source, args, context, info) {
+          return createRemoteFileNode({
+            url: `http://localhost:1337${source.url}`,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
+        },
+      },
+    },
+  })
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
