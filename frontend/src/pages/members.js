@@ -15,9 +15,11 @@ const Members = props => {
           avatar {
             formats {
               thumbnail {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
+                image {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
