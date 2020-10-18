@@ -8,14 +8,14 @@ import { Flex } from "../../design-system"
 const ProfileContact = ({ location, email }) => {
   return (
     <Flex direction="column" align="center">
-      <p>
+      <ContactField>
         {location && <Icon icon={faMapMarkerAlt} />}
         {location}
-      </p>
-      <p>
+      </ContactField>
+      <ContactField>
         {email && <Icon icon={faEnvelope} />}
         {email}
-      </p>
+      </ContactField>
     </Flex>
   )
 }
@@ -29,4 +29,8 @@ export default ProfileContact
 
 const Icon = styled(FontAwesomeIcon)`
   margin-right: 0.5rem;
+`
+
+const ContactField = styled.p`
+  white-space: nowrap;
 `
