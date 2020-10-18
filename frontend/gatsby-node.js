@@ -21,7 +21,7 @@ exports.createResolvers = ({
     reporter,
   }
 
-  createImageSharpResolvers("StrapiAuthorAvatarFormatsThumbnail", params)
+  createImageSharpResolvers("StrapiAuthorAvatarFormatsSmall", params)
   createImageSharpResolvers("StrapiAuthorAvatarFormatsMedium", params)
 }
 
