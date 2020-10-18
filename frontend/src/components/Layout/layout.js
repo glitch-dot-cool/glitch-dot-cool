@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
         <Header toggleDrawer={toggleDrawer} visible={isDrawerOpen} />
         <Drawer visible={isDrawerOpen} />
         <Backdrop visible={isDrawerOpen} closeDrawer={closeDrawer} />
-        <main>{children}</main>
+        <Main>{children}</Main>
       </Wrapper>
       <Footer />
     </Background>
@@ -57,4 +57,8 @@ const Wrapper = styled.div`
     padding: 0 3vw ${props => props.theme.measurements.footerHeightMobile}rem
       3vw;
   }
+`
+
+const Main = styled.main`
+  padding-top: 4rem;
 `

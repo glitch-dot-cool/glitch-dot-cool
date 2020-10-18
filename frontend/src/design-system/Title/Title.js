@@ -10,6 +10,4 @@ Title.propTypes = {}
 
 export default Title
 
-const StyledTitle = styled.h1`
-  margin-top: 4rem;
-`
+const StyledTitle = styled.h1``
