@@ -1,18 +1,18 @@
 import React from "react"
-import { number, objectOf, string } from "prop-types"
+import { number, shape, string } from "prop-types"
 import styled, { css } from "styled-components"
 import Image from "gatsby-image"
 
-const Avatar = ({ image }) => {
+const Avatar = ({ image, ...props }) => {
   if (image?.src) {
-    return <StyledAvatar fluid={image} />
+    return <StyledAvatar {...props} fluid={image} />
   } else {
-    return <PlaceholderAvatar />
+    return <PlaceholderAvatar {...props} />
   }
 }
 
 Avatar.propTypes = {
-  image: objectOf({
+  image: shape({
     aspectRatio: number,
     base64: string,
     sizes: string,
