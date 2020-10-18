@@ -25,6 +25,7 @@ const lightTheme = {
       rgba(127, 127, 127, 0) 70.71%
     ),
     linear-gradient(336deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 70.71%);`,
+    box_shadow: `rgba(0, 0, 0, 0.25)`,
   },
   measurements: {
     footerHeight: 7,
@@ -63,6 +64,7 @@ const darkTheme = {
       rgba(75, 75, 75, 0) 70.71%
     ),
     linear-gradient(336deg, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0) 70.71%);`,
+    box_shadow: `rgba(255, 255, 255, 0.5)`,
   },
 }
 
