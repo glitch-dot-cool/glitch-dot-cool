@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import Layout from "../components/Layout/layout"
 import ProfileInfo from "../components/Profile/ProfileInfo"
+import ProfilePosts from "../components/Profile/ProfilePosts"
 
 const profileTemplate = ({ pageContext: profile }) => {
   const {
@@ -15,7 +16,6 @@ const profileTemplate = ({ pageContext: profile }) => {
     posts,
   } = profile
   const avatar = avatarData[0]?.formats?.medium?.image?.childImageSharp?.fluid
-  console.log(profile)
   return (
     <Layout>
       <ProfileWrapper>
@@ -26,9 +26,7 @@ const profileTemplate = ({ pageContext: profile }) => {
           location={location}
           name={author_name}
         ></ProfileInfo>
-        {posts.map(post => (
-          <p key={post.id}>i'm a post</p>
-        ))}
+        <ProfilePosts name={author_name} posts={posts} />
       </ProfileWrapper>
     </Layout>
   )
