@@ -9,11 +9,11 @@ const ProfileContact = ({ location, email }) => {
   return (
     <Flex direction="column" align="center">
       <p>
-        <Icon icon={faMapMarkerAlt} />
+        {location && <Icon icon={faMapMarkerAlt} />}
         {location}
       </p>
       <p>
-        <Icon icon={faEnvelope} />
+        {email && <Icon icon={faEnvelope} />}
         {email}
       </p>
     </Flex>
