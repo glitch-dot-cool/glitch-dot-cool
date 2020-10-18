@@ -14,11 +14,9 @@ const Members = () => {
           avatar {
             formats {
               thumbnail {
-                image {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

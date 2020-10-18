@@ -7,7 +7,7 @@ import { Link } from "../../design-system"
 import { slugify } from "../../utils"
 
 const UserCard = ({ user: { author_name: name, avatar } }) => {
-  const imgData = avatar[0]?.formats?.thumbnail?.image?.childImageSharp?.fluid
+  const imgData = avatar[0]?.formats?.thumbnail?.childImageSharp?.fluid
 
   return (
     <Card to={`/${slugify(name)}/posts`}>
