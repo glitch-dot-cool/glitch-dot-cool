@@ -4,21 +4,18 @@ import styled from "styled-components"
 
 import ProfileLinks from "./ProfileLinks"
 import ProfileContact from "./ProfileContact"
-import Layout from "../Layout/layout"
 import { Flex, Avatar } from "../../design-system"
 
 const ProfileInfo = ({ name, avatar, email, location, links }) => {
   return (
-    <Layout>
-      <ProfileCard>
-        <Flex direction="column" align="center">
-          <ProfileAvatar image={avatar} />
-          <h1>{name}</h1>
-          <ProfileContact location={location} email={email} />
-          <ProfileLinks links={links}></ProfileLinks>
-        </Flex>
-      </ProfileCard>
-    </Layout>
+    <ProfileCard>
+      <Flex direction="column" align="center">
+        <ProfileAvatar image={avatar} />
+        <h1>{name}</h1>
+        <ProfileContact location={location} email={email} />
+        <ProfileLinks links={links}></ProfileLinks>
+      </Flex>
+    </ProfileCard>
   )
 }
 
