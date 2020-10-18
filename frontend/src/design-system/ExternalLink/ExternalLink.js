@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { array, object, oneOfType, string } from "prop-types"
 import styled from "styled-components"
 
 const ExternalLink = ({ url, children, dark, ...props }) => {
@@ -17,8 +17,8 @@ const ExternalLink = ({ url, children, dark, ...props }) => {
 }
 
 ExternalLink.propTypes = {
-  url: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  url: string.isRequired,
+  children: oneOfType([string, object, array]),
 }
 
 export default ExternalLink
