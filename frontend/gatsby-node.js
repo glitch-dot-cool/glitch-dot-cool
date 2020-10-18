@@ -44,10 +44,20 @@ exports.createPages = async ({ graphql, actions }) => {
   const profileTemplate = path.resolve("src/templates/profileTemplate.js")
   const profiles = await graphql(profilesQuery)
 
+  // create main profile
   profiles.data.allStrapiAuthor.nodes.forEach(profile => {
     createPage({
       component: profileTemplate,
       path: `/${slugify(profile.author_name)}/posts`,
+      context: profile,
+    })
+  })
+
+  // create gallery overview
+  profiles.data.allStrapiAuthor.nodes.forEach(profile => {
+    createPage({
+      component: profileTemplate,
+      path: `/${slugify(profile.author_name)}/gallery`,
       context: profile,
     })
   })
