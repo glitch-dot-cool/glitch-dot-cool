@@ -23,6 +23,7 @@ module.exports = `
           posts {
             id
             slug
+            title
             published_at(formatString: "MMMM DD, YYYY")
             type
           }
