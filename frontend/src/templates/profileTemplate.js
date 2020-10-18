@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Layout from "../components/Layout/layout"
 import ProfileInfo from "../components/Profile/ProfileInfo"
 import ProfilePosts from "../components/Profile/ProfilePosts"
+import ProfileNav from "../components/Profile/ProfileNav"
 
 const profileTemplate = ({ pageContext: profile }) => {
   const {
@@ -14,6 +15,7 @@ const profileTemplate = ({ pageContext: profile }) => {
     avatar: avatarData,
     author_name,
     posts,
+    gallery,
   } = profile
   const avatar = avatarData[0]?.formats?.medium?.image?.childImageSharp?.fluid
   return (
@@ -26,7 +28,8 @@ const profileTemplate = ({ pageContext: profile }) => {
           location={location}
           name={author_name}
         ></ProfileInfo>
-        <ProfilePosts name={author_name} posts={posts} />
+
+        <ProfilePosts name={author_name} posts={posts} gallery={gallery} />
       </ProfileWrapper>
     </Layout>
   )

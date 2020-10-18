@@ -1,13 +1,15 @@
 import React from "react"
-import { arrayOf, number, shape, string } from "prop-types"
+import { arrayOf, number, object, shape, string } from "prop-types"
 import styled from "styled-components"
 
 import { Link } from "../../design-system"
 import { slugify } from "../../utils"
+import ProfileNav from "./ProfileNav"
 
-const ProfilePosts = ({ posts, name }) => {
+const ProfilePosts = ({ posts, name, gallery }) => {
   return (
     <PostsContainer>
+      <ProfileNav name={name} gallery={gallery} />
       {posts.map(post => (
         <Link to={`/${slugify(name)}/${post.slug}`} key={post.id}>
           <Post>
@@ -30,17 +32,27 @@ ProfilePosts.propTypes = {
       type: string,
     })
   ),
+  gallery: arrayOf(
+    shape({
+      id: number,
+      link: string,
+      title: string,
+      item: object,
+    })
+  ),
 }
 
 export default ProfilePosts
 
 const PostsContainer = styled.div`
   width: 100%;
+  background-color: ${props => props.theme.colors.scale_6};
+  padding: 4rem;
 `
 
 const Post = styled.div`
   padding: 2rem;
-  background-color: ${props => props.theme.colors.scale_6};
+  background-color: ${props => props.theme.colors.scale_5};
   margin: 2rem 0rem;
 
   :hover {
