@@ -5,9 +5,8 @@ import styled from "styled-components"
 import Layout from "../components/Layout/layout"
 import ProfileInfo from "../components/Profile/ProfileInfo"
 import ProfilePosts from "../components/Profile/ProfilePosts"
-import ProfileNav from "../components/Profile/ProfileNav"
 
-const profileTemplate = ({ pageContext: profile }) => {
+const profileTemplate = ({ pageContext: profile, location: { pathname } }) => {
   const {
     email,
     location,
@@ -29,7 +28,12 @@ const profileTemplate = ({ pageContext: profile }) => {
           name={author_name}
         ></ProfileInfo>
 
-        <ProfilePosts name={author_name} posts={posts} gallery={gallery} />
+        <ProfilePosts
+          name={author_name}
+          posts={posts}
+          gallery={gallery}
+          path={pathname}
+        />
       </ProfileWrapper>
     </Layout>
   )

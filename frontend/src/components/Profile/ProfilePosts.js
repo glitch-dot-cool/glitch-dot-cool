@@ -5,19 +5,24 @@ import styled from "styled-components"
 import { Link } from "../../design-system"
 import { slugify } from "../../utils"
 import ProfileNav from "./ProfileNav"
+import Gallery from "../Gallery/Gallery"
 
-const ProfilePosts = ({ posts, name, gallery }) => {
+const ProfilePosts = ({ posts, name, gallery, path }) => {
   return (
     <PostsContainer>
       <ProfileNav name={name} gallery={gallery} />
-      {posts.map(post => (
-        <Link to={`/${slugify(name)}/${post.slug}`} key={post.id}>
-          <Post>
-            <h3>{post.title}</h3>
-            <p>{post.published_at}</p>
-          </Post>
-        </Link>
-      ))}
+
+      {path.includes("posts") &&
+        posts.map(post => (
+          <Link to={`/${slugify(name)}/${post.slug}`} key={post.id}>
+            <Post>
+              <h3>{post.title}</h3>
+              <p>{post.published_at}</p>
+            </Post>
+          </Link>
+        ))}
+
+      {path.includes("gallery") && <Gallery gallery={gallery} author={name} />}
     </PostsContainer>
   )
 }
