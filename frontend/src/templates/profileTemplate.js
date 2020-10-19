@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { object, string } from "prop-types"
 import styled from "styled-components"
 
 import Layout from "../components/Layout/layout"
@@ -40,7 +40,8 @@ const profileTemplate = ({ pageContext: profile, location: { pathname } }) => {
 }
 
 profileTemplate.propTypes = {
-  context: PropTypes.object,
+  profile: object,
+  pathname: string,
 }
 
 export default profileTemplate

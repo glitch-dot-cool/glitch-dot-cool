@@ -1,12 +1,12 @@
 import React from "react"
-import { Link } from "gatsby"
-import Image from "gatsby-image"
 import styled from "styled-components"
+import Image from "gatsby-image"
+import { object, string } from "prop-types"
+import { Link } from "gatsby"
 
 import { slugify } from "../../utils"
 
 const GalleryItem = ({ img, author }) => {
-  console.log(img)
   return (
     <Link to={`/${slugify(author)}/gallery/${slugify(img.title)}`}>
       <ThumbnailContainer>
@@ -17,6 +17,11 @@ const GalleryItem = ({ img, author }) => {
       </ThumbnailContainer>
     </Link>
   )
+}
+
+GalleryItem.propTypes = {
+  img: object,
+  author: string,
 }
 
 export default GalleryItem
