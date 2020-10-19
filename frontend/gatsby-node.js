@@ -42,6 +42,9 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const profileTemplate = path.resolve("src/templates/profileTemplate.js")
+  const galleryDetailTemplate = path.resolve(
+    "src/templates/galleryDetailTemplate.js"
+  )
   const profiles = await graphql(profilesQuery)
 
   // create main profile
@@ -59,6 +62,18 @@ exports.createPages = async ({ graphql, actions }) => {
       component: profileTemplate,
       path: `/${slugify(profile.author_name)}/gallery`,
       context: profile,
+    })
+  })
+
+  // create gallery item pages
+  profiles.data.allStrapiAuthor.nodes.forEach(profile => {
+    profile.gallery.forEach(item => {
+      console.log(item)
+      createPage({
+        component: galleryDetailTemplate,
+        path: `/${slugify(profile.author_name)}/gallery/${slugify(item.title)}`,
+        context: { profile, galleryItem: item },
+      })
     })
   })
 }
