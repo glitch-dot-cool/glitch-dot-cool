@@ -3,14 +3,25 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 import { slugify } from "../../utils"
+import { Flex } from "../../design-system"
 
-const GalleryDetails = ({ galleryItem, author }) => {
+const GalleryDetails = ({ galleryItem, author, galleryItems, prev, next }) => {
   const { title, link, description } = galleryItem
 
   return (
     <DetailsContainer>
       <h3>{title}</h3>
       <Description>{description}</Description>
+
+      <Flex justify="space-between">
+        <Link to={`/${slugify(author)}/gallery/${slugify(prev.title)}`}>
+          <BackButton>prev</BackButton>
+        </Link>
+        <Link to={`/${slugify(author)}/gallery/${slugify(next.title)}`}>
+          <BackButton>next</BackButton>
+        </Link>
+      </Flex>
+
       <Link to={`/${slugify(author)}/gallery`}>
         <BackButton>back</BackButton>
       </Link>

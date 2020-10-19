@@ -8,13 +8,16 @@ import ProfileInfo from "../components/Profile/ProfileInfo"
 import GalleryDetails from "../components/Gallery/GalleryDetail"
 import { Flex } from "../design-system"
 
-const galleryDetailTemplate = ({ pageContext: { profile, galleryItem } }) => {
+const galleryDetailTemplate = ({
+  pageContext: { profile, galleryItem, prev, next },
+}) => {
   const {
     email,
     location,
     link: links,
     avatar: avatarData,
     author_name,
+    gallery,
   } = profile
   const avatar = avatarData[0]?.formats?.medium?.image?.childImageSharp?.fluid
   const image = galleryItem.item.childImageSharp.fluid
@@ -29,7 +32,13 @@ const galleryDetailTemplate = ({ pageContext: { profile, galleryItem } }) => {
             location={location}
             name={author_name}
           ></ProfileInfo>
-          <GalleryDetails galleryItem={galleryItem} author={author_name} />
+          <GalleryDetails
+            galleryItem={galleryItem}
+            author={author_name}
+            galleryItems={gallery}
+            prev={prev}
+            next={next}
+          />
         </Flex>
         <GalleryItem fluid={image} />
       </ProfileWrapper>
