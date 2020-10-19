@@ -38,6 +38,7 @@ query {
       gallery {
         link
         title
+        description
         id
         item {
           childImageSharp {
