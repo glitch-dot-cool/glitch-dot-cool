@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { arrayOf, number, object, shape, string } from "prop-types"
 import styled from "styled-components"
 import GalleryItem from "./GalleryItem"
 
@@ -13,7 +13,18 @@ const Gallery = ({ gallery, author }) => {
   )
 }
 
-Gallery.propTypes = {}
+Gallery.propTypes = {
+  gallery: arrayOf(
+    shape({
+      description: string,
+      id: number,
+      item: object,
+      link: string,
+      title: string,
+    })
+  ),
+  author: string,
+}
 
 export default Gallery
 
