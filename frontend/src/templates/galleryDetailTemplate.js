@@ -17,7 +17,6 @@ const galleryDetailTemplate = ({
     link: links,
     avatar: avatarData,
     author_name,
-    gallery,
   } = profile
   const avatar = avatarData[0]?.formats?.medium?.image?.childImageSharp?.fluid
   const image = item.item.childImageSharp.fluid
