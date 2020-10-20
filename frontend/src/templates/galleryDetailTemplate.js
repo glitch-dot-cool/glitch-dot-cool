@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { object, objectOf, shape } from "prop-types"
 import styled from "styled-components"
 import Image from "gatsby-image"
 
@@ -46,7 +46,11 @@ const galleryDetailTemplate = ({
   )
 }
 
-galleryDetailTemplate.propTypes = {}
+galleryDetailTemplate.propTypes = {
+  pageContext: objectOf(
+    shape({ profile: object, item: object, next: object, prev: object })
+  ),
+}
 
 export default galleryDetailTemplate
 
