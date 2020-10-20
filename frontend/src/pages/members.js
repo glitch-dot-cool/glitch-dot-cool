@@ -10,6 +10,7 @@ const Members = () => {
     query {
       allStrapiAuthor {
         nodes {
+          id
           author_name
           avatar {
             formats {
@@ -33,7 +34,9 @@ const Members = () => {
       <Title>members</Title>
       <CardContainer>
         {members.map(member => (
-          <UserCard user={member}>{member.author_name}</UserCard>
+          <UserCard key={member.id} user={member}>
+            {member.author_name}
+          </UserCard>
         ))}
       </CardContainer>
     </Layout>
