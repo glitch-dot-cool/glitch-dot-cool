@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/${slugify(profile.author_name)}/gallery/${slugify(item.title)}`,
         context: {
           profile,
-          galleryItem: item,
+          item,
           prev:
             profile.gallery[index - 1] ||
             profile.gallery[profile.gallery.length - 1],

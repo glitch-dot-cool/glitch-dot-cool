@@ -9,7 +9,7 @@ import GalleryDetails from "../components/Gallery/GalleryDetail"
 import { Flex } from "../design-system"
 
 const galleryDetailTemplate = ({
-  pageContext: { profile, galleryItem, prev, next },
+  pageContext: { profile, item, prev, next },
 }) => {
   const {
     email,
@@ -20,7 +20,7 @@ const galleryDetailTemplate = ({
     gallery,
   } = profile
   const avatar = avatarData[0]?.formats?.medium?.image?.childImageSharp?.fluid
-  const image = galleryItem.item.childImageSharp.fluid
+  const image = item.item.childImageSharp.fluid
   return (
     <Layout>
       <ProfileWrapper>
@@ -33,7 +33,7 @@ const galleryDetailTemplate = ({
             name={author_name}
           ></ProfileInfo>
           <GalleryDetails
-            galleryItem={galleryItem}
+            galleryItem={item}
             author={author_name}
             galleryItems={gallery}
             prev={prev}
