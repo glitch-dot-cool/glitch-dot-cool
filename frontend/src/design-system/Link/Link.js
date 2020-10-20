@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { arrayOf, object, oneOfType, string } from "prop-types"
 import styled from "styled-components"
 import { Link as GatsbyLink } from "gatsby"
 
@@ -10,8 +10,8 @@ const Link = ({ children, ...props }) => {
 }
 
 Link.propTypes = {
-  to: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  to: string.isRequired,
+  children: oneOfType([string, object, arrayOf(object)]),
 }
 
 export default Link

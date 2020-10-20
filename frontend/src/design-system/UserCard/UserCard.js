@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { object, string } from "prop-types"
 import styled from "styled-components"
 
 import { Link, Avatar } from "../../design-system"
@@ -17,7 +17,8 @@ const UserCard = ({ user: { author_name: name, avatar }, size = "large" }) => {
 }
 
 UserCard.propTypes = {
-  user: PropTypes.object,
+  user: object,
+  size: string,
 }
 
 export default UserCard
