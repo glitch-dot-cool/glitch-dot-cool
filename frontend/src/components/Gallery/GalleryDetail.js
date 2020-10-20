@@ -5,8 +5,8 @@ import { Link } from "gatsby"
 import { slugify } from "../../utils"
 import { Flex } from "../../design-system"
 
-const GalleryDetails = ({ galleryItem, author, galleryItems, prev, next }) => {
-  const { title, link, description } = galleryItem
+const GalleryDetails = ({ galleryItem, author, prev, next }) => {
+  const { title, description } = galleryItem
 
   return (
     <DetailsContainer>

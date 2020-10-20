@@ -35,7 +35,6 @@ const galleryDetailTemplate = ({
           <GalleryDetails
             galleryItem={item}
             author={author_name}
-            galleryItems={gallery}
             prev={prev}
             next={next}
           />
