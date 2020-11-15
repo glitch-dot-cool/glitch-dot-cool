@@ -35,6 +35,14 @@ const lightTheme = {
   activeNavStyles: {
     textDecoration: "line-through",
   },
+  text: {
+    baseMonoMixin: `
+      font-family: "Roboto Mono", monospace;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: ${props => props.theme.colors.scale_2};
+      opacity: 0.8;`,
+  },
 }
 
 const darkTheme = {
