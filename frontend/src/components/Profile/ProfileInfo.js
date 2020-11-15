@@ -10,8 +10,10 @@ const ProfileInfo = ({ name, avatar, email, location, links }) => {
   return (
     <ProfileCard>
       <Flex direction="column" align="center">
-        <ProfileAvatar image={avatar} />
-        <h1>{name}</h1>
+        <AvatarNameGroup direction="column" align="center">
+          <ProfileAvatar image={avatar} />
+          <h1>{name}</h1>
+        </AvatarNameGroup>
         <ProfileContact location={location} email={email} />
         <ProfileLinks links={links}></ProfileLinks>
       </Flex>
@@ -42,11 +44,14 @@ const ProfileAvatar = styled(Avatar)`
 `
 
 const ProfileCard = styled.div`
+  position: sticky;
+  top: 6rem;
   display: inline-block;
   padding: 4rem;
   margin-right: 6rem;
   background-color: ${props => props.theme.colors.scale_6};
   align-self: flex-start;
+  box-shadow: 0px 3px 5px -5px rgba(0, 0, 0, 0.5);
 
   h1 {
     white-space: nowrap;
@@ -55,5 +60,25 @@ const ProfileCard = styled.div`
   @media only screen and (max-width: 960px) {
     margin: 0 0 4rem 0;
     width: 100%;
+    position: relative;
+    top: 0;
+    padding: 2rem;
+  }
+`
+
+const AvatarNameGroup = styled(Flex)`
+  @media only screen and (max-width: 960px) {
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+
+    ${ProfileAvatar} {
+      transform: scale(0.5);
+      margin: 0;
+    }
+
+    h1 {
+      margin-left: -15px;
+    }
   }
 `
