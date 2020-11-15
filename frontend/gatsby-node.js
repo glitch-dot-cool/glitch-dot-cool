@@ -1,6 +1,6 @@
 const path = require("path")
 
-const { blogPostsQuery, profilesQuery } = require("./src/queries")
+const { blogPostsQuery, profilesQuery, tagsQuery } = require("./src/queries")
 const { slugify, createImageSharpResolvers } = require("./gatsby-node-utils")
 
 exports.createResolvers = ({
@@ -81,6 +81,18 @@ exports.createPages = async ({ graphql, actions }) => {
           next: profile.gallery[index + 1] || profile.gallery[0],
         },
       })
+    })
+  })
+
+  // create tag pages
+  const tagTemplate = path.resolve("src/templates/tagTemplate.js")
+  const tags = await graphql(tagsQuery)
+
+  tags.data.allStrapiTag.nodes.forEach(({ tag, id }) => {
+    createPage({
+      component: tagTemplate,
+      path: `/tags/${slugify(tag)}`,
+      context: { tag, id: Number(id.replace("Tag_", "")) },
     })
   })
 }

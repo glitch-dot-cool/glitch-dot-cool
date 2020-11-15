@@ -47,8 +47,8 @@
       "dominant": true
     },
     "tags": {
-      "collection": "tag",
       "via": "posts",
+      "collection": "tag",
       "dominant": true
     },
     "links": {
