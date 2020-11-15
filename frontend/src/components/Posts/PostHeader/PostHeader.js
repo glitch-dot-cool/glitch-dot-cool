@@ -12,7 +12,7 @@ const PostHeader = ({ title, authors, publishDate }) => {
       <Authors>
         <h3>by</h3>
         {authors.map(author => (
-          <UserCard size="small" user={author} />
+          <UserCard id={author.id} size="small" user={author} />
         ))}
       </Authors>
     </div>
