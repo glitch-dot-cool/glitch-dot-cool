@@ -32,7 +32,7 @@ export default PostHeader
 
 const Authors = styled.div`
   display: flex;
-  margin: 1rem 0;
+  margin: 1rem 0 4rem 0;
   align-items: center;
 
   a,
