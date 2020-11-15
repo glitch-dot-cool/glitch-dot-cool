@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 import PostHeader from "../components/Posts/PostHeader/PostHeader"
 import Layout from "../components/Layout/layout"
+import MarkdownHTML from "../components/Transforms/MarkdownHTML"
 
 const postLayout = ({ pageContext: post }) => {
   console.log(post)
@@ -14,7 +15,7 @@ const postLayout = ({ pageContext: post }) => {
         title={post.title}
         publishDate={post.published_date}
       />
-      <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
+      <MarkdownHTML source={post.body} />
     </Layout>
   )
 }
