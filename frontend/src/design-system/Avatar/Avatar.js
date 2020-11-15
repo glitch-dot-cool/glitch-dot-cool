@@ -24,8 +24,8 @@ Avatar.propTypes = {
 export default Avatar
 
 const avatarStyles = css`
-  width: ${props => (props.size === "small" ? `2.4rem` : `4rem`)};
-  height: ${props => (props.size === "small" ? `2.4rem` : `4rem`)};
+  width: ${props => (props.size === "small" ? `2rem` : `4rem`)};
+  height: ${props => (props.size === "small" ? `2rem` : `4rem`)};
   border-radius: 50%;
   margin-right: 1rem;
   box-shadow: 0px 0px 5px ${props => props.theme.colors.box_shadow};
