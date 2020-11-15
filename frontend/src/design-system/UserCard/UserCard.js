@@ -48,7 +48,7 @@ const Card = styled(Link)`
   @media (max-width: 1000px) {
     width: ${props => (props.size === "small" ? `inherit` : `100%`)};
     &:last-child {
-      margin-bottom: 2rem;
+      margin-bottom: ${props => (props.size === "small" ? `0` : `2rem`)};
     }
   }
 `
