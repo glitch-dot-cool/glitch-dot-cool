@@ -1,9 +1,10 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { arrayOf, object } from "prop-types"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/layout"
+import { PostCard } from "../design-system"
 
 const TagTemplate = ({
   pageContext: page,
@@ -13,17 +14,24 @@ const TagTemplate = ({
 }) => {
   return (
     <Layout>
-      <h1>posts tagged with {page.tag}</h1>
+      <Header>posts tagged with "{page.tag}"</Header>
       {posts.map(post => (
-        <p key={post.id}>{post.title}</p>
+        <PostCard key={post.id} post={post} />
       ))}
     </Layout>
   )
 }
 
-TagTemplate.propTypes = {}
+TagTemplate.propTypes = {
+  page: object,
+  posts: arrayOf(object),
+}
 
 export default TagTemplate
+
+const Header = styled.h1`
+  margin-bottom: 2rem;
+`
 
 export const query = graphql`
   query($id: Int!) {
@@ -31,6 +39,8 @@ export const query = graphql`
       nodes {
         title
         slug
+        published_at(formatString: "MMMM DD, YYYY")
+        id
         authors {
           author_name
           id

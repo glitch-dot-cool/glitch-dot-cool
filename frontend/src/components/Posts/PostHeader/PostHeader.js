@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes, { arrayOf, shape, string } from "prop-types"
+import { arrayOf, shape, string } from "prop-types"
 import styled from "styled-components"
 
 import { UserCard } from "../../../design-system"
