@@ -34,6 +34,7 @@ const GalleryContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   grid-gap: 2rem;
+  margin-top: 2rem;
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
