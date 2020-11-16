@@ -54,8 +54,6 @@ const PostsContainer = styled.div`
   background-color: ${props => props.theme.colors.scale_6};
   padding: 4rem;
   box-shadow: 0px 3px 5px -5px rgba(0, 0, 0, 0.5);
-  margin-bottom: -4rem;
-  height: 200vh;
 
   @media only screen and (max-width: 960px) {
     position: sticky;
