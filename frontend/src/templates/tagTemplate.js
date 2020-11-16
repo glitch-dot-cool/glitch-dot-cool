@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/layout"
-import { PostCard } from "../design-system"
+import { PostCard, Button } from "../design-system"
 
 const TagTemplate = ({
   pageContext: page,
@@ -14,7 +14,13 @@ const TagTemplate = ({
 }) => {
   return (
     <Layout>
-      <Header>posts tagged with "{page.tag}"</Header>
+      <Container>
+        <Header>posts tagged with "{page.tag}"</Header>
+        <div>
+          <Button to="/tags">view all tags</Button>
+          <Button to="/posts">view all posts</Button>
+        </div>
+      </Container>
       {posts.map(post => (
         <PostCard key={post.id} post={post} />
       ))}
@@ -29,8 +35,24 @@ TagTemplate.propTypes = {
 
 export default TagTemplate
 
-const Header = styled.h1`
+const Header = styled.h1``
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 2rem;
+
+  a:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+
+    div {
+      margin-top: 1.5rem;
+    }
+  }
 `
 
 export const query = graphql`
