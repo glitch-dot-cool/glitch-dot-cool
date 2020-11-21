@@ -10,7 +10,7 @@ const UserCard = ({
   size = "large",
   color,
 }) => {
-  const imgData = avatar[0]?.formats?.thumbnail?.image?.childImageSharp?.fluid
+  const imgData = avatar[0]?.formats?.thumbnail?.childImageSharp?.fluid
 
   return (
     <Card size={size} to={`/${slugify(name)}/posts`} color={color}>
