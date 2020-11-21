@@ -36,6 +36,12 @@ const GlobalStyles = createGlobalStyle`
 
     h6 {
         font-size: 1.6rem;
+        text-align: center;
+        color: ${props => props.theme.colors.scale_2};
+        font-weight: 400;
+        font-style: italic;
+        opacity: 0.8;
+        margin: 1rem 0;
     }
 
     p,

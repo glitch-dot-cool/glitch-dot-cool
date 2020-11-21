@@ -41,7 +41,7 @@ const Authors = styled.div`
   }
 `
 
-const Date = styled.h6`
+const Date = styled.h5`
   font-family: "Roboto Mono", monospace;
   font-weight: 400;
   letter-spacing: -0.5px;
