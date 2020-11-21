@@ -7,7 +7,7 @@ import { lightTheme as theme } from "../theme"
 import { slugify } from "../../utils"
 const { baseMonoMixin } = theme.text
 
-const PostCard = ({ post }) => {
+const PostRowCard = ({ post }) => {
   const theme = useContext(ThemeContext)
   const postSlug = `/${slugify(post.authors[0].author_name)}/${slugify(
     post.title
@@ -37,7 +37,7 @@ const PostCard = ({ post }) => {
   )
 }
 
-PostCard.propTypes = {
+PostRowCard.propTypes = {
   post: shape({
     id: string,
     title: string,
@@ -47,7 +47,7 @@ PostCard.propTypes = {
   }),
 }
 
-export default PostCard
+export default PostRowCard
 
 const Card = styled.div`
   background-color: ${props => props.theme.colors.scale_6};

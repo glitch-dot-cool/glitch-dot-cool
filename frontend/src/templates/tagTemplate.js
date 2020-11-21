@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/layout"
-import { PostCard, Button } from "../design-system"
+import { PostRowCard, Button } from "../design-system"
 
 const TagTemplate = ({
   pageContext: page,
@@ -22,7 +22,7 @@ const TagTemplate = ({
         </div>
       </Container>
       {posts.map(post => (
-        <PostCard key={post.id} post={post} />
+        <PostRowCard key={post.id} post={post} />
       ))}
     </Layout>
   )

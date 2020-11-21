@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/layout"
 import Filter from "../components/Filter/Filter"
-import { Title, PostCard } from "../design-system"
+import { Title, PostRowCard } from "../design-system"
 
 const Posts = ({
   data: {
@@ -28,7 +28,7 @@ const Posts = ({
       <Filter setFilterTerm={setFilterTerm} path="/tags" />
       <PostsContainer>
         {filterResult.map(post => (
-          <PostCard key={post.strapiId} post={post} />
+          <PostRowCard key={post.strapiId} post={post} />
         ))}
       </PostsContainer>
     </Layout>
