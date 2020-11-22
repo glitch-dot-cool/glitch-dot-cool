@@ -29,32 +29,30 @@ export const query = graphql`
         authors {
           author_name
           avatar {
-            formats {
-              thumbnail {
-                image {
-                  childImageSharp {
-                    fluid {
-                      src
-                      srcSet
-                      base64
-                      aspectRatio
-                      sizes
-                    }
-                    id
-                  }
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                  srcSet
+                  base64
+                  aspectRatio
+                  sizes
                 }
+                id
               }
             }
           }
         }
         thumbnail {
-          childImageSharp {
-            fluid {
-              src
-              srcSet
-              base64
-              aspectRatio
-              sizes
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+                srcSet
+                base64
+                aspectRatio
+                sizes
+              }
             }
           }
         }

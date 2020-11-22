@@ -13,14 +13,10 @@ const Members = () => {
           id
           author_name
           avatar {
-            formats {
-              thumbnail {
-                image {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
+            localFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
