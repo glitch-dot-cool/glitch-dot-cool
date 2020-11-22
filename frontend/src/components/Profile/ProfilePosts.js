@@ -14,7 +14,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
 
       {path.includes("posts") &&
         posts.map(post => (
-          <Link to={`/${slugify(name)}/${post.slug}`} key={post.id}>
+          <Link to={`/${slugify(name)}/${slugify(post.title)}`} key={post.id}>
             <Post>
               <h3>{post.title}</h3>
               <p>{post.published_at}</p>

@@ -1,30 +1,7 @@
 const path = require("path")
 
 const { blogPostsQuery, profilesQuery, tagsQuery } = require("./src/queries")
-const { slugify, createImageSharpResolvers } = require("./gatsby-node-utils")
-
-// exports.createResolvers = ({
-//   actions,
-//   cache,
-//   createNodeId,
-//   createResolvers,
-//   store,
-//   reporter,
-// }) => {
-//   const { createNode } = actions
-//   const params = {
-//     createResolvers,
-//     createNode,
-//     createNodeId,
-//     cache,
-//     store,
-//     reporter,
-//   }
-
-//   // createImageSharpResolvers("StrapiAuthorAvatarFormatsThumbnail", params)
-//   // createImageSharpResolvers("StrapiPostAuthorsAvatarFormatsThumbnail", params)
-//   // createImageSharpResolvers("StrapiAuthorAvatarFormatsMedium", params)
-// }
+const { slugify } = require("./gatsby-node-utils")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -36,7 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
     post.authors.forEach(author => {
       createPage({
         component: postTemplate,
-        path: `${slugify(author.author_name)}/${slugify(post.slug)}`,
+        path: `${slugify(author.author_name)}/${slugify(post.title)}`,
         context: { id: post.id },
       })
     })
