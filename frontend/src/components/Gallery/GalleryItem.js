@@ -30,6 +30,7 @@ GalleryItem.propTypes = {
 export default GalleryItem
 
 const GalleryThumbnail = styled(Image)`
+  will-change: opacity, transform;
   width: 100%;
   transition: 0.2s ease-out all;
 
