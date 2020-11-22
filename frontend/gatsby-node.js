@@ -32,8 +32,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const postTemplate = path.resolve("src/templates/postTemplate.js")
   const posts = await graphql(blogPostsQuery)
 
-  console.log(posts)
-
   posts.data.allStrapiPost.nodes.forEach(post => {
     post.authors.forEach(author => {
       createPage({
@@ -69,22 +67,22 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // // create gallery item pages
-  // profiles.data.allStrapiAuthor.nodes.forEach(profile => {
-  //   profile.gallery.forEach((item, index) => {
-  //     createPage({
-  //       component: galleryDetailTemplate,
-  //       path: `/${slugify(profile.author_name)}/gallery/${slugify(item.title)}`,
-  //       context: {
-  //         profile,
-  //         item,
-  //         prev:
-  //           profile.gallery[index - 1] ||
-  //           profile.gallery[profile.gallery.length - 1],
-  //         next: profile.gallery[index + 1] || profile.gallery[0],
-  //       },
-  //     })
-  //   })
-  // })
+  profiles.data.allStrapiAuthor.nodes.forEach(profile => {
+    profile.gallery.forEach((item, index) => {
+      createPage({
+        component: galleryDetailTemplate,
+        path: `/${slugify(profile.author_name)}/gallery/${slugify(item.title)}`,
+        context: {
+          id: profile.id,
+          item: item.item.localFile,
+          prev:
+            profile.gallery[index - 1] ||
+            profile.gallery[profile.gallery.length - 1],
+          next: profile.gallery[index + 1] || profile.gallery[0],
+        },
+      })
+    })
+  })
 
   // // create tag pages
   // const tagTemplate = path.resolve("src/templates/tagTemplate.js")

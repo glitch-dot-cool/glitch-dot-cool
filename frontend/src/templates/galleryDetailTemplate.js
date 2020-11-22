@@ -9,7 +9,8 @@ import GalleryDetails from "../components/Gallery/GalleryDetail"
 import { Flex } from "../design-system"
 
 const galleryDetailTemplate = ({
-  pageContext: { profile, item, prev, next },
+  pageContext: { item, next, prev },
+  data: { strapiAuthor: profile },
 }) => {
   const {
     email,
@@ -18,8 +19,9 @@ const galleryDetailTemplate = ({
     avatar: avatarData,
     author_name,
   } = profile
-  const avatar = avatarData[0]?.formats?.medium?.image?.childImageSharp?.fluid
-  const image = item.item.childImageSharp.fluid
+
+  const avatar = avatarData[0]?.localFile?.childImageSharp?.fluid
+  const image = item.childImageSharp.fluid
   return (
     <Layout>
       <ProfileWrapper>
@@ -64,4 +66,43 @@ const ProfileWrapper = styled.div`
 
 const GalleryItem = styled(Image)`
   width: 100%;
+`
+
+export const query = graphql`
+  query($id: String!) {
+    strapiAuthor(id: { eq: $id }) {
+      author_name
+      avatar {
+        localFile {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+      email
+      location
+      link {
+        id
+        title
+        url
+      }
+      gallery {
+        description
+        id
+        link
+        title
+        item {
+          localFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `
