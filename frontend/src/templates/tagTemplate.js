@@ -55,34 +55,32 @@ const Container = styled.div`
   }
 `
 
-// export const query = graphql`
-//   query($id: Int!) {
-//     allStrapiPost(filter: { tags: { elemMatch: { id: { eq: $id } } } }) {
-//       nodes {
-//         title
-//         slug
-//         published_at(formatString: "MMMM DD, YYYY")
-//         id
-//         authors {
-//           author_name
-//           id
-//           avatar {
-//             formats {
-//               thumbnail {
-//                 childImageSharp {
-//                   fluid {
-//                     src
-//                     srcSet
-//                     base64
-//                     aspectRatio
-//                     sizes
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query($id: Int!) {
+    allStrapiPost(filter: { tags: { elemMatch: { id: { eq: $id } } } }) {
+      nodes {
+        title
+        slug
+        published_at(formatString: "MMMM DD, YYYY")
+        id
+        authors {
+          author_name
+          id
+          avatar {
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                  srcSet
+                  base64
+                  aspectRatio
+                  sizes
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

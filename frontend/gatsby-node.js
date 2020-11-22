@@ -84,15 +84,15 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // // create tag pages
-  // const tagTemplate = path.resolve("src/templates/tagTemplate.js")
-  // const tags = await graphql(tagsQuery)
+  // create tag pages
+  const tagTemplate = path.resolve("src/templates/tagTemplate.js")
+  const tags = await graphql(tagsQuery)
 
-  // tags.data.allStrapiTag.nodes.forEach(({ tag, id }) => {
-  //   createPage({
-  //     component: tagTemplate,
-  //     path: `/tags/${slugify(tag)}`,
-  //     context: { tag, id: Number(id.replace("Tag_", "")) },
-  //   })
-  // })
+  tags.data.allStrapiTag.nodes.forEach(({ tag, id }) => {
+    createPage({
+      component: tagTemplate,
+      path: `/tags/${slugify(tag)}`,
+      context: { tag, id: Number(id.replace("Tag_", "")) },
+    })
+  })
 }
