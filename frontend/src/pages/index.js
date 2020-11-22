@@ -11,7 +11,6 @@ const IndexPage = ({
     allStrapiPost: { nodes: posts },
   },
 }) => {
-  console.log(posts)
   return (
     <Layout>
       <SEO title="Home" />

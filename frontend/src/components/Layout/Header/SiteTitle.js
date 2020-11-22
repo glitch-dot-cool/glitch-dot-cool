@@ -6,7 +6,7 @@ import { Link, flicker, shifter } from "../../../design-system"
 const SiteTitle = () => {
   return (
     <TextLogoWrapper>
-      <Link to="/index">
+      <Link to="/">
         <>
           <TextLogo>glitch[dot]cool</TextLogo>
           <TextLogoShifted>glitch[dot]cool</TextLogoShifted>
