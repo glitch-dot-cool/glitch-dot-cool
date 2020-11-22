@@ -43,6 +43,10 @@ export default Posts
 
 const PostsContainer = styled.div`
   margin-top: 2rem;
+
+  > div {
+    margin-bottom: 2rem;
+  }
 `
 
 export const query = graphql`
