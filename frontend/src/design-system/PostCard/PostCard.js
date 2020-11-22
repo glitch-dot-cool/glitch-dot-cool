@@ -2,28 +2,38 @@ import React, { useContext } from "react"
 import { arrayOf, number, object, shape, string } from "prop-types"
 import styled, { ThemeContext } from "styled-components"
 import BackgroundImage from "gatsby-background-image"
-import { Flex, UserCard } from ".."
+import { Flex, Link, UserCard } from ".."
+import { slugify } from "../../utils"
 
 const PostCard = ({ post }) => {
   const {
     thumbnail: {
-      childImageSharp: { fluid: thumbnail },
+      localFile: {
+        childImageSharp: { fluid: thumbnail },
+      },
     },
   } = post
   const theme = useContext(ThemeContext)
   return (
-    <Card fluid={thumbnail}>
-      <TextContainer>
-        <Title>{post.title}</Title>
-
-        <Byline align="center">
-          <p>by</p>
-          {post.authors.map(author => (
-            <UserCard size="small" user={author} color={theme.colors.scale_5} />
-          ))}
-        </Byline>
-      </TextContainer>
-    </Card>
+    <CardLink
+      to={`/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`}
+    >
+      <Card fluid={thumbnail}>
+        <TextContainer>
+          <Title>{post.title}</Title>
+          <Byline align="center">
+            <p>by</p>
+            {post.authors.map(author => (
+              <UserCard
+                size="small"
+                user={author}
+                color={theme.colors.scale_5}
+              />
+            ))}
+          </Byline>
+        </TextContainer>
+      </Card>
+    </CardLink>
   )
 }
 
@@ -39,6 +49,28 @@ PostCard.propTypes = {
 }
 
 export default PostCard
+
+const CardLink = styled(Link)`
+  will-change: transform, opacity, box-shadow;
+  transform: scale(1) translate(0px, 0px);
+  box-shadow: 0px 0px 0px ${props => props.theme.colors.box_shadow};
+  transition: 0.1s ease transform, 0.1s ease transform opacity,
+    0.1s ease transform box-shadow;
+
+  :hover {
+    opacity: 0.9;
+    transform: scale(1.03) translate(-3px, -3px);
+    box-shadow: 9px 9px 0px ${props => props.theme.colors.box_shadow},
+      6px 6px 0px ${props => props.theme.colors.box_shadow},
+      3px 3px 0px ${props => props.theme.colors.box_shadow};
+  }
+
+  :active {
+    opacity: 1;
+    transform: scale(0.98) translate(0px, 0px);
+    box-shadow: 0px 0px 0px ${props => props.theme.colors.box_shadow};
+  }
+`
 
 const Card = styled(BackgroundImage)`
   padding: 4rem;
@@ -63,6 +95,6 @@ const Byline = styled(Flex)`
 
   p,
   a {
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 `
