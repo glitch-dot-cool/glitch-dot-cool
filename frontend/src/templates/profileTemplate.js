@@ -78,6 +78,7 @@ export const query = graphql`
         id
         slug
         title
+        type
       }
       published_at(formatString: "MMMM DD, YYYY")
       email

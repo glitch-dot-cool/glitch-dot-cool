@@ -2,7 +2,7 @@ import React from "react"
 import { arrayOf, number, object, shape, string } from "prop-types"
 import styled from "styled-components"
 
-import { Link } from "../../design-system"
+import { Link, Pill } from "../../design-system"
 import { slugify } from "../../utils"
 import ProfileNav from "./ProfileNav"
 import Gallery from "../Gallery/Gallery"
@@ -18,6 +18,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
             <Post>
               <h3>{post.title}</h3>
               <p>{post.published_at}</p>
+              <Pill type={post.type} />
             </Post>
           </Link>
         ))}
@@ -65,6 +66,9 @@ const Post = styled.div`
   padding: 2rem;
   background-color: ${props => props.theme.colors.scale_5};
   margin: 2rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   :hover {
     background-color: ${props => props.theme.colors.scale_4};

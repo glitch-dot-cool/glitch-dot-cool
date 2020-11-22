@@ -12,19 +12,21 @@ const PostRowCard = ({ post }) => {
   const postSlug = `/${slugify(post.authors[0].author_name)}/${slugify(
     post.title
   )}`
+  const size = post.authors.length > 2 ? "micro" : "small"
 
   return (
     <Card>
-      <Container align="center">
+      <Container align="center" size={size}>
         <Subcontainer>
           <Link to={postSlug}>
             <Title>{post.title}</Title>
           </Link>
           <Byline align="center">
             <p>by</p>
-            {post.authors.map(author => (
+            {post.authors.map((author, index) => (
               <UserCard
-                size="small"
+                size={size}
+                index={index}
                 user={author}
                 color={theme.colors.scale_5}
               />
@@ -58,7 +60,7 @@ const Title = styled.h2``
 
 const Container = styled(Flex)`
   * {
-    margin-right: 1rem;
+    margin-right: ${props => (props.size === "micro" ? "5px" : "1rem")};
   }
 `
 

@@ -23,13 +23,16 @@ const PostCard = ({ post }) => {
           <Title>{post.title}</Title>
           <Byline align="center">
             <p>by</p>
-            {post.authors.map(author => (
-              <UserCard
-                size="small"
-                user={author}
-                color={theme.colors.scale_5}
-              />
-            ))}
+            <Authors>
+              {post.authors.map((author, index) => (
+                <UserCard
+                  index={index}
+                  size={post.authors.length > 2 ? "micro" : "small"}
+                  user={author}
+                  color={theme.colors.scale_5}
+                />
+              ))}
+            </Authors>
           </Byline>
         </TextContainer>
       </Card>
@@ -97,4 +100,8 @@ const Byline = styled(Flex)`
   a {
     margin-right: 1rem;
   }
+`
+const Authors = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `

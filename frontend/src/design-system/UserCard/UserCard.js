@@ -1,16 +1,35 @@
-import React from "react"
+import React, { useState } from "react"
 import { object, string } from "prop-types"
 import styled from "styled-components"
 
-import { Link, Avatar } from "../../design-system"
+import { Link } from "../../design-system"
+import Avatar from "../Avatar/Avatar"
 import { slugify } from "../../utils"
 
 const UserCard = ({
   user: { author_name: name, avatar },
   size = "large",
   color,
+  index,
 }) => {
   const imgData = avatar[0]?.localFile?.childImageSharp?.fluid
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false)
+
+  if (size === "micro") {
+    return (
+      <MicroCard
+        to={`/${slugify(name)}/posts`}
+        color={color}
+        onMouseOver={() => setIsTooltipVisible(true)}
+        onMouseOut={() => setIsTooltipVisible(false)}
+      >
+        <MicroAvatar image={imgData} size="small" index={index} />
+        <Tooltip isVisible={isTooltipVisible}>{name}</Tooltip>
+      </MicroCard>
+    )
+  }
+
+  console.log(isTooltipVisible)
 
   return (
     <Card size={size} to={`/${slugify(name)}/posts`} color={color}>
@@ -61,3 +80,23 @@ const Card = styled(Link)`
 `
 
 const Name = styled.h2``
+
+const MicroCard = styled(Link)``
+
+const MicroAvatar = styled(Avatar)`
+  width: 3rem;
+  height: 3rem;
+  margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -20px")};
+`
+
+const Tooltip = styled.span`
+  display: ${({ isVisible }) => (isVisible ? "inline" : "none")};
+  position: absolute;
+  margin-top: -22px;
+  background-color: black;
+  color: white;
+  font-family: "Roboto-Mono", monospace;
+  font-weight: 100;
+  font-size: 1.2rem;
+  z-index: 2;
+`

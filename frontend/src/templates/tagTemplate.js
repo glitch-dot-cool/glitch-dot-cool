@@ -21,9 +21,11 @@ const TagTemplate = ({
           <Button to="/posts">view all posts</Button>
         </div>
       </Container>
-      {posts.map(post => (
-        <PostRowCard key={post.id} post={post} />
-      ))}
+      <PostsContainer>
+        {posts.map(post => (
+          <PostRowCard key={post.id} post={post} />
+        ))}
+      </PostsContainer>
     </Layout>
   )
 }
@@ -52,6 +54,14 @@ const Container = styled.div`
     div {
       margin-top: 1.5rem;
     }
+  }
+`
+
+const PostsContainer = styled.div`
+  margin-top: 2rem;
+
+  > div {
+    margin-bottom: 2rem;
   }
 `
 
