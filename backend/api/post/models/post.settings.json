@@ -42,8 +42,8 @@
       "default": false
     },
     "authors": {
-      "collection": "author",
       "via": "posts",
+      "collection": "author",
       "dominant": true
     },
     "tags": {

@@ -33,13 +33,13 @@
       "required": true
     },
     "posts": {
-      "via": "authors",
-      "collection": "post"
+      "collection": "post",
+      "via": "authors"
     },
     "user": {
-      "unique": true,
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "authors"
     },
     "link": {
       "type": "component",
