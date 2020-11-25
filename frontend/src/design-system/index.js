@@ -1,6 +1,5 @@
 export { default as Link } from "./Link/Link"
 export { default as ExternalLink } from "./ExternalLink/ExternalLink"
-export { flicker, shifter, chromaticAbberation } from "./Animations/animations"
 export * from "./theme"
 export { default as UserCard } from "./UserCard/UserCard"
 export { default as Title } from "./Title/Title"
@@ -11,3 +10,10 @@ export { default as Button } from "./Button/Button"
 export { default as PostRowCard } from "./PostRowCard/PostRowCard"
 export { default as PostCard } from "./PostCard/PostCard"
 export { default as Pill } from "./Pill/Pill"
+export {
+  flicker,
+  shifter,
+  chromaticAbberation,
+  noise1,
+  noise2,
+} from "./Animations/animations"

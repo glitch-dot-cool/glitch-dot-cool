@@ -73,4 +73,63 @@ const shifter = keyframes`
     99% { transform: translateX( 7px); }
     100% { transform: translateX( -13px); }
 `
-export { shifter, flicker, chromaticAbberation, chromaticAbberationAnimation }
+
+const noise1 = keyframes`
+    0% {
+    clip-path: inset(40% 0 61% 0);
+    font-family: "Roboto Mono", monospace;
+  }
+  20% {
+    clip-path: inset(0% 0 1% 0);
+    color: white;
+  }
+  40% {
+    clip-path: inset(92% 0 60% 0);
+
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    color: white;
+    font-family: "Roboto Mono", monospace;
+  }
+  80% {
+    clip-path: inset(1% 0 90% 0);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    color: white;
+  }
+`
+
+const noise2 = keyframes`
+    0% {
+    clip-path: inset(20% 0 1% 0);
+  }
+  20% {
+    clip-path: inset(90% 0 50% 0);
+    font-family: "Roboto Mono", monospace;
+  }
+  40% {
+    clip-path: inset(3% 0 23% 0);
+  }
+  60% {
+    clip-path: inset(82% 0 99% 0);
+    font-family: "Roboto Mono", monospace;
+  }
+  80% {
+    clip-path: inset(40% 0 7% 0);
+  }
+  100% {
+    clip-path: inset(76% 0 84% 0);
+    font-family: "Roboto Mono", monospace;
+  }
+`
+
+export {
+  shifter,
+  flicker,
+  chromaticAbberation,
+  chromaticAbberationAnimation,
+  noise1,
+  noise2,
+}
