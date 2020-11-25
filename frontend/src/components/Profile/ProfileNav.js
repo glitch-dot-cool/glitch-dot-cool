@@ -11,14 +11,14 @@ const ProfileNav = ({ name, gallery }) => {
       <Link to={`/${slugify(name)}/posts`} activeStyle={theme.activeNavStyles}>
         <h1>posts</h1>
       </Link>
-      {gallery.length && (
+      {gallery.length ? (
         <Link
           to={`/${slugify(name)}/gallery`}
           activeStyle={theme.activeNavStyles}
         >
           <h1>gallery</h1>
         </Link>
-      )}
+      ) : null}
     </SubNav>
   )
 }

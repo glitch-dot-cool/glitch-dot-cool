@@ -21,9 +21,11 @@ const TagTemplate = ({
           <Button to="/posts">view all posts</Button>
         </div>
       </Container>
-      {posts.map(post => (
-        <PostRowCard key={post.id} post={post} />
-      ))}
+      <PostsContainer>
+        {posts.map(post => (
+          <PostRowCard key={post.id} post={post} />
+        ))}
+      </PostsContainer>
     </Layout>
   )
 }
@@ -55,6 +57,14 @@ const Container = styled.div`
   }
 `
 
+const PostsContainer = styled.div`
+  margin-top: 2rem;
+
+  > div {
+    margin-bottom: 2rem;
+  }
+`
+
 export const query = graphql`
   query($id: Int!) {
     allStrapiPost(filter: { tags: { elemMatch: { id: { eq: $id } } } }) {
@@ -67,18 +77,14 @@ export const query = graphql`
           author_name
           id
           avatar {
-            formats {
-              thumbnail {
-                image {
-                  childImageSharp {
-                    fluid {
-                      src
-                      srcSet
-                      base64
-                      aspectRatio
-                      sizes
-                    }
-                  }
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                  srcSet
+                  base64
+                  aspectRatio
+                  sizes
                 }
               }
             }

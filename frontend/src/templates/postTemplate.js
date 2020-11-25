@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
 import PostHeader from "../components/Posts/PostHeader/PostHeader"
 import Layout from "../components/Layout/layout"
@@ -10,7 +11,7 @@ import { lightTheme as theme } from "../design-system/theme"
 
 const { baseMonoMixin } = theme.text
 
-const postLayout = ({ pageContext: post }) => {
+const postLayout = ({ data: { strapiPost: post } }) => {
   return (
     <Layout>
       <PostHeader
@@ -24,7 +25,7 @@ const postLayout = ({ pageContext: post }) => {
       <Links>
         <LinkHeader>links:</LinkHeader>
         <LinkGroup>
-          {post.links.map(link => (
+          {post.links?.map(link => (
             <Button key={link.id} href={link.url}>
               {link.title}
             </Button>
@@ -33,7 +34,7 @@ const postLayout = ({ pageContext: post }) => {
 
         <LinkHeader>tags:</LinkHeader>
         <LinkGroup>
-          {post.tags.map(({ tag, id }) => (
+          {post.tags?.map(({ tag, id }) => (
             <Tag key={id}>{tag}</Tag>
           ))}
         </LinkGroup>
@@ -64,4 +65,46 @@ const LinkGroup = styled.div`
 const LinkHeader = styled.p`
   ${baseMonoMixin}
   font-size: 1.6rem;
+`
+
+export const query = graphql`
+  query($id: String!) {
+    strapiPost(id: { eq: $id }) {
+      title
+      slug
+      published_date(formatString: "MMMM DD, YYYY")
+      body
+      thumbnail {
+        localFile {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+      authors {
+        author_name
+        id
+        avatar {
+          localFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+      tags {
+        id
+        tag
+      }
+      links {
+        id
+        title
+        url
+      }
+    }
+  }
 `

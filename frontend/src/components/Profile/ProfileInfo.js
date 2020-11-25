@@ -4,14 +4,17 @@ import styled from "styled-components"
 
 import ProfileLinks from "./ProfileLinks"
 import ProfileContact from "./ProfileContact"
-import { Flex, Avatar } from "../../design-system"
+import { Flex, Avatar, Link } from "../../design-system"
+import { slugify } from "../../utils"
 
 const ProfileInfo = ({ name, avatar, email, location, links }) => {
   return (
     <ProfileCard>
       <Flex direction="column" align="center">
         <AvatarNameGroup direction="column" align="center">
-          <ProfileAvatar image={avatar} />
+          <Link to={`/${slugify(name)}/posts`}>
+            <ProfileAvatar image={avatar} />
+          </Link>
           <h1>{name}</h1>
         </AvatarNameGroup>
         <ProfileContact location={location} email={email} />

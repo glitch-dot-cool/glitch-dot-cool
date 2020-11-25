@@ -14,7 +14,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -30,9 +30,9 @@ module.exports = {
         queryLimit: 1000,
       },
     },
-    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

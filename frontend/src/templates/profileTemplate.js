@@ -1,12 +1,16 @@
 import React from "react"
 import { object, string } from "prop-types"
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/layout"
 import ProfileInfo from "../components/Profile/ProfileInfo"
 import ProfilePosts from "../components/Profile/ProfilePosts"
 
-const profileTemplate = ({ pageContext: profile, location: { pathname } }) => {
+const profileTemplate = ({
+  data: { strapiAuthor: profile },
+  location: { pathname },
+}) => {
   const {
     email,
     location,
@@ -16,7 +20,8 @@ const profileTemplate = ({ pageContext: profile, location: { pathname } }) => {
     posts,
     gallery,
   } = profile
-  const avatar = avatarData[0]?.formats?.medium?.image?.childImageSharp?.fluid
+  console.log(gallery)
+  const avatar = avatarData[0]?.localFile?.childImageSharp?.fluid
   return (
     <Layout>
       <ProfileWrapper>
@@ -53,5 +58,51 @@ const ProfileWrapper = styled.div`
   @media only screen and (max-width: 960px) {
     flex-direction: column;
     margin-top: 2rem;
+  }
+`
+
+export const query = graphql`
+  query($id: String!) {
+    strapiAuthor(id: { eq: $id }) {
+      author_name
+      avatar {
+        localFile {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+      posts {
+        id
+        slug
+        title
+        type
+      }
+      published_at(formatString: "MMMM DD, YYYY")
+      email
+      location
+      link {
+        id
+        title
+        url
+      }
+      gallery {
+        description
+        id
+        link
+        title
+        item {
+          localFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
