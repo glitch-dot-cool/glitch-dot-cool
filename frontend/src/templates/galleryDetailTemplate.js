@@ -2,6 +2,7 @@ import React from "react"
 import { object, objectOf, shape } from "prop-types"
 import styled from "styled-components"
 import Image from "gatsby-image"
+import { graphql } from "gatsby"
 
 import Layout from "../components/Layout/layout"
 import ProfileInfo from "../components/Profile/ProfileInfo"
