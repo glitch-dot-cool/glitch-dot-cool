@@ -27,7 +27,9 @@ const UserCard = ({
         onMouseOut={() => setIsTooltipVisible(false)}
       >
         <MicroAvatar image={imgData} size="small" index={index} />
-        <Tooltip isVisible={isTooltipVisible}>{name}</Tooltip>
+        <Tooltip isVisible={isTooltipVisible} index={index}>
+          {name}
+        </Tooltip>
       </MicroCard>
     )
   }
@@ -95,16 +97,25 @@ const MicroAvatar = styled(Avatar)`
   width: 3rem;
   height: 3rem;
   margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -20px")};
+  box-shadow: 0px 0px 0px 1.25px #fff;
+  will-change: transform, opacity;
+  transition: 0.1s ease-out transform, opacity;
+
+  :hover {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
 `
 
 const Tooltip = styled.span`
   display: ${({ isVisible }) => (isVisible ? "inline" : "none")};
   position: absolute;
   margin-top: -22px;
+  margin-left: ${({ index }) => (index === 0 ? "0" : "-20px")};
   background-color: black;
   color: white;
   font-family: "Roboto-Mono", monospace;
   font-weight: 100;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   z-index: 2;
 `
