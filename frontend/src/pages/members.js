@@ -54,7 +54,7 @@ const Members = () => {
       .map((member, index) => {
         // 0
         const color =
-          colorMap[Math.floor(mapRange(index, 0, members.length, 2, 0))]
+          colorMap[Math.round(mapRange(index, 0, members.length, 2, 0))]
         return {
           ...member,
           color,
