@@ -27,6 +27,11 @@ const lightTheme = {
     ),
     linear-gradient(336deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 70.71%);`,
     box_shadow: `rgba(0, 0, 0, 0.25)`,
+    recencyIndicator: {
+      red: "#FF5F56",
+      yellow: "#FFBD2E",
+      green: "#27C93F",
+    },
   },
   measurements: {
     footerHeight: 7,

@@ -10,6 +10,7 @@ export { default as Button } from "./Button/Button"
 export { default as PostRowCard } from "./PostRowCard/PostRowCard"
 export { default as PostCard } from "./PostCard/PostCard"
 export { default as Pill } from "./Pill/Pill"
+export { default as RecencyIndicator } from "./RecencyIndicator/RecencyIndicator"
 export {
   flicker,
   shifter,
