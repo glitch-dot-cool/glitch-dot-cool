@@ -1,12 +1,41 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 import { slugify } from "../../utils"
 import { Flex } from "../../design-system"
 
 const GalleryDetails = ({ galleryItem, author, prev, next }) => {
   const { title, description } = galleryItem
+
+  const goToPreviousItem = () => {
+    navigate(`/${slugify(author)}/gallery/${slugify(prev.title)}`)
+  }
+
+  const goToNextItem = () => {
+    navigate(`/${slugify(author)}/gallery/${slugify(next.title)}`)
+  }
+
+  const keyboardNavigation = e => {
+    console.log(e.key)
+    switch (e.key) {
+      case "ArrowLeft":
+        goToPreviousItem()
+        break
+      case "ArrowRight":
+        goToNextItem()
+      default:
+        break
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyboardNavigation)
+
+    return () => {
+      document.removeEventListener("keydown", keyboardNavigation)
+    }
+  }, [])
 
   return (
     <DetailsContainer>
