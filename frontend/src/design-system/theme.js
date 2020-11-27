@@ -14,7 +14,7 @@ const lightTheme = {
     footer_text_hover: "#c4c4c4",
     social_icon_hover: "#e6e6e6",
     card_overlay: "rgba(255, 255, 255, 0.5)",
-    project_card_overlay: "rgba(0, 0, 0, 0.25)",
+    project_card_overlay: "rgba(0, 0, 0, 0.5)",
     card_gradient: `linear-gradient(
       217deg,
       rgba(200, 200, 200, 0.8),
@@ -79,7 +79,7 @@ const darkTheme = {
       rgba(75, 75, 75, 0) 70.71%
     ),
     linear-gradient(336deg, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0) 70.71%);`,
-    box_shadow: `rgba(255, 255, 255, 0.5)`,
+    box_shadow: `rgba(255, 255, 255, 0.25)`,
   },
 }
 
