@@ -1,6 +1,11 @@
 const path = require("path")
 
-const { blogPostsQuery, profilesQuery, tagsQuery } = require("./src/queries")
+const {
+  blogPostsQuery,
+  profilesQuery,
+  tagsQuery,
+  projectsQuery,
+} = require("./src/queries")
 const { slugify } = require("./gatsby-node-utils")
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -9,6 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const postTemplate = path.resolve("src/templates/postTemplate.js")
   const posts = await graphql(blogPostsQuery)
 
+  // create post pages
   posts.data.allStrapiPost.nodes.forEach(post => {
     post.authors.forEach(author => {
       createPage({
@@ -16,6 +22,17 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `${slugify(author.author_name)}/${slugify(post.title)}`,
         context: { id: post.id },
       })
+    })
+  })
+
+  const projects = await graphql(projectsQuery)
+
+  // create project pages
+  projects.data.allStrapiPost.nodes.forEach(project => {
+    createPage({
+      component: postTemplate,
+      path: `projects/${slugify(project.title)}`,
+      context: { id: project.id },
     })
   })
 
