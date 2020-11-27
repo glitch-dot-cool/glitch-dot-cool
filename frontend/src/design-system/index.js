@@ -18,3 +18,4 @@ export {
   noise1,
   noise2,
 } from "./Animations/animations"
+export { default as Form, FormInput, FormTextArea } from "./Form/Form"
