@@ -22,7 +22,7 @@ const Nav = () => {
         <Link activeStyle={theme.activeNavStyles} to="/members">
           members
         </Link>
-        <Link activeStyle={theme.activeNavStyles} to="/index">
+        <Link activeStyle={theme.activeNavStyles} to="/contact">
           contact
         </Link>
       </Links>
