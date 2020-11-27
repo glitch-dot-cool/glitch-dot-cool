@@ -61,6 +61,7 @@ export default PostCard
 
 const Card = styled(BackgroundImage)`
   padding: ${({ padding }) => padding || "6rem"};
+  height: 100%;
 `
 
 const CardLink = styled(Link)`
