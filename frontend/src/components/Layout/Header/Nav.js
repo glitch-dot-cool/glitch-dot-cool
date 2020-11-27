@@ -46,6 +46,11 @@ const Links = styled.div`
   a:not(:last-child) {
     margin-right: 2rem;
   }
+
+  a:hover {
+    background-color: ${({ theme }) => theme.colors.scale_0};
+    color: ${({ theme }) => theme.colors.scale_6};
+  }
 `
 
 const Spacer = styled.div`

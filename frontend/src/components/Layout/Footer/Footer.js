@@ -50,6 +50,11 @@ const StyledFooter = styled.footer`
 
   a {
     font-size: calc(12px + 1vw);
+
+    :hover {
+      background-color: ${({ theme }) => theme.colors.scale_6};
+      color: ${({ theme }) => theme.colors.scale_1};
+    }
   }
 
   @media only screen and (min-width: 1200px) {
