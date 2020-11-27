@@ -29,8 +29,6 @@ const UserCard = ({
     )
   }
 
-  console.log(isTooltipVisible)
-
   return (
     <Card size={size} to={`/${slugify(name)}/posts`} color={color}>
       <Avatar image={imgData} size={size} />

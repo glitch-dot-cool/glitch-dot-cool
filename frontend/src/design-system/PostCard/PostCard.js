@@ -1,11 +1,11 @@
 import React, { useContext } from "react"
-import { arrayOf, number, object, shape, string } from "prop-types"
+import { arrayOf, number, object, oneOf, shape, string } from "prop-types"
 import styled, { ThemeContext } from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { Flex, Link, UserCard } from ".."
 import { slugify } from "../../utils"
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, type = "blog", padding }) => {
   const {
     thumbnail: {
       localFile: {
@@ -14,12 +14,16 @@ const PostCard = ({ post }) => {
     },
   } = post
   const theme = useContext(ThemeContext)
+
+  const url =
+    type === "project"
+      ? `/projects/${slugify(post.title)}`
+      : `/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`
+
   return (
-    <CardLink
-      to={`/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`}
-    >
-      <Card fluid={thumbnail}>
-        <TextContainer>
+    <CardLink to={url}>
+      <Card fluid={thumbnail} padding={padding} type={type}>
+        <TextContainer type={type}>
           <Title>{post.title}</Title>
           <Byline align="center">
             <p>by</p>
@@ -49,9 +53,15 @@ PostCard.propTypes = {
     strapiId: number,
     thumbnail: object,
   }),
+  type: oneOf(["blog, project"]).isRequired,
+  padding: string,
 }
 
 export default PostCard
+
+const Card = styled(BackgroundImage)`
+  padding: ${({ padding }) => padding || "6rem"};
+`
 
 const CardLink = styled(Link)`
   will-change: transform, opacity, box-shadow;
@@ -75,19 +85,27 @@ const CardLink = styled(Link)`
   }
 `
 
-const Card = styled(BackgroundImage)`
-  padding: 4rem;
-`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
   width: 100%;
-  background-color: ${props => props.theme.colors.card_overlay};
+  background-color: ${({ theme, type }) =>
+    type === "project"
+      ? theme.colors.project_card_overlay
+      : theme.colors.card_overlay};
+
+  h2,
+  p {
+    background-color: ${({ type, theme }) =>
+      type === "project" ? theme.colors.scale_6 : null};
+  }
 `
 
-const Title = styled.h2``
+const Title = styled.h2`
+  align-self: flex-start;
+`
 
 const Byline = styled(Flex)`
   margin-top: 1rem;
