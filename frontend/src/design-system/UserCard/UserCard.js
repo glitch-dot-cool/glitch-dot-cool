@@ -2,15 +2,18 @@ import React, { useState } from "react"
 import { object, string } from "prop-types"
 import styled from "styled-components"
 
-import { Link } from "../../design-system"
+import { Link, RecencyIndicator } from "../../design-system"
 import Avatar from "../Avatar/Avatar"
 import { slugify } from "../../utils"
+import Flex from "../Flex/Flex"
 
 const UserCard = ({
   user: { author_name: name, avatar },
   size = "large",
   color,
   index,
+  recency,
+  lastPosted,
 }) => {
   const imgData = avatar[0]?.localFile?.childImageSharp?.fluid
   const [isTooltipVisible, setIsTooltipVisible] = useState(false)
@@ -31,8 +34,15 @@ const UserCard = ({
 
   return (
     <Card size={size} to={`/${slugify(name)}/posts`} color={color}>
-      <Avatar image={imgData} size={size} />
-      <Name>{name}</Name>
+      <Flex align="center" justify="space-between" style={{ width: "100%" }}>
+        <Flex>
+          <Avatar image={imgData} size={size} />
+          <Name>{name}</Name>
+        </Flex>
+        {recency && (
+          <RecencyIndicator recency={recency} lastPosted={lastPosted} />
+        )}
+      </Flex>
     </Card>
   )
 }

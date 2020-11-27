@@ -12,6 +12,9 @@ const Members = () => {
         nodes {
           id
           author_name
+          posts {
+            published_date
+          }
           avatar {
             localFile {
               childImageSharp {
@@ -26,13 +29,53 @@ const Members = () => {
     }
   `)
 
-  const members = data.allStrapiAuthor.nodes
+  const mapRange = (value, start1, stop1, start2, stop2) => {
+    return ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2
+  }
+
+  const colorMap = {
+    0: "red",
+    1: "yellow",
+    2: "green",
+  }
+
+  const sortByRecency = members => {
+    return members
+      .map(member => {
+        return {
+          // get most recent post from given author
+          timestamp: new Date(
+            Math.max(...member.posts.map(p => new Date(p.published_date)))
+          ),
+          ...member,
+        }
+      })
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .map((member, index) => {
+        // 0
+        const color =
+          colorMap[Math.floor(mapRange(index, 0, members.length, 2, 0))]
+        return {
+          ...member,
+          color,
+        }
+      })
+  }
+
+  const members = sortByRecency(data.allStrapiAuthor.nodes)
+  console.log(members)
+
   return (
     <Layout>
       <Title>members</Title>
       <CardContainer>
         {members.map(member => (
-          <UserCard key={member.id} user={member}>
+          <UserCard
+            key={member.id}
+            user={member}
+            recency={member.color}
+            lastPosted={member.timestamp}
+          >
             {member.author_name}
           </UserCard>
         ))}
