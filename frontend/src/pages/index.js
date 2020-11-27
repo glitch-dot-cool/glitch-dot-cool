@@ -62,6 +62,7 @@ export const query = graphql`
       nodes {
         title
         slug
+        type
         strapiId
         published_date(formatString: "MMMM DD, YYYY")
         authors {

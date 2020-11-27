@@ -16,7 +16,7 @@ const PostCard = ({ post, type = "blog", padding }) => {
   const theme = useContext(ThemeContext)
 
   const url =
-    type === "project"
+    type === "project" || post.type === "project"
       ? `/projects/${slugify(post.title)}`
       : `/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`
 
