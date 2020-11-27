@@ -33,8 +33,8 @@ const Icon = styled.div`
 
 const ToolTip = styled.span`
   position: absolute;
-  left: -285px;
-  min-width: 275px;
+  left: -280px;
+  min-width: 270px;
   z-index: 1000;
   display: ${({ isVisible }) => (isVisible ? "inline" : "none")};
   font-size: 10px;
