@@ -74,7 +74,11 @@ export const query = graphql`
         thumbnail {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 1200, quality: 50) {
+              fluid(
+                maxWidth: 1200
+                quality: 50
+                traceSVG: { color: "#000000", turdSize: 0, optCurve: false }
+              ) {
                 ...GatsbyImageSharpFluid_tracedSVG
               }
             }
