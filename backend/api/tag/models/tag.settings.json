@@ -19,8 +19,8 @@
       "minLength": 2
     },
     "posts": {
-      "collection": "post",
-      "via": "tags"
+      "via": "tags",
+      "collection": "post"
     }
   }
 }

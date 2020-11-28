@@ -42,13 +42,13 @@
       "default": false
     },
     "authors": {
-      "via": "posts",
       "collection": "author",
+      "via": "posts",
       "dominant": true
     },
     "tags": {
-      "via": "posts",
       "collection": "tag",
+      "via": "posts",
       "dominant": true
     },
     "links": {
@@ -61,7 +61,8 @@
       "enum": [
         "blog",
         "project",
-        "editorial"
+        "release",
+        "community"
       ],
       "default": "blog",
       "required": true
