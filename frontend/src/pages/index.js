@@ -57,7 +57,10 @@ const PostsContainer = styled.div`
 
 export const query = graphql`
   query {
-    allStrapiPost(filter: { skip_frontpage: { eq: false } }) {
+    allStrapiPost(
+      filter: { skip_frontpage: { eq: false } }
+      sort: { fields: published_date, order: DESC }
+    ) {
       nodes {
         title
         slug
