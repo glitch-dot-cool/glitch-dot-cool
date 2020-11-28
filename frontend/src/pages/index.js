@@ -29,7 +29,7 @@ const PostsContainer = styled.div`
   margin-top: 6rem;
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
 
   :last-child {
     margin-bottom: 2rem;
@@ -38,7 +38,7 @@ const PostsContainer = styled.div`
   @media only screen and (max-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {
     margin-top: 2rem;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
   }
 
   @media only screen and (max-width: 400px) {

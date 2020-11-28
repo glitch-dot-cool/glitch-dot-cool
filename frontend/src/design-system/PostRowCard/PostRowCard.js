@@ -87,7 +87,7 @@ const Subcontainer = styled.div`
   > h2,
   p:first-of-type,
   a {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
 
   @media (max-width: 900px) {

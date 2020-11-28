@@ -63,6 +63,11 @@ const Card = styled(BackgroundImage)`
   padding: ${({ padding }) => padding || "6rem"};
   height: 100%;
   display: flex;
+
+  @media only screen and (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    padding: 2rem;
+  }
 `
 
 const CardLink = styled(Link)`
@@ -103,6 +108,11 @@ const TextContainer = styled.div`
     background-color: ${({ type, theme }) =>
       type === "project" ? theme.colors.scale_6 : null};
   }
+
+  @media only screen and (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    padding: 1.5rem;
+  }
 `
 
 const Title = styled.h2`
@@ -118,7 +128,7 @@ const Byline = styled(Flex)`
 
   p,
   a {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
 `
 const Authors = styled.div`
