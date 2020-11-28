@@ -79,7 +79,7 @@ const darkTheme = {
       rgba(75, 75, 75, 0) 70.71%
     ),
     linear-gradient(336deg, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0) 70.71%);`,
-    box_shadow: `rgba(255, 255, 255, 0.25)`,
+    box_shadow: `rgba(255, 255, 255, 0.15)`,
   },
 }
 

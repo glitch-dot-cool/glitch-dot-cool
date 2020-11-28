@@ -5,7 +5,7 @@ import BackgroundImage from "gatsby-background-image"
 import { Flex, Link, UserCard } from ".."
 import { slugify } from "../../utils"
 
-const PostCard = ({ post, type = "blog", padding }) => {
+const PostCard = ({ post, type = "blog", padding, zoom = true }) => {
   const {
     thumbnail: {
       localFile: {
@@ -21,7 +21,7 @@ const PostCard = ({ post, type = "blog", padding }) => {
       : `/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`
 
   return (
-    <CardLink to={url}>
+    <CardLink to={url} zoom={zoom}>
       <Card fluid={thumbnail} padding={padding} type={type}>
         <TextContainer type={type}>
           <Title>{post.title}</Title>
@@ -76,6 +76,7 @@ const CardLink = styled(Link)`
   box-shadow: 0px 0px 0px ${props => props.theme.colors.box_shadow};
   transition: 0.1s ease transform, 0.1s ease transform opacity,
     0.1s ease transform box-shadow;
+  overflow: hidden;
 
   :hover {
     opacity: 0.9;
@@ -83,6 +84,10 @@ const CardLink = styled(Link)`
     box-shadow: 9px 9px 0px ${props => props.theme.colors.box_shadow},
       6px 6px 0px ${props => props.theme.colors.box_shadow},
       3px 3px 0px ${props => props.theme.colors.box_shadow};
+
+    > div > div {
+      transform: ${({ zoom }) => (zoom === true ? "scale(1.05)" : null)};
+    }
   }
 
   :active {
@@ -98,6 +103,8 @@ const TextContainer = styled.div`
   justify-content: center;
   padding: 2rem;
   width: 100%;
+  transition: 0.25s ease-out transform;
+  will-change: transform;
   background-color: ${({ theme, type }) =>
     type === "project"
       ? theme.colors.project_card_overlay

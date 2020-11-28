@@ -22,6 +22,7 @@ const projects = ({
             type="project"
             padding="0"
             key={post.strapiId}
+            zoom={false}
           />
         ))}
       </PostsContainer>
