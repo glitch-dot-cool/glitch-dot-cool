@@ -52,7 +52,6 @@ const Members = () => {
       })
       .sort((a, b) => b.timestamp - a.timestamp)
       .map((member, index) => {
-        // 0
         const color =
           colorMap[Math.round(mapRange(index, 0, members.length, 2, 0))]
         return {
@@ -63,7 +62,6 @@ const Members = () => {
   }
 
   const members = sortByRecency(data.allStrapiAuthor.nodes)
-  console.log(members)
 
   return (
     <Layout>
