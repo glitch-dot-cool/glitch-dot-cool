@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 
-import Layout from "../components/Layout/layout"
+import { Head, Layout } from "../components/Layout"
 import { UserCard, Title } from "../design-system"
 
 const Members = () => {
@@ -67,6 +67,7 @@ const Members = () => {
 
   return (
     <Layout>
+      <Head title="members" />
       <Title>members</Title>
       <CardContainer>
         {members.map(member => (

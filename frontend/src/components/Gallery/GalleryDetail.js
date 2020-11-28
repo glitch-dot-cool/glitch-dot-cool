@@ -17,7 +17,6 @@ const GalleryDetails = ({ galleryItem, author, prev, next }) => {
   }
 
   const keyboardNavigation = e => {
-    console.log(e.key)
     switch (e.key) {
       case "ArrowLeft":
         goToPreviousItem()

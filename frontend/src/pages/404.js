@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { useDeviceHeight } from "../hooks/index"
-import Layout from "../components/Layout/layout"
+import { Layout, Head } from "../components/Layout"
 import { Flex, noise1, noise2, flicker } from "../design-system"
 
 const goBack = e => {
@@ -16,6 +16,7 @@ const NotFound = () => {
   const deviceHeight = useDeviceHeight() / 2 - 200
   return (
     <Layout>
+      <Head title="404" />
       <Container
         direction="column"
         justify="center"

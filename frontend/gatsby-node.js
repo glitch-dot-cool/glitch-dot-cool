@@ -69,6 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           id: profile.id,
           item: item.item.localFile,
+          title: item.title,
           prev:
             profile.gallery[index - 1] ||
             profile.gallery[profile.gallery.length - 1],

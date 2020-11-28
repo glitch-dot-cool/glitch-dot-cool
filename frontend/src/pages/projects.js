@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout/layout"
+import { Layout, Head } from "../components/Layout"
 import { PostCard, Title } from "../design-system"
 
 const projects = ({
@@ -13,6 +13,7 @@ const projects = ({
 }) => {
   return (
     <Layout>
+      <Head title="projects" />
       <Title>projects</Title>
       <PostsContainer>
         {posts.map(post => (

@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 
-import Layout from "../components/Layout/layout"
+import { Head, Layout } from "../components/Layout"
 import { Flex, Form, FormInput, FormTextArea } from "../design-system"
 
 const NotFound = () => {
   return (
     <Layout>
+      <Head title="contact" />
       <Container direction="column" justify="center" align="center">
         <Form
           title="contact"

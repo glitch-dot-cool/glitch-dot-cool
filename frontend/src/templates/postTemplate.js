@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import PostHeader from "../components/Posts/PostHeader/PostHeader"
-import Layout from "../components/Layout/layout"
+import { Head, Layout } from "../components/Layout"
 import MarkdownHTML from "../components/Transforms/MarkdownHTML"
 import { Tag, Button } from "../design-system"
 import { lightTheme as theme } from "../design-system/theme"
@@ -14,6 +14,7 @@ const { baseMonoMixin } = theme.text
 const postLayout = ({ data: { strapiPost: post } }) => {
   return (
     <Layout>
+      <Head title={post.title} />
       <PostHeader
         authors={post.authors}
         title={post.title}

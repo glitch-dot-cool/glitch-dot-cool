@@ -2,8 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout/layout"
-import SEO from "../components/Layout/seo"
+import { Layout, Head } from "../components/Layout"
 import { PostCard } from "../design-system"
 
 const IndexPage = ({
@@ -13,7 +12,7 @@ const IndexPage = ({
 }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <Head title="home" />
 
       <PostsContainer>
         {posts.map(post => (

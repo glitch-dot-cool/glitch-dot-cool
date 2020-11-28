@@ -4,13 +4,13 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout/layout"
+import { Head, Layout } from "../components/Layout"
 import ProfileInfo from "../components/Profile/ProfileInfo"
 import GalleryDetails from "../components/Gallery/GalleryDetail"
 import { Flex } from "../design-system"
 
 const galleryDetailTemplate = ({
-  pageContext: { item, next, prev },
+  pageContext: { item, title, next, prev },
   data: { strapiAuthor: profile },
 }) => {
   const {
@@ -23,8 +23,10 @@ const galleryDetailTemplate = ({
 
   const avatar = avatarData[0]?.localFile?.childImageSharp?.fluid
   const image = item.childImageSharp.fluid
+  console.log(item)
   return (
     <Layout>
+      <Head title={`${author_name} - ${title}`} />
       <ProfileWrapper>
         <Flex direction="column">
           <ProfileInfo

@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 
-import Layout from "../components/Layout/layout"
+import { Layout, Head } from "../components/Layout"
 import { Flex, flicker } from "../design-system"
 
 const About = () => {
   return (
     <Layout>
+      <Head title="about" />
       <Flex justify="center">
         <Wrapper lang={`en`}>
           <p>

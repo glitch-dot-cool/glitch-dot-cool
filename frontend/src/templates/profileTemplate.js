@@ -3,7 +3,7 @@ import { object, string } from "prop-types"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout/layout"
+import { Head, Layout } from "../components/Layout"
 import ProfileInfo from "../components/Profile/ProfileInfo"
 import ProfilePosts from "../components/Profile/ProfilePosts"
 
@@ -20,10 +20,10 @@ const profileTemplate = ({
     posts,
     gallery,
   } = profile
-  console.log(gallery)
   const avatar = avatarData[0]?.localFile?.childImageSharp?.fluid
   return (
     <Layout>
+      <Head title={author_name} />
       <ProfileWrapper>
         <ProfileInfo
           avatar={avatar}

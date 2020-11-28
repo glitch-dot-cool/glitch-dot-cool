@@ -3,7 +3,7 @@ import { arrayOf, object } from "prop-types"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout/layout"
+import { Layout } from "../components/Layout"
 import Filter from "../components/Filter/Filter"
 import { Title, PostRowCard } from "../design-system"
 
