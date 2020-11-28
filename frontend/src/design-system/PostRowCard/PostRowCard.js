@@ -58,11 +58,7 @@ const Card = styled.div`
 
 const Title = styled.h2``
 
-const Container = styled(Flex)`
-  * {
-    margin-right: ${props => (props.size === "micro" ? "5px" : "1rem")};
-  }
-`
+const Container = styled(Flex)``
 
 const PublishedDate = styled.p`
   ${baseMonoMixin}
@@ -87,6 +83,12 @@ const Byline = styled(Flex)`
 const Subcontainer = styled.div`
   display: flex;
   flex-direction: row;
+
+  > h2,
+  p:first-of-type,
+  a {
+    margin-right: 1rem;
+  }
 
   @media (max-width: 900px) {
     flex-direction: column;
