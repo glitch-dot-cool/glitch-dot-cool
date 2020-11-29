@@ -106,6 +106,10 @@ const CardLink = styled(Link)`
     opacity: 1;
     transform: scale(0.98) translate(0px, 0px);
     box-shadow: 0px 0px 0px ${props => props.theme.colors.box_shadow};
+
+    > div > div {
+      transform: ${({ zoom }) => (zoom === true ? "scale(0)" : null)};
+    }
   }
 `
 
