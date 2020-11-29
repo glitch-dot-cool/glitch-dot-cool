@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import { useDeviceHeight } from "../hooks/index"
 import { Layout, Head } from "../components/Layout"
-import { Flex, noise1, noise2, flicker } from "../design-system"
+import { Flex, Button, noise1, noise2, flicker } from "../design-system"
 
 const goBack = e => {
   e.preventDefault()
@@ -26,12 +26,9 @@ const NotFound = () => {
         <Glitchy data-text="Sorry - this page doesn't -----.">
           Sorry - this page doesn't exist.
         </Glitchy>
-        <Message>but what does it mean to exist, anyway?</Message>
-        <p>
-          <Repeater data-text="you know?">you know?</Repeater>
-        </p>
+        <Repeater>but what does it mean to exist, anyway?</Repeater>
         <br />
-        <Back onClick={goBack}>Go Back</Back>
+        <Button onClick={goBack}>Go Back</Button>
       </Container>
     </Layout>
   )
@@ -40,6 +37,7 @@ const NotFound = () => {
 export default NotFound
 
 const Container = styled(Flex)`
+  height: ${({ deviceHeight }) => deviceHeight}px;
   margin-top: ${({ deviceHeight }) => deviceHeight}px;
   text-align: center;
 `
@@ -68,39 +66,17 @@ const Glitchy = styled.h1`
   :before {
     left: 3px;
     text-shadow: 3px 0 ${props => props.theme.colors.valid};
-    animation: ${noise1} 0.5s infinite linear alternate-reverse;
+    animation: ${noise1} 0.35s infinite linear alternate-reverse;
   }
 
   :after {
     left: -3px;
     text-shadow: -3px 0 ${props => props.theme.colors.invalid};
-    animation: ${noise2} 0.65s infinite linear alternate-reverse;
+    animation: ${noise2} 0.55s infinite linear alternate-reverse;
   }
 `
 
-const Message = styled.p`
-  animation: ${flicker} 1s;
-`
-
-const Repeater = styled.span`
-  animation: ${flicker} 10s infinite linear alternate-reverse;
-  max-width: 50px;
-
-  :before,
-  :after {
-    content: attr(data-text);
-    position: relative;
-    vertical-align: -50%;
-  }
-
-  :before {
-    top: -8px;
-    left: 94px;
-    opacity: 0.8;
-  }
-  :after {
-    top: -4px;
-    left: -94px;
-    opacity: 0.6;
-  }
+const Repeater = styled.p`
+  animation: ${flicker} 0.5s;
+  max-width: 100%;
 `

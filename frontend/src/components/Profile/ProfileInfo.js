@@ -79,8 +79,9 @@ const AvatarNameGroup = styled(Flex)`
     height: 70px;
 
     ${ProfileAvatar} {
-      transform: scale(0.5);
-      margin: 0;
+      width: 5rem;
+      height: 5rem;
+      margin: 0 2rem 0 0;
     }
 
     h1 {
