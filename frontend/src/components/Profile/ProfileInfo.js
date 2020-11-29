@@ -61,7 +61,7 @@ const ProfileCard = styled.div`
   }
 
   @media only screen and (max-width: 960px) {
-    margin: 0 0 4rem 0;
+    margin: 0 0 2rem 0;
     width: 100%;
     position: relative;
     top: 0;

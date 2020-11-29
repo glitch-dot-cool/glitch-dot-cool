@@ -75,6 +75,10 @@ const PostsContainer = styled.div`
     position: sticky;
     top: 40vh;
   }
+
+  @media only screen and (max-width: 450px) {
+    padding: 2rem;
+  }
 `
 
 const Post = styled.div`
@@ -87,5 +91,17 @@ const Post = styled.div`
 
   :hover {
     background-color: ${props => props.theme.colors.scale_4};
+  }
+
+  @media only screen and (max-width: 550px) {
+    h3 {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    h3 {
+      font-size: 1.5rem;
+    }
   }
 `

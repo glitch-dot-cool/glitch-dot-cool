@@ -43,6 +43,7 @@ export default ProfileNav
 
 const SubNav = styled.nav`
   display: flex;
+  flex-wrap: wrap;
 
   h1 {
     margin: 0 2rem 2rem 0;
@@ -50,11 +51,18 @@ const SubNav = styled.nav`
     background-color: ${props => props.theme.colors.scale_4};
   }
 
-  @media (max-width: 370px) {
-    flex-direction: column;
-
+  @media (max-width: 600px) {
+    justify-content: space-between;
     h1 {
       margin: 0 0 2rem 0;
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 430px) {
+    h1 {
+      margin: 0 0 2rem 0;
+      font-size: 2rem;
     }
   }
 `
