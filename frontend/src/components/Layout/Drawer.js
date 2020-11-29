@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import { Link, lightTheme as theme } from "../../design-system"
+import { Link, Flex, lightTheme as theme } from "../../design-system"
 import { LinkIcons } from "./Footer/FooterIcons"
 
 const DrawerTextStyles = {
@@ -26,53 +26,57 @@ const Drawer = ({ visible }) => {
     <StyledDrawer style={slideOut}>
       <Nav style={foldOut}>
         <Centered column>
-          <Link
-            style={DrawerTextStyles}
-            to="/"
-            activeStyle={theme.activeNavStyles}
-          >
-            home
-          </Link>
+          <Spacer />
 
-          <Link
-            style={DrawerTextStyles}
-            to="/about"
-            activeStyle={theme.activeNavStyles}
-          >
-            about
-          </Link>
+          <Flex direction="column" style={{ marginTop: "24px" }}>
+            <Link
+              style={DrawerTextStyles}
+              to="/"
+              activeStyle={theme.activeNavStyles}
+            >
+              home
+            </Link>
 
-          <Link
-            style={DrawerTextStyles}
-            to="/projects"
-            activeStyle={theme.activeNavStyles}
-          >
-            projects
-          </Link>
+            <Link
+              style={DrawerTextStyles}
+              to="/about"
+              activeStyle={theme.activeNavStyles}
+            >
+              about
+            </Link>
 
-          <Link
-            style={DrawerTextStyles}
-            to="/releases"
-            activeStyle={theme.activeNavStyles}
-          >
-            releases
-          </Link>
+            <Link
+              style={DrawerTextStyles}
+              to="/projects"
+              activeStyle={theme.activeNavStyles}
+            >
+              projects
+            </Link>
 
-          <Link
-            style={DrawerTextStyles}
-            to="/members"
-            activeStyle={theme.activeNavStyles}
-          >
-            members
-          </Link>
+            <Link
+              style={DrawerTextStyles}
+              to="/releases"
+              activeStyle={theme.activeNavStyles}
+            >
+              releases
+            </Link>
 
-          <Link
-            style={DrawerTextStyles}
-            to="/contact"
-            activeStyle={theme.activeNavStyles}
-          >
-            contact
-          </Link>
+            <Link
+              style={DrawerTextStyles}
+              to="/members"
+              activeStyle={theme.activeNavStyles}
+            >
+              members
+            </Link>
+
+            <Link
+              style={DrawerTextStyles}
+              to="/contact"
+              activeStyle={theme.activeNavStyles}
+            >
+              contact
+            </Link>
+          </Flex>
 
           <NavLinkIcons />
         </Centered>
@@ -99,7 +103,8 @@ const StyledDrawer = styled.nav`
   top: 0;
   right: 0;
   width: 67%;
-  max-width: 400px;
+  /* max-width: 400px; */
+  min-width: 280px;
   z-index: 3;
   transition: 0.2s ease-out transform;
 `
@@ -108,7 +113,7 @@ const Centered = styled.div`
   display: flex;
   height: 100%;
   flex-direction: ${props => (props.column ? `column` : `row`)};
-  justify-content: center;
+  justify-content: space-between;
   align-items: left;
   padding: 4rem;
 
@@ -124,13 +129,16 @@ const Nav = styled.div`
 `
 
 const NavLinkIcons = styled(LinkIcons)`
-  position: absolute;
-  bottom: 25px;
   display: flex;
   justify-content: space-between;
-  width: 78%;
+  width: 100%;
+  margin-bottom: 0;
 
   a {
     margin: 0;
   }
+`
+
+const Spacer = styled.div`
+  height: 1px;
 `

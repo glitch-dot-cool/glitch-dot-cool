@@ -25,6 +25,8 @@ const Container = styled.div`
   height: 3rem;
   margin-left: 1rem;
   cursor: pointer;
+  transition: 0.3s ease-out right;
+  will-change: right;
 
   @media (min-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {
@@ -38,6 +40,7 @@ const HamburgerIcon = styled.div`
   background: ${props =>
     props.visible ? "rgba(0, 0, 0, 0)" : props.theme.colors.scale_3};
   transition: 0.5s ease-out all;
+  will-change: background, transform;
   border-radius: 2px;
   margin-top: 1rem;
 
