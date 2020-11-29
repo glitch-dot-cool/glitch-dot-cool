@@ -39,9 +39,12 @@ const ProfileAvatar = styled(Avatar)`
   height: 10rem;
   border-radius: 50%;
   margin: 0 0 2rem 0;
+  transition: 0.2s ease-out opacity, 0.15s ease-out transform;
+  will-change: opacity, transform;
 
   :hover {
-    opacity: 0.8;
+    opacity: 0.9;
+    transform: scale(1.05);
     cursor: pointer;
   }
 `

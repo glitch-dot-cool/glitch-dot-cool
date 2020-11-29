@@ -33,4 +33,6 @@ const Icon = styled(FontAwesomeIcon)`
 
 const ContactField = styled.p`
   white-space: nowrap;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.4rem;
 `
