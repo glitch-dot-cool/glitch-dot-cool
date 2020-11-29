@@ -9,6 +9,7 @@ export { default as Tag } from "./Tag/Tag"
 export { default as Button } from "./Button/Button"
 export { default as PostRowCard } from "./PostRowCard/PostRowCard"
 export { default as PostCard } from "./PostCard/PostCard"
+export { default as ReleaseCard } from "./ReleaseCard/ReleaseCard"
 export { default as Pill } from "./Pill/Pill"
 export { default as RecencyIndicator } from "./RecencyIndicator/RecencyIndicator"
 export {

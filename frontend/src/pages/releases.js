@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import { Layout, Head } from "../components/Layout"
-import { PostCard, Title } from "../design-system"
+import { ReleaseCard, Title } from "../design-system"
 
 const releases = ({
   data: {
@@ -16,13 +16,31 @@ const releases = ({
       <Title>releases</Title>
       <PostsContainer>
         {releases.map(release => (
-          <PostCard
-            post={release}
-            type="release"
-            padding="0"
-            key={release.strapiId}
-            zoom={false}
-          />
+          <>
+            <ReleaseCard
+              post={release}
+              type="release"
+              padding="0"
+              key={release.strapiId}
+              zoom={false}
+            />
+
+            <ReleaseCard
+              post={release}
+              type="release"
+              padding="0"
+              key={release.strapiId}
+              zoom={false}
+            />
+
+            <ReleaseCard
+              post={release}
+              type="release"
+              padding="0"
+              key={release.strapiId}
+              zoom={false}
+            />
+          </>
         ))}
       </PostsContainer>
     </Layout>
@@ -34,6 +52,7 @@ export default releases
 const PostsContainer = styled.div`
   margin: 4rem 0 6rem 0;
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 `
 
