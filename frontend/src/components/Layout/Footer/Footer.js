@@ -10,16 +10,16 @@ const Footer = () => {
   return (
     <StyledFooter>
       <Nav>
-        <Link dark="true" to="/" activeStyle={theme.activeNavStyles}>
-          home
-        </Link>
-
         <Link dark="true" to="/about" activeStyle={theme.activeNavStyles}>
           about
         </Link>
 
         <Link dark="true" to="/projects" activeStyle={theme.activeNavStyles}>
           projects
+        </Link>
+
+        <Link dark="true" to="/releases" activeStyle={theme.activeNavStyles}>
+          releases
         </Link>
 
         <Link dark="true" to="/members" activeStyle={theme.activeNavStyles}>
@@ -82,7 +82,7 @@ const Nav = styled.nav`
     transition: 0.2s ease all;
   }
 
-  @media only screen and (max-width: 395px) {
+  @media only screen and (max-width: 450px) {
     // hide "contact"
     a:last-of-type {
       display: none;
@@ -94,9 +94,15 @@ const Nav = styled.nav`
     }
   }
 
-  @media (max-width: 300px) {
+  @media (max-width: 350px) {
     a:not(:nth-child(4)) {
       margin-right: 2rem;
+    }
+  }
+
+  @media (max-width: 300px) {
+    a:not(:nth-child(4)) {
+      margin-right: 1rem;
     }
   }
 `

@@ -10,14 +10,14 @@ const Nav = () => {
       <SiteTitle />
       <Spacer />
       <Links>
-        <Link activeStyle={theme.activeNavStyles} to="/">
-          home
-        </Link>
         <Link activeStyle={theme.activeNavStyles} to="/about">
           about
         </Link>
         <Link activeStyle={theme.activeNavStyles} to="/projects">
           projects
+        </Link>
+        <Link activeStyle={theme.activeNavStyles} to="/releases">
+          releases
         </Link>
         <Link activeStyle={theme.activeNavStyles} to="/members">
           members

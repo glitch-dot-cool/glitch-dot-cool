@@ -52,6 +52,14 @@ const Drawer = ({ visible }) => {
 
           <Link
             style={DrawerTextStyles}
+            to="/releases"
+            activeStyle={theme.activeNavStyles}
+          >
+            releases
+          </Link>
+
+          <Link
+            style={DrawerTextStyles}
             to="/members"
             activeStyle={theme.activeNavStyles}
           >
