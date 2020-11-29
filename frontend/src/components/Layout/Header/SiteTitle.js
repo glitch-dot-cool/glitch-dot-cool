@@ -70,7 +70,7 @@ const TextLogoShifted = styled.h3`
   font-weight: 500;
   position: absolute;
   top: 0;
-  left: 5.5px;
+  left: 40px;
   opacity: 0;
   pointer-events: none;
 
