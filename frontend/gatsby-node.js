@@ -79,7 +79,16 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // // create gallery overview
+  // create profile release pages
+  profiles.data.allStrapiAuthor.nodes.forEach(profile => {
+    createPage({
+      component: profileTemplate,
+      path: `/${slugify(profile.author_name)}/releases`,
+      context: { id: profile.id },
+    })
+  })
+
+  // create gallery overview
   profiles.data.allStrapiAuthor.nodes.forEach(profile => {
     createPage({
       component: profileTemplate,
@@ -88,7 +97,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // // create gallery item pages
+  //  create gallery item pages
   profiles.data.allStrapiAuthor.nodes.forEach(profile => {
     profile.gallery.forEach((item, index) => {
       createPage({
