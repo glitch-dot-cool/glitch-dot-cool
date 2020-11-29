@@ -65,7 +65,7 @@ PostCard.propTypes = {
     strapiId: number,
     thumbnail: object,
   }),
-  type: oneOf(["blog, project"]).isRequired,
+  type: oneOf(["blog", "project", "release", "community"]).isRequired,
   padding: string,
 }
 
