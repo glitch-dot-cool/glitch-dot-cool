@@ -5,7 +5,7 @@ import BackgroundImage from "gatsby-background-image"
 import { Flex, Link, UserCard } from ".."
 import { slugify } from "../../utils"
 
-const ReleaseCard = ({ post, type = "blog", zoom = true }) => {
+const ReleaseCard = ({ post, type = "release", zoom = true }) => {
   const {
     thumbnail: {
       localFile: {
@@ -65,7 +65,7 @@ ReleaseCard.propTypes = {
     strapiId: number,
     thumbnail: object,
   }),
-  type: oneOf(["blog", "project", "release", "community"]).isRequired,
+  type: oneOf(["release"]).isRequired,
 }
 
 export default ReleaseCard
@@ -74,11 +74,6 @@ const Card = styled(BackgroundImage)`
   padding-top: 100%;
   height: 0;
   display: flex;
-
-  @media only screen and (max-width: ${props =>
-      props.theme.measurements.breakpointMobileNav}px) {
-    padding: 2rem;
-  }
 `
 
 const CardLink = styled(Link)`
