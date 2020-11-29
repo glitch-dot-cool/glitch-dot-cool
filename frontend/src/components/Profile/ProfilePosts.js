@@ -3,7 +3,7 @@ import { arrayOf, number, object, shape, string } from "prop-types"
 import styled from "styled-components"
 
 import { Link, Pill } from "../../design-system"
-import { slugify } from "../../utils"
+import { slugify, setUrl } from "../../utils"
 import ProfileNav from "./ProfileNav"
 import Gallery from "../Gallery/Gallery"
 
@@ -16,7 +16,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
         posts
           .filter(post => post.type !== "release")
           .map(post => (
-            <Link to={`/${slugify(name)}/${slugify(post.title)}`} key={post.id}>
+            <Link to={setUrl(post, name)} key={post.id}>
               <Post>
                 <h3>{post.title}</h3>
                 <p>{post.published_at}</p>
@@ -29,7 +29,10 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
         posts
           .filter(post => post.type === "release")
           .map(post => (
-            <Link to={`/${slugify(name)}/${slugify(post.title)}`} key={post.id}>
+            <Link
+              to={`/${slugify(name)}/releases/${slugify(post.title)}`}
+              key={post.id}
+            >
               <Post>
                 <h3>{post.title}</h3>
                 <p>{post.published_at}</p>
