@@ -5,12 +5,22 @@ import styled from "styled-components"
 import { Link, lightTheme as theme } from "../../design-system"
 import { slugify } from "../../utils"
 
-const ProfileNav = ({ name, gallery }) => {
+const ProfileNav = ({ name, gallery, posts }) => {
   return (
     <SubNav>
       <Link to={`/${slugify(name)}/posts`} activeStyle={theme.activeNavStyles}>
         <h1>posts</h1>
       </Link>
+
+      {posts.some(post => post.type === "release") ? (
+        <Link
+          to={`/${slugify(name)}/releases`}
+          activeStyle={theme.activeNavStyles}
+        >
+          <h1>releases</h1>
+        </Link>
+      ) : null}
+
       {gallery.length ? (
         <Link
           to={`/${slugify(name)}/gallery`}
@@ -26,6 +36,7 @@ const ProfileNav = ({ name, gallery }) => {
 ProfileNav.propTypes = {
   name: string,
   gallery: arrayOf(object),
+  posts: arrayOf(object),
 }
 
 export default ProfileNav

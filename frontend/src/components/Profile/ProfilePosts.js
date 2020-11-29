@@ -10,18 +10,33 @@ import Gallery from "../Gallery/Gallery"
 const ProfilePosts = ({ posts, name, gallery, path }) => {
   return (
     <PostsContainer>
-      <ProfileNav name={name} gallery={gallery} />
+      <ProfileNav name={name} gallery={gallery} posts={posts} />
 
       {path.includes("posts") &&
-        posts.map(post => (
-          <Link to={`/${slugify(name)}/${slugify(post.title)}`} key={post.id}>
-            <Post>
-              <h3>{post.title}</h3>
-              <p>{post.published_at}</p>
-              <Pill type={post.type} />
-            </Post>
-          </Link>
-        ))}
+        posts
+          .filter(post => post.type !== "release")
+          .map(post => (
+            <Link to={`/${slugify(name)}/${slugify(post.title)}`} key={post.id}>
+              <Post>
+                <h3>{post.title}</h3>
+                <p>{post.published_at}</p>
+                <Pill type={post.type} />
+              </Post>
+            </Link>
+          ))}
+
+      {path.includes("releases") &&
+        posts
+          .filter(post => post.type === "release")
+          .map(post => (
+            <Link to={`/${slugify(name)}/${slugify(post.title)}`} key={post.id}>
+              <Post>
+                <h3>{post.title}</h3>
+                <p>{post.published_at}</p>
+                <Pill type={post.type} />
+              </Post>
+            </Link>
+          ))}
 
       {path.includes("gallery") && <Gallery gallery={gallery} author={name} />}
     </PostsContainer>

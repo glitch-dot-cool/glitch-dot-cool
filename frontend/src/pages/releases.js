@@ -16,31 +16,13 @@ const releases = ({
       <Title>releases</Title>
       <PostsContainer>
         {releases.map(release => (
-          <>
-            <ReleaseCard
-              post={release}
-              type="release"
-              padding="0"
-              key={release.strapiId}
-              zoom={false}
-            />
-
-            <ReleaseCard
-              post={release}
-              type="release"
-              padding="0"
-              key={release.strapiId}
-              zoom={false}
-            />
-
-            <ReleaseCard
-              post={release}
-              type="release"
-              padding="0"
-              key={release.strapiId}
-              zoom={false}
-            />
-          </>
+          <ReleaseCard
+            post={release}
+            type="release"
+            padding="0"
+            key={release.strapiId}
+            zoom={false}
+          />
         ))}
       </PostsContainer>
     </Layout>
