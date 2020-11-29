@@ -1,6 +1,6 @@
 module.exports = `
   query {
-    allStrapiPost {
+    allStrapiPost(filter: {type: {eq: "blog"}}) {
       nodes {
         id
         title

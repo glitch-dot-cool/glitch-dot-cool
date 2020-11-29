@@ -15,10 +15,22 @@ const PostCard = ({ post, type = "blog", padding, zoom = true }) => {
   } = post
   const theme = useContext(ThemeContext)
 
-  const url =
-    type === "project" || post.type === "project"
-      ? `/projects/${slugify(post.title)}`
-      : `/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`
+  const setUrl = post => {
+    switch (post.type) {
+      case "project":
+        return `/projects/${slugify(post.title)}`
+      case "blog":
+        return `/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`
+      case "release":
+        return `/${slugify(post.authors[0].author_name)}/releases/${slugify(
+          post.title
+        )}`
+      case "community":
+        return `${slugify(post.title)}`
+    }
+  }
+
+  const url = setUrl(post)
 
   return (
     <CardLink to={url} zoom={zoom}>

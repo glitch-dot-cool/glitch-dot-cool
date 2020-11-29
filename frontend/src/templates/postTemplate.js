@@ -72,6 +72,7 @@ export const query = graphql`
   query($id: String!) {
     strapiPost(id: { eq: $id }) {
       title
+      type
       slug
       published_date(formatString: "MMMM DD, YYYY")
       body

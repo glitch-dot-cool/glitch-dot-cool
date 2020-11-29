@@ -5,6 +5,8 @@ const {
   profilesQuery,
   tagsQuery,
   projectsQuery,
+  releasesQuery,
+  communityPostsQuery,
 } = require("./src/queries")
 const { slugify } = require("./gatsby-node-utils")
 
@@ -33,6 +35,19 @@ exports.createPages = async ({ graphql, actions }) => {
       component: postTemplate,
       path: `projects/${slugify(project.title)}`,
       context: { id: project.id },
+    })
+  })
+
+  const releases = await graphql(releasesQuery)
+
+  // create release pages
+  releases.data.allStrapiPost.nodes.forEach(release => {
+    release.authors.forEach(author => {
+      createPage({
+        component: postTemplate,
+        path: `${slugify(author.author_name)}/releases/${release.title}`,
+        context: { id: release.id },
+      })
     })
   })
 
