@@ -41,6 +41,7 @@ const Members = () => {
 
   const sortByRecency = members => {
     return members
+      .filter(member => member.author_name !== "glitch.cool staff")
       .map(member => {
         return {
           // get most recent post from given author
