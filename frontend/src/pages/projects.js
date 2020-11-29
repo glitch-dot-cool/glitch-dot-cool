@@ -48,6 +48,7 @@ export const query = graphql`
     ) {
       nodes {
         title
+        type
         strapiId
         published_date(formatString: "MMMM YY, DD")
         links {
