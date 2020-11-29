@@ -45,9 +45,22 @@ exports.createPages = async ({ graphql, actions }) => {
     release.authors.forEach(author => {
       createPage({
         component: postTemplate,
-        path: `${slugify(author.author_name)}/releases/${release.title}`,
+        path: `${slugify(author.author_name)}/releases/${slugify(
+          release.title
+        )}`,
         context: { id: release.id },
       })
+    })
+  })
+
+  const communityPosts = await graphql(communityPostsQuery)
+
+  // create community post pages
+  communityPosts.data.allStrapiPost.nodes.forEach(post => {
+    createPage({
+      component: postTemplate,
+      path: `${slugify(post.title)}`,
+      context: { id: post.id },
     })
   })
 
