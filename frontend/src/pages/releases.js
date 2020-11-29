@@ -32,7 +32,7 @@ const releases = ({
 export default releases
 
 const PostsContainer = styled.div`
-  margin: 6rem 0;
+  margin: 4rem 0 6rem 0;
   display: grid;
   grid-gap: 2rem;
 `
