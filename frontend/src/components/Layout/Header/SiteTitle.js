@@ -46,7 +46,7 @@ const Logo = styled.img`
   height: auto;
   margin-right: 0.5rem;
   transition: 0.2s ease-out transform;
-  will-change: transition;
+  will-change: transform;
 
   @media (max-width: 410px) {
     display: none;
@@ -81,6 +81,6 @@ const TextLogoShifted = styled.h3`
 
 const Container = styled(Flex)`
   :hover img {
-    transform: scale(1.15) rotate3d(1, 1, 1, 360deg);
+    transform: rotate3d(1, 1, 1, 360deg);
   }
 `
