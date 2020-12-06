@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react"
+import { graphql } from "gatsby"
 import styled from "styled-components"
+import Image from "gatsby-image"
 
 import { Layout, Head } from "../components/Layout"
 import { Flex, flicker } from "../design-system"
 
-const About = () => {
+const About = ({
+  data: {
+    allImageSharp: { nodes: images },
+  },
+}) => {
   const [coords, setCoords] = useState({ x: null, y: null })
 
   const handleMouseMove = ({ clientX, clientY }) => {
@@ -27,20 +33,62 @@ const About = () => {
           lang={`en`}
           style={{
             transform: `rotate3d(${coords.x}, ${coords.y}, 1, ${
-              (coords.x + coords.y) / -50
-            }deg) skew(${coords.x / 60}deg, ${coords.y / 60}deg)`,
+              coords.x / -100 + coords.y / -100
+            }deg)`,
           }}
         >
-          <p>
-            <GlitchDotCool>glitch[dot]cool</GlitchDotCool> is a group of
-            producers, sound designers, programmers, and visual artists orbiting
-            the glitch aesthetic.
-          </p>
-          <br />
-          <p>
-            this website serves as a shared publishing resource for our members
-            and its contents, a shared resource for the public.
-          </p>
+          <Grid>
+            <TextWrapper
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            >
+              <p>
+                <GlitchDotCool>glitch[dot]cool</GlitchDotCool> is a collective
+                of producers, sound designers, programmers, and visual artists
+                orbiting the glitch aesthetic, founded in 2019.
+              </p>
+            </TextWrapper>
+            <Img
+              fluid={images[0].fluid}
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            />
+            <Img
+              fluid={images[1].fluid}
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            />
+            <TextWrapper
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            >
+              <p>
+                we are a collectively operated publishing platform, releasing
+                sample packs, albums, and educational content.
+              </p>
+            </TextWrapper>
+            <TextWrapper
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            >
+              <p>
+                we seek to promote and encourage the development of burgeoning
+                fields at the intersection of technology and the arts.
+              </p>
+            </TextWrapper>
+            <Img
+              fluid={images[2].fluid}
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            />
+            <Img
+              fluid={images[3].fluid}
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            />
+            <TextWrapper
+              style={{ transform: `translateZ(${coords.x / 20}px)` }}
+            >
+              <p>
+                we also run a large discord server with an active community of
+                audiovisual creatives and a focus on education, collaboration,
+                and camaraderie.
+              </p>
+            </TextWrapper>
+          </Grid>
         </Wrapper>
       </Flex>
     </Layout>
@@ -49,10 +97,24 @@ const About = () => {
 
 export default About
 
+export const query = graphql`
+  query {
+    allImageSharp(
+      filter: { fluid: { originalName: { regex: "/!aboutpage/" } } }
+    ) {
+      nodes {
+        fluid {
+          src
+          srcSet
+          base64
+          aspectRatio
+        }
+      }
+    }
+  }
+`
+
 const Wrapper = styled.div`
-  margin: 12rem 4rem;
-  max-width: 62rem;
-  min-width: 45vw;
   padding: 4rem;
   border-radius: 5px;
   background-color: ${props => props.theme.colors.scale_6};
@@ -62,19 +124,89 @@ const Wrapper = styled.div`
   box-shadow: inset 0px 0px 20px ${({ theme }) => theme.colors.box_shadow},
     0px 0px 10px ${({ theme }) => theme.colors.box_shadow};
 
-  @media only screen and (max-width: 900px) {
-    margin: 4rem 0;
-    max-width: 100%;
-  }
-
   p,
   strong {
     transform: translateZ(75px);
+    font-size: 1.6rem;
   }
 
   strong {
     filter: ${({ theme }) =>
       `drop-shadow(0px 0px 3px ${theme.colors.scale_0})`};
+  }
+
+  @media (min-width: 1000px) {
+    margin-top: 8rem;
+  }
+
+  @media (max-width: 400px) {
+    padding: 2rem;
+  }
+`
+
+const TextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.box_shadow};
+
+  @media (max-width: 1000px) {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 500px) {
+    grid-column: span 3;
+    p {
+      font-size: 1.2rem;
+    }
+  }
+`
+
+const Img = styled(Image)`
+  transform: translateZ(75px);
+  box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.box_shadow},
+    0px 0px 20px ${({ theme }) => theme.colors.box_shadow};
+  transform-style: preserve-3d;
+  grid-column: span 2;
+
+  @media (max-width: 1000px) {
+    grid-column: span 1;
+  }
+
+  @media (max-width: 500px) {
+    max-height: 100px;
+    grid-column: span 3;
+  }
+`
+
+const Grid = styled.div`
+  width: 100%;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, minmax(50px, 100px));
+
+  ${Img}:nth-last-child(2) {
+    filter: ${({ theme }) => (theme.isDark ? "invert(1)" : "none")};
+    // acct for the box shadow being inverted in dark mode
+    box-shadow: 0px 0px 10px
+        ${({ theme }) =>
+          theme.isDark ? theme.colors.scale_1 : theme.colors.box_shadow},
+      0px 0px 20px
+        ${({ theme }) =>
+          theme.isDark ? theme.colors.scale_1 : theme.colors.box_shadow};
+  }
+
+  @media (max-width: 500px) {
+    grid-template-rows: repeat(8, minmax(50px, 100px));
+
+    ${Img}:nth-child(2) {
+      grid-row-start: 1;
+    }
+
+    ${Img}:nth-last-child(3) {
+      grid-row-start: 5;
+    }
   }
 `
 
