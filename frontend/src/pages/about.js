@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 
 import { Layout, Head } from "../components/Layout"
+import HoverLink from "../components/About/HoverLink"
 import { Flex, flicker } from "../design-system"
 
 const About = ({
@@ -38,15 +39,14 @@ const About = ({
           }}
         >
           <Grid>
-            <TextWrapper
-              style={{ transform: `translateZ(${coords.x / 20}px)` }}
-            >
+            <HoverLink coords={coords} sectionID="members">
               <p>
                 <GlitchDotCool>glitch[dot]cool</GlitchDotCool> is a collective
                 of producers, sound designers, programmers, and visual artists
                 orbiting the glitch aesthetic, founded in 2019.
               </p>
-            </TextWrapper>
+            </HoverLink>
+
             <Img
               fluid={images[0].fluid}
               style={{ transform: `translateZ(${coords.x / 20}px)` }}
@@ -55,22 +55,18 @@ const About = ({
               fluid={images[1].fluid}
               style={{ transform: `translateZ(${coords.x / 20}px)` }}
             />
-            <TextWrapper
-              style={{ transform: `translateZ(${coords.x / 20}px)` }}
-            >
+            <HoverLink coords={coords} sectionID="publishing">
               <p>
                 we are a collectively operated publishing platform, releasing
                 sample packs, albums, and educational content.
               </p>
-            </TextWrapper>
-            <TextWrapper
-              style={{ transform: `translateZ(${coords.x / 20}px)` }}
-            >
+            </HoverLink>
+            <HoverLink coords={coords} sectionID="home">
               <p>
                 we seek to promote and encourage the development of burgeoning
                 fields at the intersection of technology and the arts.
               </p>
-            </TextWrapper>
+            </HoverLink>
             <Img
               fluid={images[2].fluid}
               style={{ transform: `translateZ(${coords.x / 20}px)` }}
@@ -79,15 +75,13 @@ const About = ({
               fluid={images[3].fluid}
               style={{ transform: `translateZ(${coords.x / 20}px)` }}
             />
-            <TextWrapper
-              style={{ transform: `translateZ(${coords.x / 20}px)` }}
-            >
+            <HoverLink coords={coords} sectionID="discord">
               <p>
                 we also run a large discord server with an active community of
                 audiovisual creatives and a focus on education, collaboration,
                 and camaraderie.
               </p>
-            </TextWrapper>
+            </HoverLink>
           </Grid>
         </Wrapper>
       </Flex>
