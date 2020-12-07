@@ -6,18 +6,18 @@ import { Button } from "../../design-system"
 const setLinks = sectionID => {
   switch (sectionID) {
     case "members":
-      return <Button to="/members">to members</Button>
+      return <Button to="/members">members</Button>
     case "publishing":
       return (
         <>
-          <Button to="/projects">to projects</Button>{" "}
-          <Button to="/releases">to releases</Button>{" "}
+          <Button to="/projects">projects</Button>{" "}
+          <Button to="/releases">releases</Button>{" "}
         </>
       )
     case "home":
-      return <Button to="/">to home</Button>
+      return <Button to="/">home</Button>
     case "discord":
-      return <Button href="https://discord.gg/SrbjHEk">to discord</Button>
+      return <Button href="https://discord.gg/SrbjHEk">discord</Button>
     default:
       throw new Error("invalid sectionID, see proptypes")
   }
