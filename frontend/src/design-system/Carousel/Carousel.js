@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { useSwipeable } from "react-swipeable"
 
+import TransportChevron from "./TransportChevron"
+
 const getOrder = ({ index, pos, numItems }) => {
   return index - pos < 0 ? numItems - Math.abs(index - pos) : index - pos
 }
@@ -29,6 +31,7 @@ const Carousel = ({ children }) => {
 
   return (
     <StyledCarousel {...handlers}>
+      <TransportChevron type={PREV} onClick={() => slide(PREV)} />
       <Wrapper>
         <CarouselContainer dir={state.dir} sliding={state.sliding}>
           {React.Children.map(children, (child, index) => {
@@ -43,6 +46,7 @@ const Carousel = ({ children }) => {
           })}
         </CarouselContainer>
       </Wrapper>
+      <TransportChevron type={NEXT} onClick={() => slide(NEXT)} />
     </StyledCarousel>
   )
 }
@@ -76,7 +80,10 @@ function reducer(state, { type, numItems }) {
 
 export default Carousel
 
-const StyledCarousel = styled.div``
+const StyledCarousel = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 const CarouselContainer = styled.div`
   display: flex;
@@ -91,7 +98,11 @@ const CarouselContainer = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  box-shadow: 5px 5px 20px 7px rgba(168, 168, 168, 1);
+  display: grid;
+  grid-gap: 2rem;
+  padding: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
+  background-color: ${({ theme }) => theme.colors.scale_5};
 `
 
 const CarouselItem = styled.div`
@@ -99,4 +110,16 @@ const CarouselItem = styled.div`
   flex-basis: 80%;
   margin-right: 20px;
   order: ${props => props.order};
+
+  will-change: transform, opacity, box-shadow;
+  transform: scale(1) translate(0px, 0px);
+  transition: 0.1s ease transform, 0.1s ease opacity, 0.1s ease box-shadow;
+
+  :hover {
+    opacity: 0.9;
+    transform: scale(1.03) translate(-3px, -3px);
+    box-shadow: 9px 9px 0px ${props => props.theme.colors.box_shadow},
+      6px 6px 0px ${props => props.theme.colors.box_shadow},
+      3px 3px 0px ${props => props.theme.colors.box_shadow};
+  }
 `

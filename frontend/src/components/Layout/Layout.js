@@ -8,7 +8,7 @@ import Backdrop from "./Backdrop"
 import Drawer from "./Drawer"
 import GlobalStyles from "../../design-system/globalStyles"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const toggleDrawer = () => {
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
   return (
     <Background>
       <GlobalStyles />
-      <Wrapper>
+      <Wrapper page={page}>
         <Header toggleDrawer={toggleDrawer} visible={isDrawerOpen} />
         <Drawer visible={isDrawerOpen} />
         <Backdrop visible={isDrawerOpen} closeDrawer={closeDrawer} />
@@ -51,7 +51,8 @@ const Background = styled.div`
 const Wrapper = styled.div`
   min-height: calc(100vh - 4rem);
   margin: 0 auto;
-  max-width: calc(2160px - (50vw));
+  max-width: ${({ page }) =>
+    page === "home" ? "calc(2160px - (40vw))" : "calc(2160px - (50vw))"};
   min-width: 50vw;
   padding: 0 3vw ${props => props.theme.measurements.footerHeight}rem 3vw;
   transition: 0.2s ease-out all;

@@ -35,6 +35,8 @@ const StyledHeader = styled.header`
   width: 100%;
   padding: 6rem 0 3rem 0;
   transition: 0.2s ease-out padding;
+  max-width: calc(2160px - (50vw + 12rem));
+  margin: 0 auto;
 
   @media only screen and (max-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {

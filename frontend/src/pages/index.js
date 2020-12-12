@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import { Layout, Head } from "../components/Layout"
-import { PostCard } from "../design-system"
+import { Carousel, PostCard } from "../design-system"
 
 const IndexPage = ({
   data: {
@@ -11,14 +11,16 @@ const IndexPage = ({
   },
 }) => {
   return (
-    <Layout>
+    <Layout page="home">
       <Head title="home" />
 
-      <PostsContainer>
+      {/* <PostsContainer> */}
+      <Carousel>
         {posts.map(post => (
           <PostCard key={post.strapiId} post={post} />
         ))}
-      </PostsContainer>
+      </Carousel>
+      {/* </PostsContainer> */}
     </Layout>
   )
 }
