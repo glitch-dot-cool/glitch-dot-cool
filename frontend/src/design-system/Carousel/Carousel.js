@@ -89,8 +89,8 @@ const CarouselContainer = styled.div`
   display: flex;
   transition: ${props => (props.sliding ? "none" : "transform 0.35s ease")};
   transform: ${props => {
-    if (!props.sliding) return "translateX(calc(-100% - 13px))"
-    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 13px)))"
+    if (!props.sliding) return "translateX(calc(-100% - 25px))"
+    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 25px)))"
     return "translateX(0%)"
   }};
 `
@@ -100,24 +100,27 @@ const Wrapper = styled.div`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.scale_5};
   display: grid;
-  /* padding: 2rem; */
+  padding: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
 
   @media only screen and (max-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {
     grid-template-columns: repeat(1, 100%);
   }
+
+  @media only screen and (max-width: 1090px) {
+    padding: 0;
+  }
 `
 
 const CarouselItem = styled.div`
   flex: 1 0 100%;
   flex-basis: 100%;
-  padding: 6.5px;
-  margin-right: 6.5px;
+  margin-right: 25px;
   order: ${props => props.order};
 
   will-change: transform, opacity, box-shadow;
-  transform: scale(1) translate(0px, 0px);
+  transform: scale(1) translate(-7px, 0px);
   transition: 0.1s ease transform, 0.1s ease opacity, 0.1s ease box-shadow;
 
   :hover {
