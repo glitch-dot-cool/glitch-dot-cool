@@ -21,3 +21,4 @@ export {
 } from "./Animations/animations"
 export { default as Form, FormInput, FormTextArea } from "./Form/Form"
 export { default as Carousel } from "./Carousel/Carousel"
+export { default as CategoryList } from "./CategoryList/CategoryList"

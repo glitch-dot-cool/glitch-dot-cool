@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import { Layout, Head } from "../components/Layout"
-import { Carousel, PostCard } from "../design-system"
+import { Carousel, PostCard, CategoryList } from "../design-system"
 
 const IndexPage = ({
   data: {
@@ -20,6 +20,10 @@ const IndexPage = ({
             <PostCard key={post.strapiId} post={post} />
           ))}
         </Carousel>
+        <CategoryLists>
+          <CategoryList posts={posts} />
+          <CategoryList posts={posts} />
+        </CategoryLists>
       </PostsContainer>
     </Layout>
   )
@@ -42,6 +46,11 @@ const PostsContainer = styled.div`
   @media only screen and (max-width: 400px) {
     margin-top: 1rem;
   }
+`
+
+const CategoryLists = styled.div`
+  display: flex;
+  justify-content: space-around;
 `
 
 export const query = graphql`
