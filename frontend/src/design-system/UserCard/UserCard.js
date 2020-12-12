@@ -37,7 +37,7 @@ const UserCard = ({
   return (
     <Card size={size} to={`/${slugify(name)}/posts`} color={color}>
       <Flex align="center" justify="space-between" style={{ width: "100%" }}>
-        <Flex>
+        <Flex align="center">
           <Avatar image={imgData} size={size} />
           <Name>{name}</Name>
         </Flex>
@@ -69,7 +69,8 @@ const Card = styled(Link)`
   box-shadow: 0px 3px 5px -5px rgba(0, 0, 0, 0.5);
 
   h2 {
-    font-size: ${props => (props.size === "small" ? `1.4rem` : `auto`)};
+    font-size: ${props =>
+      props.size === "small" ? `1.4rem` : `auto`} !important;
     font-weight: ${props => (props.size === "small" ? `400` : `500`)};
   }
 
