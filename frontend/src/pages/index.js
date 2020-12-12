@@ -22,14 +22,14 @@ const IndexPage = ({
           ))}
         </Carousel>
         <CategoryLists>
-          <Flex direction="column">
+          <Category>
             <CategoryHeaders>recent posts</CategoryHeaders>
             <CategoryList posts={posts} />
-          </Flex>
-          <Flex direction="column">
+          </Category>
+          <Category>
             <CategoryHeaders>community posts</CategoryHeaders>
             <CategoryList posts={posts} />
-          </Flex>
+          </Category>
         </CategoryLists>
       </PostsContainer>
     </Layout>
@@ -57,11 +57,24 @@ const PostsContainer = styled.div`
 
 const CategoryHeaders = styled(Title)`
   margin-bottom: 2rem;
+
+  @media (max-width: 1200px) {
+    margin: 2rem 0;
+  }
+`
+
+const Category = styled.div`
+  direction: column;
 `
 
 const CategoryLists = styled.div`
   display: flex;
   justify-content: space-around;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 const Projects = styled(Title)`

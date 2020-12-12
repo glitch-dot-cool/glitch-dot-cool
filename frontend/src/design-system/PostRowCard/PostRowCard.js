@@ -61,7 +61,11 @@ const Card = styled.div`
   }
 `
 
-const Title = styled.h2``
+const Title = styled.h2`
+  @media (max-width: 600px) {
+    margin-bottom: 1rem;
+  }
+`
 
 const Container = styled(Flex)``
 
@@ -70,7 +74,7 @@ const PublishedDate = styled.p`
   margin-left: auto;
   font-size: 1.6rem;
 
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     align-self: flex-start;
   }
 
@@ -79,11 +83,7 @@ const PublishedDate = styled.p`
   }
 `
 
-const Byline = styled(Flex)`
-  @media (max-width: 900px) {
-    margin-top: 1rem;
-  }
-`
+const Byline = styled(Flex)``
 
 const Subcontainer = styled.div`
   display: flex;
@@ -96,8 +96,9 @@ const Subcontainer = styled.div`
     margin-right: 0.5rem;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     flex-direction: column;
+    align-items: flex-start;
   }
 `
 

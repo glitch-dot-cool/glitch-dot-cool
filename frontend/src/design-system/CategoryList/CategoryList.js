@@ -6,11 +6,11 @@ import { PostRowCard } from "../"
 
 const CategoryList = ({ posts }) => {
   return (
-    <div>
+    <Container>
       {posts.map(post => (
         <Post key={post.id} post={post} />
       ))}
-    </div>
+    </Container>
   )
 }
 
@@ -19,6 +19,8 @@ CategoryList.propTypes = {
 }
 
 export default CategoryList
+
+const Container = styled.div``
 
 const Post = styled(PostRowCard)`
   h2:first-of-type {
