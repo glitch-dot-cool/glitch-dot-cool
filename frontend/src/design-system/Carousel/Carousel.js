@@ -98,7 +98,6 @@ const CarouselContainer = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.scale_5};
   display: grid;
   padding: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));

@@ -28,13 +28,18 @@ export default TransportChevron
 const Icon = styled(FontAwesomeIcon)`
   font-size: calc(18px + 1.5vw);
   margin: ${({ type }) => (type === "PREV" ? "0 2rem 0 0" : "0 0 0 2rem")};
-  transition: 150ms ease-out transform, 150ms ease-out opacity;
+  transition: 100ms ease-out transform, 150ms ease-out opacity;
   will-change: transform;
+  color: ${({ theme }) => theme.colors.scale_1};
 
   :hover {
     cursor: pointer;
     transform: scale(1.075);
     opacity: 0.85;
+  }
+
+  :active {
+    transform: scale(0.9);
   }
 
   @media only screen and (max-width: ${props =>
