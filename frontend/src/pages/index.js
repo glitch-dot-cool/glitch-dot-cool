@@ -14,13 +14,13 @@ const IndexPage = ({
     <Layout page="home">
       <Head title="home" />
 
-      {/* <PostsContainer> */}
-      <Carousel>
-        {posts.map(post => (
-          <PostCard key={post.strapiId} post={post} />
-        ))}
-      </Carousel>
-      {/* </PostsContainer> */}
+      <PostsContainer>
+        <Carousel>
+          {posts.map(post => (
+            <PostCard key={post.strapiId} post={post} />
+          ))}
+        </Carousel>
+      </PostsContainer>
     </Layout>
   )
 }
@@ -29,9 +29,6 @@ export default IndexPage
 
 const PostsContainer = styled.div`
   margin-top: 6rem;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
 
   :last-child {
     margin-bottom: 2rem;
@@ -40,20 +37,10 @@ const PostsContainer = styled.div`
   @media only screen and (max-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {
     margin-top: 2rem;
-    grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
   }
 
   @media only screen and (max-width: 400px) {
     margin-top: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-
-    h1 {
-      font-size: 3rem;
-    }
-
-    h3 {
-      font-size: 2.2rem;
-    }
   }
 `
 

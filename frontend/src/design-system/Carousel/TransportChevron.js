@@ -26,7 +26,7 @@ TransportChevron.propTypes = {
 export default TransportChevron
 
 const Icon = styled(FontAwesomeIcon)`
-  font-size: 6rem;
+  font-size: calc(18px + 1.5vw);
   margin: ${({ type }) => (type === "PREV" ? "0 2rem 0 0" : "0 0 0 2rem")};
   transition: 150ms ease-out transform, 150ms ease-out opacity;
   will-change: transform;
@@ -35,5 +35,10 @@ const Icon = styled(FontAwesomeIcon)`
     cursor: pointer;
     transform: scale(1.075);
     opacity: 0.85;
+  }
+
+  @media only screen and (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    display: none;
   }
 `

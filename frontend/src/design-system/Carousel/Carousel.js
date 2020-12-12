@@ -87,10 +87,10 @@ const StyledCarousel = styled.div`
 
 const CarouselContainer = styled.div`
   display: flex;
-  transition: ${props => (props.sliding ? "none" : "transform 1s ease")};
+  transition: ${props => (props.sliding ? "none" : "transform 0.5s ease")};
   transform: ${props => {
-    if (!props.sliding) return "translateX(calc(-80% - 20px))"
-    if (props.dir === PREV) return "translateX(calc(2 * (-80% - 20px)))"
+    if (!props.sliding) return "translateX(calc(-100% - 20px))"
+    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 20px)))"
     return "translateX(0%)"
   }};
 `
@@ -99,16 +99,14 @@ const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
   display: grid;
-  grid-gap: 2rem;
-  padding: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
   background-color: ${({ theme }) => theme.colors.scale_5};
 `
 
 const CarouselItem = styled.div`
   flex: 1 0 100%;
-  flex-basis: 80%;
-  margin-right: 20px;
+  flex-basis: 100%;
+  margin-right: 2rem;
   order: ${props => props.order};
 
   will-change: transform, opacity, box-shadow;
