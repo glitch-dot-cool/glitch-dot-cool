@@ -1,41 +1,42 @@
 import React, { useContext } from "react"
 import { array, shape, string } from "prop-types"
 import styled, { ThemeContext } from "styled-components"
+import Image from "gatsby-image"
 
 import { Flex, UserCard, Link } from "../index"
 import { lightTheme as theme } from "../theme"
-import { slugify } from "../../utils"
+import { setUrl } from "../../utils"
 const { baseMonoMixin } = theme.text
 
-const PostRowCard = ({ post }) => {
+const PostRowCard = ({ post, className }) => {
   const theme = useContext(ThemeContext)
-  const postSlug = `/${slugify(post.authors[0].author_name)}/${slugify(
-    post.title
-  )}`
+  const postSlug = setUrl(post, post.authors[0].author_name)
   const size = post.authors.length > 2 ? "micro" : "small"
+  const thumbnail = post?.thumbnail?.localFile?.childImageSharp?.fluid
 
   return (
-    <Card>
-      <Container align="center" size={size}>
-        <Subcontainer>
-          <Link to={postSlug}>
+    <Link to={postSlug}>
+      <Card className={className}>
+        <Container align="center" size={size}>
+          <Img fluid={thumbnail} />
+          <Subcontainer>
             <Title>{post.title}</Title>
-          </Link>
-          <Byline align="center">
-            <p>by</p>
-            {post.authors.map((author, index) => (
-              <UserCard
-                size={size}
-                index={index}
-                user={author}
-                color={theme.colors.scale_5}
-              />
-            ))}
-          </Byline>
-        </Subcontainer>
-        <PublishedDate>{post.published_at}</PublishedDate>
-      </Container>
-    </Card>
+            <Byline align="center">
+              <p style={{ margin: "0 1rem" }}>by</p>
+              {post.authors.map((author, index) => (
+                <UserCard
+                  size={size}
+                  index={index}
+                  user={author}
+                  color={theme.colors.scale_5}
+                />
+              ))}
+            </Byline>
+          </Subcontainer>
+          <PublishedDate>{post.published_at}</PublishedDate>
+        </Container>
+      </Card>
+    </Link>
   )
 }
 
@@ -54,6 +55,10 @@ export default PostRowCard
 const Card = styled.div`
   background-color: ${props => props.theme.colors.scale_6};
   padding: 2rem;
+
+  :hover {
+    background-color: ${props => props.theme.colors.scale_4};
+  }
 `
 
 const Title = styled.h2``
@@ -83,6 +88,7 @@ const Byline = styled(Flex)`
 const Subcontainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   > h2,
   p:first-of-type,
@@ -93,4 +99,11 @@ const Subcontainer = styled.div`
   @media (max-width: 900px) {
     flex-direction: column;
   }
+`
+
+const Img = styled(Image)`
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  margin-right: 2rem;
 `
