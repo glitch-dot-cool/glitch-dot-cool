@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   min-height: calc(100vh - 4rem);
   margin: 0 auto;
   max-width: ${({ page }) =>
-    page === "home" ? "calc(2160px - (40vw))" : "calc(2160px - (50vw))"};
+    page === "home" ? "calc(2160px - (20vw))" : "calc(2160px - (50vw))"};
   min-width: 50vw;
   padding: 0 3vw ${props => props.theme.measurements.footerHeight}rem 3vw;
   transition: 0.2s ease-out all;

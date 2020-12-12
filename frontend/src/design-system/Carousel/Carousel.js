@@ -87,10 +87,10 @@ const StyledCarousel = styled.div`
 
 const CarouselContainer = styled.div`
   display: flex;
-  transition: ${props => (props.sliding ? "none" : "transform 0.5s ease")};
+  transition: ${props => (props.sliding ? "none" : "transform 0.35s ease")};
   transform: ${props => {
-    if (!props.sliding) return "translateX(calc(-100% - 20px))"
-    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 20px)))"
+    if (!props.sliding) return "translateX(calc(-100% - 13px))"
+    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 13px)))"
     return "translateX(0%)"
   }};
 `
@@ -98,15 +98,22 @@ const CarouselContainer = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
   background-color: ${({ theme }) => theme.colors.scale_5};
+  display: grid;
+  /* padding: 2rem; */
+  grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
+
+  @media only screen and (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    grid-template-columns: repeat(1, 100%);
+  }
 `
 
 const CarouselItem = styled.div`
   flex: 1 0 100%;
   flex-basis: 100%;
-  margin-right: 2rem;
+  padding: 6.5px;
+  margin-right: 6.5px;
   order: ${props => props.order};
 
   will-change: transform, opacity, box-shadow;
@@ -119,5 +126,10 @@ const CarouselItem = styled.div`
     box-shadow: 9px 9px 0px ${props => props.theme.colors.box_shadow},
       6px 6px 0px ${props => props.theme.colors.box_shadow},
       3px 3px 0px ${props => props.theme.colors.box_shadow};
+  }
+
+  @media only screen and (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    flex-basis: 95vw;
   }
 `
