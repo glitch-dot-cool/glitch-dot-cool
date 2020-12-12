@@ -20,3 +20,4 @@ export {
   noise2,
 } from "./Animations/animations"
 export { default as Form, FormInput, FormTextArea } from "./Form/Form"
+export { default as Carousel } from "./Carousel/Carousel"
