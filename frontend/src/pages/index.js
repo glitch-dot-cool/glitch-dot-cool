@@ -57,6 +57,7 @@ const PostsContainer = styled.div`
 
 const CategoryHeaders = styled(Title)`
   margin-bottom: 2rem;
+  user-select: none;
 
   @media (max-width: 1200px) {
     margin: 2rem 0;
