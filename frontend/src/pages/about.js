@@ -43,10 +43,13 @@ const About = ({
   }
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove)
+    // for SSR
+    if (typeof window !== "undefined") {
+      window.addEventListener("mousemove", handleMouseMove)
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove)
+      }
     }
   }, [])
 
