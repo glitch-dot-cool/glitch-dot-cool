@@ -129,8 +129,10 @@ const CardAvatar = styled(Avatar)`
 `
 
 const MicroAvatar = styled(Avatar)`
-  width: 3rem;
-  height: 3rem;
+  width: calc(14px + 4vw);
+  height: calc(14px + 4vw);
+  max-width: 3rem;
+  max-height: 3rem;
   margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -20px")};
   box-shadow: 0px 0px 0px 1.25px #fff;
   will-change: transform, opacity;
