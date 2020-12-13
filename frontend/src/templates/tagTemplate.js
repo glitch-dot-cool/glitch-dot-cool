@@ -71,6 +71,7 @@ export const query = graphql`
     allStrapiPost(filter: { tags: { elemMatch: { id: { eq: $id } } } }) {
       nodes {
         title
+        type
         slug
         published_at(formatString: "MMMM DD, YYYY")
         id
