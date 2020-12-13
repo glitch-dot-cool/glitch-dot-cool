@@ -36,7 +36,11 @@ const UserCard = ({
 
   return (
     <Card size={size} to={`/${slugify(name)}/posts`} color={color}>
-      <Flex align="center" justify="space-between" style={{ width: "100%" }}>
+      <Flex
+        align="center"
+        justify="space-between"
+        style={{ width: "100%", background: "transparent" }}
+      >
         <Flex align="center">
           <Avatar image={imgData} size={size} />
           <Name>{name}</Name>

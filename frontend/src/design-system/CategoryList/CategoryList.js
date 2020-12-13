@@ -20,7 +20,11 @@ CategoryList.propTypes = {
 
 export default CategoryList
 
-const Container = styled.div``
+const Container = styled.div`
+  a:nth-child(odd) > div {
+    background: ${({ theme }) => theme.colors.scale_4};
+  }
+`
 
 const Post = styled(PostRowCard)`
   h2:first-of-type {
