@@ -42,7 +42,7 @@ const UserCard = ({
         style={{ width: "100%", background: "transparent" }}
       >
         <Flex align="center">
-          <Avatar image={imgData} size={size} />
+          <CardAvatar image={imgData} size={size} />
           <Name>{name}</Name>
         </Flex>
         {recency && (
@@ -67,7 +67,7 @@ const Card = styled(Link)`
   width: ${props => (props.size === "small" ? `auto` : `calc(50% - 1rem)`)};
   background-color: ${props =>
     props.color ? props.color : props.theme.colors.scale_6};
-  padding: ${props => (props.size === "small" ? `0.85rem 1.35rem` : `2rem`)};
+  padding: ${props => (props.size === "small" ? `0.75rem 1rem` : `2rem`)};
   margin-top: ${props => (props.size === "small" ? `0` : `2rem`)};
   border-radius: ${props => (props.size === "small" ? `3px` : `0px`)};
   box-shadow: 0px 3px 5px -5px rgba(0, 0, 0, 0.5);
@@ -119,6 +119,12 @@ const Tooltip = styled.span`
   :hover + div {
     transform: scale(1.2);
     opacity: 0.9;
+  }
+`
+
+const CardAvatar = styled(Avatar)`
+  @media (max-width: 400px) {
+    display: none;
   }
 `
 

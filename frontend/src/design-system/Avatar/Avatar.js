@@ -3,11 +3,11 @@ import { number, shape, string } from "prop-types"
 import styled, { css } from "styled-components"
 import Image from "gatsby-image"
 
-const Avatar = ({ image, ...props }) => {
+const Avatar = ({ image, className, ...props }) => {
   if (image?.src) {
-    return <StyledAvatar {...props} fluid={image} />
+    return <StyledAvatar fluid={image} className={className} {...props} />
   } else {
-    return <PlaceholderAvatar {...props} />
+    return <PlaceholderAvatar className={className} {...props} />
   }
 }
 

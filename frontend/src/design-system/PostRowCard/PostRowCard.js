@@ -22,7 +22,7 @@ const PostRowCard = ({ post, className }) => {
           <Subcontainer>
             <Title>{post.title}</Title>
             <Byline align="center">
-              <p style={{ margin: "0 1rem" }}>by</p>
+              <p>by</p>
               {post.authors.map((author, index) => (
                 <UserCard
                   size={size}
@@ -59,6 +59,10 @@ const Card = styled.div`
   :hover {
     background-color: ${props => props.theme.colors.scale_4};
   }
+
+  @media (max-width: 375px) {
+    padding: 1rem !important;
+  }
 `
 
 const Title = styled.h2`
@@ -83,7 +87,17 @@ const PublishedDate = styled.p`
   }
 `
 
-const Byline = styled(Flex)``
+const Byline = styled(Flex)`
+  p {
+    margin: 0 1rem;
+  }
+
+  @media (max-width: 600px) {
+    p {
+      margin: 0 1rem 0 0;
+    }
+  }
+`
 
 const Subcontainer = styled.div`
   display: flex;
@@ -91,7 +105,6 @@ const Subcontainer = styled.div`
   align-items: center;
 
   > h2,
-  p:first-of-type,
   a {
     margin-right: 0.5rem;
   }
@@ -107,4 +120,8 @@ const Img = styled(Image)`
   height: 5rem;
   object-fit: cover;
   margin-right: 2rem;
+
+  @media (max-width: 350px) {
+    display: none;
+  }
 `
