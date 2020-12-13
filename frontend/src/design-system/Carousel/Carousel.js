@@ -89,8 +89,8 @@ const CarouselContainer = styled.div`
   display: flex;
   transition: ${props => (props.sliding ? "none" : "transform 0.35s ease")};
   transform: ${props => {
-    if (!props.sliding) return "translateX(calc(-100% - 25px))"
-    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 25px)))"
+    if (!props.sliding) return "translateX(calc(-100% - 16px))"
+    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 16px)))"
     return "translateX(0%)"
   }};
 `
@@ -115,16 +115,16 @@ const Wrapper = styled.div`
 const CarouselItem = styled.div`
   flex: 1 0 100%;
   flex-basis: 100%;
-  margin-right: 25px;
+  margin-right: 16px;
   order: ${props => props.order};
 
   will-change: transform, opacity, box-shadow;
-  transform: scale(1) translate(-7px, 0px);
+  transform: scale(0.93) translate(-7px, 0px);
   transition: 0.1s ease transform, 0.1s ease opacity, 0.1s ease box-shadow;
 
   :hover {
     opacity: 0.9;
-    transform: scale(1.03) translate(-3px, -3px);
+    transform: scale(0.95) translate(-5px, -3px);
     box-shadow: 9px 9px 0px ${props => props.theme.colors.box_shadow},
       6px 6px 0px ${props => props.theme.colors.box_shadow},
       3px 3px 0px ${props => props.theme.colors.box_shadow};
@@ -133,5 +133,6 @@ const CarouselItem = styled.div`
   @media only screen and (max-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {
     flex-basis: 95vw;
+    transform: scale(1) translate(-10px, 0px);
   }
 `
