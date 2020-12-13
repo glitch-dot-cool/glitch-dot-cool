@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import { Layout, Head } from "../components/Layout"
-import { Carousel, PostCard, CategoryList, Title, Flex } from "../design-system"
+import { Carousel, PostCard, CategoryList, Title } from "../design-system"
 
 const IndexPage = ({
   data: {

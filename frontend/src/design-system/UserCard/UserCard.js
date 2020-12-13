@@ -96,6 +96,10 @@ const Card = styled(Link)`
 
 const Name = styled.h2`
   color: ${({ theme }) => theme.colors.scale_0} !important;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.scale_6} !important;
+  }
 `
 
 const MicroCard = styled(Link)``

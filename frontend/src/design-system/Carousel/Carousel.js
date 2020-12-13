@@ -123,7 +123,6 @@ const CarouselItem = styled.div`
   transition: 0.1s ease transform, 0.1s ease opacity, 0.1s ease box-shadow;
 
   :hover {
-    opacity: 0.9;
     transform: scale(0.95) translate(-5px, -3px);
     box-shadow: 9px 9px 0px ${props => props.theme.colors.box_shadow},
       6px 6px 0px ${props => props.theme.colors.box_shadow},

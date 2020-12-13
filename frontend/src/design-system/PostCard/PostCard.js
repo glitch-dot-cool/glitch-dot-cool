@@ -76,7 +76,6 @@ const CardLink = styled(Link)`
   overflow: hidden;
 
   :hover {
-    opacity: 0.9;
     transform: scale(1.03) translate(-3px, -3px);
     box-shadow: 9px 9px 0px ${props => props.theme.colors.box_shadow},
       6px 6px 0px ${props => props.theme.colors.box_shadow},
