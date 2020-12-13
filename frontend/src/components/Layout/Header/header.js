@@ -6,8 +6,8 @@ import Nav from "./Nav"
 import ThemeToggle from "./ThemeToggle"
 import Hamburger from "./Hamburger"
 
-const Header = ({ toggleDrawer, visible }) => (
-  <StyledHeader>
+const Header = ({ toggleDrawer, visible, page }) => (
+  <StyledHeader page={page}>
     <Nav></Nav>
     <Controls>
       <ThemeToggle />
@@ -35,8 +35,13 @@ const StyledHeader = styled.header`
   width: 100%;
   padding: 6rem 0 3rem 0;
   transition: 0.2s ease-out padding;
-  max-width: calc(2160px - (50vw + 12rem));
+  max-width: ${({ page }) =>
+    page === "home" ? "calc(2160px - (50vw + 12rem))" : "none"};
   margin: 0 auto;
+
+  @media (min-width: 1921px) {
+    max-width: none;
+  }
 
   @media only screen and (max-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {

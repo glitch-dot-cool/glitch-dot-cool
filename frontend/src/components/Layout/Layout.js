@@ -23,7 +23,11 @@ const Layout = ({ children, page }) => {
     <Background>
       <GlobalStyles />
       <Wrapper page={page}>
-        <Header toggleDrawer={toggleDrawer} visible={isDrawerOpen} />
+        <Header
+          toggleDrawer={toggleDrawer}
+          visible={isDrawerOpen}
+          page={page}
+        />
         <Drawer visible={isDrawerOpen} />
         <Backdrop visible={isDrawerOpen} closeDrawer={closeDrawer} />
         <Main>{children}</Main>
