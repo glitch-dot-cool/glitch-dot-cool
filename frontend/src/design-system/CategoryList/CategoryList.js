@@ -27,7 +27,22 @@ const Container = styled.div`
 `
 
 const Post = styled(PostRowCard)`
+  padding: 1.5rem;
+
   h2:first-of-type {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  p:first-of-type {
+    font-size: 1.5rem;
+  }
+
+  :hover {
+    background: ${({ theme }) => theme.colors.scale_3} !important;
+
+    h2:first-of-type,
+    p:first-of-type {
+      color: ${({ theme }) => theme.colors.scale_6};
+    }
   }
 `

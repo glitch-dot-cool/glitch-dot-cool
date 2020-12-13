@@ -45,8 +45,6 @@ const IndexPage = ({
 export default IndexPage
 
 const PostsContainer = styled.div`
-  margin-top: 6rem;
-
   :last-child {
     margin-bottom: 2rem;
   }

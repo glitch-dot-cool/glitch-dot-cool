@@ -94,7 +94,9 @@ const Card = styled(Link)`
   }
 `
 
-const Name = styled.h2``
+const Name = styled.h2`
+  color: ${({ theme }) => theme.colors.scale_0} !important;
+`
 
 const MicroCard = styled(Link)``
 
