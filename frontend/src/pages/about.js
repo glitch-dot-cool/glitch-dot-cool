@@ -7,12 +7,36 @@ import { Layout, Head } from "../components/Layout"
 import HoverLink from "../components/About/HoverLink"
 import { Flex, flicker } from "../design-system"
 
+// this function aims to smooth out the initial jerkiness caused by the mouse coord's being
+// initialized to null/0 and then jumping to their real coords by assuming the user clicked on
+// 'about' in the nav, and then using the known screen ratio of it's location to initialize the
+// mouse coords to somewhere closer to where the mouse (hopefully) is. this sucks and i hate it
+// but i can't think of a better way to initialize the mouse coords so fuck it. for now anyway.
+const setInitialCoords = () => {
+  if (typeof window !== "undefined") {
+    const width = window.innerWidth
+    const height = window.innerHeight
+    const X_RATIO = 0.547
+    const Y_RATIO = 0.074
+
+    return {
+      x: width * X_RATIO,
+      y: height * Y_RATIO,
+    }
+  }
+  // hardcoded values for 1080p
+  return {
+    x: 1050,
+    y: 70,
+  }
+}
+
 const About = ({
   data: {
     allImageSharp: { nodes: images },
   },
 }) => {
-  const [coords, setCoords] = useState({ x: null, y: null })
+  const [coords, setCoords] = useState(setInitialCoords())
 
   const handleMouseMove = ({ clientX, clientY }) => {
     setCoords({ x: clientX, y: clientY })
