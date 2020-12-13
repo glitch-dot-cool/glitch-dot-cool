@@ -74,7 +74,8 @@ const Card = styled(Link)`
 
   h2 {
     font-size: ${props =>
-      props.size === "small" ? `1.4rem` : `auto`} !important;
+      props.size === "small" ? `1.4rem` : `calc(14px + 0.5vw)`} !important;
+
     font-weight: ${props => (props.size === "small" ? `400` : `500`)};
   }
 
