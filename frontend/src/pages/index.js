@@ -10,6 +10,12 @@ const IndexPage = ({
     allStrapiPost: { nodes: posts },
   },
 }) => {
+  const releasesAndProjects = posts.filter(
+    post => post.type === "release" || post.type === "project"
+  )
+  const recent = posts.filter(post => post.type === "blog")
+  const communityPosts = posts.filter(post => post.type === "community")
+
   return (
     <Layout page="home">
       <Head title="home" />
@@ -17,18 +23,18 @@ const IndexPage = ({
       <PostsContainer>
         <Projects>projects &amp; releases</Projects>
         <Carousel>
-          {posts.map(post => (
+          {releasesAndProjects.map(post => (
             <PostCard key={post.strapiId} post={post} />
           ))}
         </Carousel>
         <CategoryLists>
           <Category>
             <CategoryHeaders>recent posts</CategoryHeaders>
-            <CategoryList posts={posts} />
+            <CategoryList posts={recent} />
           </Category>
           <Category>
             <CategoryHeaders>community posts</CategoryHeaders>
-            <CategoryList posts={posts} />
+            <CategoryList posts={communityPosts} />
           </Category>
         </CategoryLists>
       </PostsContainer>
