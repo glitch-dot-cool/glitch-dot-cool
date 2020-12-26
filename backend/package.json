@@ -7,7 +7,9 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "test": "echo skipping tests",
+    "pm2-start": "pm2 start npm --name strapi -- run start"
   },
   "devDependencies": {},
   "dependencies": {
