@@ -1,5 +1,8 @@
-# travis-ci
-scripts/*
+############################
+# Travis-CI
+############################
+scripts/strapi-deploy
+scripts/strapi-deploy.pub
 
 ############################
 # OS X
