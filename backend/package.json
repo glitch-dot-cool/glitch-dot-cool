@@ -8,7 +8,8 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "test": "echo skipping tests"
+    "test": "echo skipping tests",
+    "pm2-start": "pm2 start npm --name strapi -- run start"
   },
   "devDependencies": {},
   "dependencies": {
