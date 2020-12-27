@@ -19,9 +19,6 @@ before_install:
 - ssh-add ~/.ssh/strapi-deploy
 - echo -e "Host 45.33.76.67\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
-before_script:
-  - npm i -g pm2
-
 deploy:
 - provider: script
   skip_cleanup: true
