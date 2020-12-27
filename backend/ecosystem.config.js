@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "strapi",
       script: "npm",
-      args: "run pm2-start",
+      args: "start",
       watch: ".",
       watch_delay: 10000,
       ignore_watch: [
