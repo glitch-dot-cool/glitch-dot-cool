@@ -15,9 +15,5 @@ module.exports = {
         "build",
       ],
     },
-    {
-      script: "./service-worker/",
-      watch: ["./service-worker"],
-    },
   ],
 };
