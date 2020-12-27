@@ -10,7 +10,6 @@ addons:
     - 45.33.76.67
 
 before_install:
-- cd backend
 - openssl aes-256-cbc -K $encrypted_651986ed9517_key -iv $encrypted_651986ed9517_iv
   -in scripts/strapi-deploy.enc -out scripts/strapi-deploy -d
 - eval "$(ssh-agent -s)"
@@ -18,9 +17,6 @@ before_install:
 - chmod 600 ~/.ssh/strapi-deploy
 - ssh-add ~/.ssh/strapi-deploy
 - echo -e "Host 45.33.76.67\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-
-before_script:
-  - npm i -g pm2
 
 deploy:
 - provider: script
