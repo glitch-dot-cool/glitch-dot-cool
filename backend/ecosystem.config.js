@@ -5,15 +5,8 @@ module.exports = {
       script: "npm",
       args: "start",
       watch: ".",
-      watch_delay: 10000,
-      ignore_watch: [
-        "node_modules",
-        ".env",
-        "license.txt",
-        "exports",
-        ".cache",
-        "build",
-      ],
+      exp_backoff_restart_delay: 100,
+      ignore_watch: [".cache", "public", ".tmp"],
     },
   ],
 };
