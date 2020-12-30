@@ -4,7 +4,7 @@ module.exports = {
       name: "strapi",
       script: "npm",
       args: "start",
-      watch: ".",
+      watch: true,
       exp_backoff_restart_delay: 100,
       ignore_watch: [".cache", "public", ".tmp"],
     },
