@@ -103,7 +103,13 @@ const Name = styled.h2`
   }
 `
 
-const MicroCard = styled(Link)``
+const MicroCard = styled(Link)`
+  width: calc(14px + 4vw);
+  height: calc(14px + 4vw);
+  max-width: 3rem;
+  max-height: 3rem;
+  margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -20px")};
+`
 
 const Tooltip = styled.span`
   display: ${({ isVisible }) => (isVisible ? "inline" : "none")};
@@ -134,7 +140,6 @@ const MicroAvatar = styled(Avatar)`
   height: calc(14px + 4vw);
   max-width: 3rem;
   max-height: 3rem;
-  margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -20px")};
   box-shadow: 0px 0px 0px 1.25px #fff;
   will-change: transform, opacity;
   transition: 0.1s ease-out transform, opacity;
