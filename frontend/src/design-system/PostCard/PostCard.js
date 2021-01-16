@@ -90,10 +90,6 @@ const CardLink = styled(Link)`
     opacity: 1;
     transform: scale(0.98) translate(0px, 0px);
     box-shadow: 0px 0px 0px ${props => props.theme.colors.box_shadow};
-
-    > div > div {
-      transform: ${({ zoom }) => (zoom === true ? "scale(0)" : null)};
-    }
   }
 `
 
@@ -131,9 +127,9 @@ const Byline = styled(Flex)`
 
   p:first-child {
     font-weight: bold;
+    margin-right: 3.5rem;
   }
 
-  p,
   a {
     margin-right: 0.5rem;
   }

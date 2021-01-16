@@ -40,9 +40,12 @@ const Authors = styled.div`
   margin: 1rem 0 4rem 0;
   align-items: center;
 
-  a,
-  h3 {
+  a {
     margin-right: 1rem;
+  }
+
+  h3 {
+    margin-right: 3.5rem;
   }
 `
 
