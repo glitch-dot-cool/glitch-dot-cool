@@ -34,7 +34,7 @@ const lightTheme = {
     },
   },
   measurements: {
-    footerHeight: 7,
+    footerHeight: 7.5,
     footerHeightMobile: 5,
     breakpointMobileNav: 767,
   },
