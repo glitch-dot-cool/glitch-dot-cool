@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import { chromaticAbberation } from "../design-system"
 
 const GlobalStyles = createGlobalStyle`
     *,
@@ -51,6 +52,16 @@ const GlobalStyles = createGlobalStyle`
         font-size: 2rem;
     }
 
+    a {
+        text-decoration: none;
+
+        :hover {
+            transition: none;
+            color: ${props => props.theme.colors.scale_3};
+            ${chromaticAbberation}
+        }
+    }
+
     pre {
       border-radius: 3px;
       padding: 1.5rem !important;
@@ -63,7 +74,7 @@ const GlobalStyles = createGlobalStyle`
       }
     }
     
-    h1,h2,h3,h4,h5,p,blockquote,li{
+    h1,h2,h3,h4,h5,p,blockquote,li,a {
         color: ${props => props.theme.colors.scale_1};
         transition: 0.6s ease-in-out color;
     }
