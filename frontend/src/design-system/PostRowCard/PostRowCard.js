@@ -8,6 +8,8 @@ import { lightTheme as theme } from "../theme"
 import { setUrl } from "../../utils"
 const { baseMonoMixin } = theme.text
 
+const randomDegree = () => `${Math.floor(Math.random() * 360)}deg`
+
 const PostRowCard = ({ post, className }) => {
   const theme = useContext(ThemeContext)
   const postSlug = setUrl(post, post.authors[0].author_name)
@@ -18,7 +20,13 @@ const PostRowCard = ({ post, className }) => {
     <Link to={postSlug}>
       <Card className={className}>
         <Container align="center" size={size}>
-          <Img fluid={thumbnail} />
+          {thumbnail ? (
+            <Img fluid={thumbnail} />
+          ) : (
+            <PlaceholderImage
+              gradientAngles={[randomDegree(), randomDegree(), randomDegree()]}
+            />
+          )}
           <Subcontainer>
             <Title>{post.title}</Title>
             <Byline align="center">
@@ -120,6 +128,32 @@ const Img = styled(Image)`
   height: 5rem;
   object-fit: cover;
   margin-right: 2rem;
+
+  @media (max-width: 350px) {
+    display: none;
+  }
+`
+
+const PlaceholderImage = styled.div`
+  width: 5rem;
+  height: 5rem;
+  min-width: 5rem;
+  margin-right: 2rem;
+  background-image: ${({ gradientAngles }) => `linear-gradient(
+      ${gradientAngles[0]},
+      rgba(200, 200, 200, 0.8),
+      rgba(200, 200, 200, 0) 70.71%
+    ),
+    linear-gradient(
+       ${gradientAngles[1]},
+      rgba(127, 127, 127, 0.8),
+      rgba(127, 127, 127, 0) 70.71%
+    ),
+    linear-gradient(
+       ${gradientAngles[2]},
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0) 70.71%
+    )`};
 
   @media (max-width: 350px) {
     display: none;

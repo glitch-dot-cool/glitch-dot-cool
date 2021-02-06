@@ -69,12 +69,17 @@ const CategoryHeaders = styled(Title)`
 `
 
 const Category = styled.div`
-  direction: column;
+  max-width: 45vw;
+
+  @media (max-width: 1200px) {
+    max-width: 100%;
+  }
 `
 
 const CategoryLists = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 100%;
 
   @media (max-width: 1200px) {
     flex-direction: column;
