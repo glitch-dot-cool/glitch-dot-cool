@@ -21,6 +21,9 @@ CategoryList.propTypes = {
 export default CategoryList
 
 const Container = styled.div`
+  max-height: 480px;
+  overflow-y: scroll;
+
   a:nth-child(odd) > div {
     background: ${({ theme }) => theme.colors.scale_4};
   }
