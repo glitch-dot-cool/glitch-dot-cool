@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { arrayOf, node } from "prop-types"
 import styled from "styled-components"
 import { useSwipeable } from "react-swipeable"
 
@@ -51,7 +51,9 @@ const Carousel = ({ children }) => {
   )
 }
 
-Carousel.propTypes = {}
+Carousel.propTypes = {
+  children: arrayOf(node),
+}
 
 function reducer(state, { type, numItems }) {
   switch (type) {
@@ -89,9 +91,9 @@ const CarouselContainer = styled.div`
   display: flex;
   transition: ${props => (props.sliding ? "none" : "transform 0.35s ease")};
   transform: ${props => {
-    if (!props.sliding) return "translateX(calc(-100% - 16px))"
-    if (props.dir === PREV) return "translateX(calc(2 * (-100% - 16px)))"
-    return "translateX(0%)"
+    if (!props.sliding) return "translateX(8px)"
+    if (props.dir === PREV) return "translateX(-100%)"
+    return "translateX(100%)"
   }};
 `
 
