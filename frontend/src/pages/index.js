@@ -80,6 +80,7 @@ const CategoryLists = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
+  margin-top: 2rem;
 
   @media (max-width: 1200px) {
     flex-direction: column;
@@ -88,7 +89,7 @@ const CategoryLists = styled.div`
 `
 
 const Projects = styled(Title)`
-  margin-left: calc(20px + (12px + 1.5vw));
+  margin-left: calc(20px + (36px + 1.5vw));
 
   @media only screen and (max-width: 1090px) {
     margin-bottom: 2rem;
