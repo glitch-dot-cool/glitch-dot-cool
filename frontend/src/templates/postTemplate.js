@@ -24,21 +24,29 @@ const postLayout = ({ data: { strapiPost: post } }) => {
       <MarkdownHTML source={post.body} />
 
       <Links>
-        <LinkHeader>links:</LinkHeader>
-        <LinkGroup>
-          {post.links?.map(link => (
-            <Button key={link.id} href={link.url}>
-              {link.title}
-            </Button>
-          ))}
-        </LinkGroup>
+        {post.links?.length ? (
+          <>
+            <LinkHeader>links:</LinkHeader>
+            <LinkGroup>
+              {post.links?.map(link => (
+                <Button key={link.id} href={link.url}>
+                  {link.title}
+                </Button>
+              ))}
+            </LinkGroup>
+          </>
+        ) : null}
 
-        <LinkHeader>tags:</LinkHeader>
-        <LinkGroup>
-          {post.tags?.map(({ tag, id }) => (
-            <Tag key={id}>{tag}</Tag>
-          ))}
-        </LinkGroup>
+        {post.tags?.length ? (
+          <>
+            <LinkHeader>tags:</LinkHeader>
+            <LinkGroup>
+              {post.tags?.map(({ tag, id }) => (
+                <Tag key={id}>{tag}</Tag>
+              ))}
+            </LinkGroup>
+          </>
+        ) : null}
       </Links>
     </Layout>
   )
