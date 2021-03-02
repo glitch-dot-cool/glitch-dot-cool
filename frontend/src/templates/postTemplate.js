@@ -21,7 +21,9 @@ const postLayout = ({ data: { strapiPost: post } }) => {
         publishDate={post.published_date}
       />
 
-      <MarkdownHTML source={post.body} />
+      <PostFormatting>
+        <MarkdownHTML source={post.body} />
+      </PostFormatting>
 
       <Links>
         {post.links?.length ? (
@@ -74,6 +76,13 @@ const LinkGroup = styled.div`
 const LinkHeader = styled.p`
   ${baseMonoMixin}
   font-size: 1.6rem;
+`
+
+const PostFormatting = styled.div`
+  p,
+  pre {
+    margin-bottom: 2rem;
+  }
 `
 
 export const query = graphql`
