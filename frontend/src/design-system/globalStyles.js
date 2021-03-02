@@ -36,13 +36,14 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h6 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+        letter-spacing: -0.5px;
         text-align: center;
         color: ${props => props.theme.colors.scale_2};
         font-weight: 400;
-        font-style: italic;
         opacity: 0.8;
-        margin: 1rem 0;
+        margin: -3rem 0 3rem 0;
+        font-family: Roboto Mono, monospace;
     }
 
     p,

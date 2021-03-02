@@ -4,9 +4,7 @@ import styled, { ThemeContext } from "styled-components"
 import Image from "gatsby-image"
 
 import { Flex, UserCard, Link } from "../index"
-import { lightTheme as theme } from "../theme"
 import { setUrl } from "../../utils"
-const { baseMonoMixin } = theme.text
 
 const randomDegree = () => `${Math.floor(Math.random() * 360)}deg`
 
@@ -30,7 +28,6 @@ const PostRowCard = ({ post, className }) => {
           <Subcontainer>
             <Title>{post.title}</Title>
             <Byline align="center">
-              <p>by</p>
               {post.authors.map((author, index) => (
                 <UserCard
                   size={size}
@@ -41,7 +38,6 @@ const PostRowCard = ({ post, className }) => {
               ))}
             </Byline>
           </Subcontainer>
-          <PublishedDate>{post.published_at}</PublishedDate>
         </Container>
       </Card>
     </Link>
@@ -81,36 +77,14 @@ const Title = styled.h2`
 
 const Container = styled(Flex)``
 
-const PublishedDate = styled.p`
-  ${baseMonoMixin}
-  margin-left: auto;
-  font-size: 1.6rem;
-
-  @media (max-width: 600px) {
-    align-self: flex-start;
-  }
-
-  @media (max-width: 550px) {
-    display: none;
-  }
-`
-
-const Byline = styled(Flex)`
-  p {
-    margin: 0 1rem;
-  }
-
-  @media (max-width: 600px) {
-    p {
-      margin: 0 1rem 0 0;
-    }
-  }
-`
+const Byline = styled(Flex)``
 
 const Subcontainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
 
   > h2,
   a {

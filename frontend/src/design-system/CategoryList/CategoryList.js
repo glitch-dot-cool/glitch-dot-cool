@@ -25,7 +25,7 @@ const Container = styled.div`
   overflow-y: scroll;
 
   a:nth-child(odd) > div {
-    background: ${({ theme }) => theme.colors.scale_4};
+    background: ${({ theme }) => theme.colors.card_odd};
   }
 `
 
@@ -33,7 +33,7 @@ const Post = styled(PostRowCard)`
   padding: 1.5rem;
 
   h2:first-of-type {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   p:first-of-type {

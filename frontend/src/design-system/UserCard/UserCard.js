@@ -71,6 +71,7 @@ const Card = styled(Link)`
   margin-top: ${props => (props.size === "small" ? `0` : `2rem`)};
   border-radius: ${props => (props.size === "small" ? `3px` : `0px`)};
   box-shadow: 0px 3px 5px -5px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 
   h2 {
     font-size: ${props =>

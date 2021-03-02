@@ -112,7 +112,7 @@ export const query = graphql`
         slug
         type
         strapiId
-        published_date(formatString: "MMMM DD, YYYY")
+        published_date(formatString: "M-D-YY")
         authors {
           author_name
           avatar {
