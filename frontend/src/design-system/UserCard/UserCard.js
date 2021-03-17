@@ -116,7 +116,6 @@ const Tooltip = styled.span`
   display: ${({ isVisible }) => (isVisible ? "inline" : "none")};
   position: absolute;
   margin-top: 8px;
-  margin-left: ${({ index }) => (index === 0 ? "0" : "-20px")};
   background-color: black;
   color: white;
   font-family: "Roboto-Mono", monospace;
