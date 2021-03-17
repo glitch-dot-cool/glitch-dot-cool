@@ -53,6 +53,10 @@ const GlobalStyles = createGlobalStyle`
         font-size: 2rem;
     }
 
+    li {
+        margin-left: 20px;
+    }
+
     a {
         text-decoration: none;
 
