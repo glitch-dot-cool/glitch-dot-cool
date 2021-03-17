@@ -60,8 +60,8 @@ const About = ({
         <Wrapper
           lang={`en`}
           style={{
-            transform: `rotate3d(${coords.x}, ${coords.y}, 1, ${
-              coords.x / -100 + coords.y / -100
+            transform: `rotate3d(${coords.y}, ${coords.x}, 1, ${
+              coords.y * -0.05 + coords.x * -0.02
             }deg)`,
           }}
         >
