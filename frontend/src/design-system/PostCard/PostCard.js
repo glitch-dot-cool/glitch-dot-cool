@@ -16,6 +16,7 @@ const PostCard = ({ post, type = "blog", padding, zoom = true }) => {
   const theme = useContext(ThemeContext)
 
   const url = setUrl(post)
+  const avatarSize = post.authors?.length > 2 ? "micro" : "small"
 
   return (
     <CardLink to={url} zoom={zoom}>
@@ -23,12 +24,12 @@ const PostCard = ({ post, type = "blog", padding, zoom = true }) => {
         <TextContainer type={type}>
           <Title>{post.title}</Title>
           <Byline align="center">
-            <p>by</p>
+            <By size={avatarSize}>by</By>
             <Authors>
               {post.authors.map((author, index) => (
                 <UserCard
                   index={index}
-                  size={post.authors.length > 2 ? "micro" : "small"}
+                  size={avatarSize}
                   user={author}
                   color={theme.colors.scale_5}
                 />
@@ -124,16 +125,13 @@ const Title = styled.h2`
 
 const Byline = styled(Flex)`
   margin-top: 1rem;
-
-  p:first-child {
-    font-weight: bold;
-    margin-right: 3.5rem;
-  }
-
-  a {
-    margin-right: 0.5rem;
-  }
 `
+
+const By = styled.p`
+  font-weight: bold;
+  margin-right: ${({ size }) => (size === "micro" ? "3.25rem" : "1.5rem")};
+`
+
 const Authors = styled.div`
   display: flex;
   flex-wrap: wrap;

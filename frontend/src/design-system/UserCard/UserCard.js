@@ -109,7 +109,7 @@ const MicroCard = styled(Link)`
   height: calc(14px + 4vw);
   max-width: 3rem;
   max-height: 3rem;
-  margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -20px")};
+  margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -15px")};
 `
 
 const Tooltip = styled.span`
