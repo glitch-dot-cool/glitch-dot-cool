@@ -69,6 +69,7 @@ const CategoryHeaders = styled(Title)`
 `
 
 const Category = styled.div`
+  min-width: 40%;
   max-width: 35vw;
 
   @media (max-width: 1200px) {
