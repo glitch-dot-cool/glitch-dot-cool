@@ -21,6 +21,11 @@ const profileTemplate = ({
     gallery,
   } = profile
   const avatar = avatarData[0]?.localFile?.childImageSharp?.fluid
+
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.published_date) - new Date(a.published_date)
+  )
+
   return (
     <Layout>
       <Head title={author_name} />
@@ -35,7 +40,7 @@ const profileTemplate = ({
 
         <ProfilePosts
           name={author_name}
-          posts={posts}
+          posts={sortedPosts}
           gallery={gallery}
           path={pathname}
         />
@@ -79,7 +84,7 @@ export const query = graphql`
         slug
         title
         type
-        published_at(formatString: "MMMM DD, YYYY")
+        published_date(formatString: "MMMM DD, YYYY")
       }
       email
       location

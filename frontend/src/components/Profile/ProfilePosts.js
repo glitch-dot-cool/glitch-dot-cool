@@ -20,7 +20,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
               <Post>
                 <Flex direction="column">
                   <h3>{post.title}</h3>
-                  <PublishedAt>{post.published_at}</PublishedAt>
+                  <PublishedAt>{post.published_date}</PublishedAt>
                 </Flex>
                 <Pill type={post.type} />
               </Post>
@@ -38,7 +38,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
               <Post>
                 <Flex direction="column">
                   <h3>{post.title}</h3>
-                  <PublishedAt>{post.published_at}</PublishedAt>
+                  <PublishedAt>{post.published_date}</PublishedAt>
                 </Flex>
                 <Pill type={post.type} />
               </Post>
