@@ -2,7 +2,7 @@ import React from "react"
 import { arrayOf, number, object, shape, string } from "prop-types"
 import styled from "styled-components"
 
-import { Link, Pill } from "../../design-system"
+import { Link, Pill, Flex } from "../../design-system"
 import { slugify, setUrl } from "../../utils"
 import ProfileNav from "./ProfileNav"
 import Gallery from "../Gallery/Gallery"
@@ -18,8 +18,10 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
           .map(post => (
             <Link to={setUrl(post, name)} key={post.id}>
               <Post>
-                <h3>{post.title}</h3>
-                <p>{post.published_at}</p>
+                <Flex direction="column">
+                  <h3>{post.title}</h3>
+                  <PublishedAt>{post.published_at}</PublishedAt>
+                </Flex>
                 <Pill type={post.type} />
               </Post>
             </Link>
@@ -103,8 +105,16 @@ const Post = styled.div`
   }
 
   @media only screen and (max-width: 400px) {
+    padding: 1rem;
     h3 {
       font-size: 1.5rem;
     }
   }
+`
+
+const PublishedAt = styled.p`
+  ${({ theme }) => theme.text.baseMonoMixin}
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  text-transform: lowercase;
 `

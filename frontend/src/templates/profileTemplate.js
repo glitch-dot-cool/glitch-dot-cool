@@ -79,8 +79,8 @@ export const query = graphql`
         slug
         title
         type
+        published_at(formatString: "MMMM DD, YYYY")
       }
-      published_at(formatString: "MMMM DD, YYYY")
       email
       location
       link {
