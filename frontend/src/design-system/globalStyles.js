@@ -71,7 +71,7 @@ const GlobalStyles = createGlobalStyle`
     code {
       span {
         font-family: "Roboto Mono", monospace;
-        font-size: 1.6rem; 
+        font-size: 1.3rem; 
       }
     }
     
