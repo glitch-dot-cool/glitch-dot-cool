@@ -36,8 +36,10 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
               key={post.id}
             >
               <Post>
-                <h3>{post.title}</h3>
-                <p>{post.published_at}</p>
+                <Flex direction="column">
+                  <h3>{post.title}</h3>
+                  <PublishedAt>{post.published_at}</PublishedAt>
+                </Flex>
                 <Pill type={post.type} />
               </Post>
             </Link>
