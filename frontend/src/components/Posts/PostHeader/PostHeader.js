@@ -12,7 +12,7 @@ const PostHeader = ({ title, authors, publishDate }) => {
       <Date>{publishDate.toLowerCase()}</Date>
       <Authors>
         <By size={avatarSize}>by</By>
-        {authors.map((author, index) => (
+        {authors?.map((author, index) => (
           <UserCard
             index={index}
             key={author.id}

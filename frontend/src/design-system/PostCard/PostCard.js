@@ -26,7 +26,7 @@ const PostCard = ({ post, type = "blog", padding, zoom = true }) => {
           <Byline align="center">
             <By size={avatarSize}>by</By>
             <Authors>
-              {post.authors.map((author, index) => (
+              {post.authors?.map((author, index) => (
                 <UserCard
                   index={index}
                   size={avatarSize}
