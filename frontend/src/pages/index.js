@@ -13,7 +13,7 @@ const IndexPage = ({
   const releasesAndProjects = posts.filter(
     post => post.type === "release" || post.type === "project"
   )
-  const recent = posts.filter(post => post.type === "blog")
+  const recent = posts.filter(post => post.type === "blog" && post.authors[0])
   const communityPosts = posts.filter(post => post.type === "community")
 
   return (
