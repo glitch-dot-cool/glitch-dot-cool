@@ -6,21 +6,25 @@ import { UserCard } from "../../../design-system"
 
 const PostHeader = ({ title, authors, publishDate }) => {
   const avatarSize = authors?.length > 2 ? "micro" : "small"
+  const noAuthors = !authors?.length
+
   return (
     <div>
       <h1>{title}</h1>
-      <Date>{publishDate.toLowerCase()}</Date>
-      <Authors>
-        <By size={avatarSize}>by</By>
-        {authors?.map((author, index) => (
-          <UserCard
-            index={index}
-            key={author.id}
-            size={avatarSize}
-            user={author}
-          />
-        ))}
-      </Authors>
+      <Date noAuthors={noAuthors}>{publishDate.toLowerCase()}</Date>
+      {authors?.length ? (
+        <Authors>
+          <By size={avatarSize}>by</By>
+          {authors?.map((author, index) => (
+            <UserCard
+              index={index}
+              key={author.id}
+              size={avatarSize}
+              user={author}
+            />
+          ))}
+        </Authors>
+      ) : null}
     </div>
   )
 }
@@ -48,6 +52,7 @@ const Date = styled.h5`
   letter-spacing: -0.5px;
   color: ${props => props.theme.colors.scale_2};
   opacity: 0.8;
+  margin: ${({ noAuthors }) => noAuthors && "0 0 4rem 0"};
 `
 
 const By = styled.p`
