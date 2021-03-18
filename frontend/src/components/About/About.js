@@ -29,6 +29,18 @@ const setInitialCoords = () => {
   }
 }
 
+const throttle = (callback, interval) => {
+  let enableCall = true
+
+  return function (...args) {
+    if (!enableCall) return
+
+    enableCall = false
+    callback.apply(this, args)
+    setTimeout(() => (enableCall = true), interval)
+  }
+}
+
 const AboutSection = ({ images }) => {
   const [coords, setCoords] = useState(setInitialCoords())
 
@@ -39,7 +51,7 @@ const AboutSection = ({ images }) => {
   useEffect(() => {
     // for SSR
     if (typeof window !== "undefined") {
-      window.addEventListener("mousemove", handleMouseMove)
+      window.addEventListener("mousemove", throttle(handleMouseMove, 12))
 
       return () => {
         window.removeEventListener("mousemove", handleMouseMove)
