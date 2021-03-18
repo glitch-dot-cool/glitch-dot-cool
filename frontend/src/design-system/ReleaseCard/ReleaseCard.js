@@ -20,7 +20,9 @@ const ReleaseCard = ({ post, type = "release", zoom = true }) => {
       case "project":
         return `/projects/${slugify(post.title)}`
       case "blog":
-        return `/${slugify(post.authors[0]?.author_name)}/${slugify(post.title)}`
+        return `/${slugify(post.authors[0]?.author_name)}/${slugify(
+          post.title
+        )}`
       case "release":
         return `/${slugify(post.authors[0]?.author_name)}/releases/${slugify(
           post.title
@@ -42,6 +44,7 @@ const ReleaseCard = ({ post, type = "release", zoom = true }) => {
             <Authors>
               {post.authors?.map((author, index) => (
                 <UserCard
+                  key={author.id}
                   index={index}
                   size={post.authors?.length > 2 ? "micro" : "small"}
                   user={author}
