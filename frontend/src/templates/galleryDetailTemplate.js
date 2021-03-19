@@ -23,7 +23,6 @@ const galleryDetailTemplate = ({
 
   const avatar = avatarData[0]?.localFile?.childImageSharp?.fluid
   const image = item.childImageSharp.fluid
-  console.log(description, link, title)
   return (
     <Layout>
       <Head title={`${author_name} - ${title}`} />
@@ -37,7 +36,6 @@ const galleryDetailTemplate = ({
             name={author_name}
           ></ProfileInfo>
           <GalleryDetails
-            galleryItem={item}
             author={author_name}
             prev={prev}
             next={next}
