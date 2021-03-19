@@ -5,9 +5,15 @@ import { Link, navigate } from "gatsby"
 import { slugify } from "../../utils"
 import { Flex } from "../../design-system"
 
-const GalleryDetails = ({ galleryItem, author, prev, next }) => {
-  const { title, description } = galleryItem
-
+const GalleryDetails = ({
+  galleryItem,
+  author,
+  prev,
+  next,
+  description,
+  link,
+  title,
+}) => {
   const goToPreviousItem = () => {
     navigate(`/${slugify(author)}/gallery/${slugify(prev.title)}`)
   }
@@ -23,6 +29,7 @@ const GalleryDetails = ({ galleryItem, author, prev, next }) => {
         break
       case "ArrowRight":
         goToNextItem()
+        break
       default:
         break
     }

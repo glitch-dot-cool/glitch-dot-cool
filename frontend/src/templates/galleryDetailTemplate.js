@@ -10,7 +10,7 @@ import GalleryDetails from "../components/Gallery/GalleryDetail"
 import { Flex } from "../design-system"
 
 const galleryDetailTemplate = ({
-  pageContext: { item, title, next, prev },
+  pageContext: { item, title, next, prev, description, link },
   data: { strapiAuthor: profile },
 }) => {
   const {
@@ -23,7 +23,7 @@ const galleryDetailTemplate = ({
 
   const avatar = avatarData[0]?.localFile?.childImageSharp?.fluid
   const image = item.childImageSharp.fluid
-  console.log(item)
+  console.log(description, link, title)
   return (
     <Layout>
       <Head title={`${author_name} - ${title}`} />
@@ -41,9 +41,13 @@ const galleryDetailTemplate = ({
             author={author_name}
             prev={prev}
             next={next}
+            description={description}
+            title={title}
           />
         </Flex>
-        <GalleryItem fluid={image} />
+        <Link href={link} target="_blank" rel="noopener noreferrer">
+          <GalleryItem fluid={image} link={link} />
+        </Link>
       </ProfileWrapper>
     </Layout>
   )
@@ -69,6 +73,15 @@ const ProfileWrapper = styled.div`
 
 const GalleryItem = styled(Image)`
   width: 100%;
+`
+
+const Link = styled.a`
+  display: inline-block;
+  width: 100%;
+
+  :hover ${GalleryItem} {
+    opacity: ${({ href }) => href && "0.8"};
+  }
 `
 
 export const query = graphql`
