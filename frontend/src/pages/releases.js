@@ -10,12 +10,14 @@ const releases = ({
     allStrapiPost: { nodes: releases },
   },
 }) => {
+  const safeReleases = releases.filter(release => release.authors?.length)
+
   return (
     <Layout>
       <Head title="releases" />
       <Title>releases</Title>
       <PostsContainer>
-        {releases.map(release => (
+        {safeReleases.map(release => (
           <ReleaseCard
             post={release}
             type="release"
