@@ -109,14 +109,13 @@ const MicroCard = styled(Link)`
   height: calc(14px + 4vw);
   max-width: 3rem;
   max-height: 3rem;
-  margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -20px")};
+  margin: ${({ index }) => (index === 0 ? "0" : "0 0 0 -15px")};
 `
 
 const Tooltip = styled.span`
   display: ${({ isVisible }) => (isVisible ? "inline" : "none")};
   position: absolute;
   margin-top: 8px;
-  margin-left: ${({ index }) => (index === 0 ? "0" : "-20px")};
   background-color: black;
   color: white;
   font-family: "Roboto-Mono", monospace;

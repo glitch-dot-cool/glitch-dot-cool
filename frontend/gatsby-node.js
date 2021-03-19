@@ -107,6 +107,8 @@ exports.createPages = async ({ graphql, actions }) => {
           id: profile.id,
           item: item.item.localFile,
           title: item.title,
+          description: item.description,
+          link: item.link,
           prev:
             profile.gallery[index - 1] ||
             profile.gallery[profile.gallery.length - 1],

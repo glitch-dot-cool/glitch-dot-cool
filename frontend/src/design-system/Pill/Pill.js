@@ -7,7 +7,7 @@ const Pill = ({ type }) => {
 }
 
 Pill.propTypes = {
-  type: oneOf(["project", "blog"]),
+  type: oneOf(["project", "blog", "release"]),
 }
 
 export default Pill

@@ -10,8 +10,8 @@ const randomDegree = () => `${Math.floor(Math.random() * 360)}deg`
 
 const PostRowCard = ({ post, className }) => {
   const theme = useContext(ThemeContext)
-  const postSlug = setUrl(post, post.authors[0].author_name)
-  const size = post.authors.length > 2 ? "micro" : "small"
+  const postSlug = setUrl(post, post.authors[0]?.author_name)
+  const size = post.authors?.length > 2 ? "micro" : "small"
   const thumbnail = post?.thumbnail?.localFile?.childImageSharp?.fluid
 
   return (
@@ -28,7 +28,7 @@ const PostRowCard = ({ post, className }) => {
           <Subcontainer>
             <Title>{post.title}</Title>
             <Byline align="center">
-              {post.authors.map((author, index) => (
+              {post.authors?.map((author, index) => (
                 <UserCard
                   size={size}
                   index={index}

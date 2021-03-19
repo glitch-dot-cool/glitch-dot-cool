@@ -13,7 +13,7 @@ const IndexPage = ({
   const releasesAndProjects = posts.filter(
     post => post.type === "release" || post.type === "project"
   )
-  const recent = posts.filter(post => post.type === "blog")
+  const recent = posts.filter(post => post.type === "blog" && post.authors[0])
   const communityPosts = posts.filter(post => post.type === "community")
 
   return (
@@ -69,6 +69,7 @@ const CategoryHeaders = styled(Title)`
 `
 
 const Category = styled.div`
+  min-width: 40%;
   max-width: 35vw;
 
   @media (max-width: 1200px) {

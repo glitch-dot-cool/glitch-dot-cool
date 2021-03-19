@@ -5,7 +5,7 @@ const slugify = string => {
 
   return (
     string
-      .toString()
+      ?.toString()
       .toLowerCase()
       .replace(/\s+/g, "-") // Replace spaces with -
       .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters

@@ -5,9 +5,7 @@ import { Link, navigate } from "gatsby"
 import { slugify } from "../../utils"
 import { Flex } from "../../design-system"
 
-const GalleryDetails = ({ galleryItem, author, prev, next }) => {
-  const { title, description } = galleryItem
-
+const GalleryDetails = ({ author, prev, next, description, title }) => {
   const goToPreviousItem = () => {
     navigate(`/${slugify(author)}/gallery/${slugify(prev.title)}`)
   }
@@ -23,6 +21,7 @@ const GalleryDetails = ({ galleryItem, author, prev, next }) => {
         break
       case "ArrowRight":
         goToNextItem()
+        break
       default:
         break
     }
@@ -41,17 +40,17 @@ const GalleryDetails = ({ galleryItem, author, prev, next }) => {
       <h3>{title}</h3>
       <Description>{description}</Description>
 
-      <Flex justify="space-between">
+      <NavContainer justify="space-between">
         <Link to={`/${slugify(author)}/gallery/${slugify(prev.title)}`}>
-          <BackButton>prev</BackButton>
+          <Button>prev</Button>
         </Link>
         <Link to={`/${slugify(author)}/gallery/${slugify(next.title)}`}>
-          <BackButton>next</BackButton>
+          <Button>next</Button>
         </Link>
-      </Flex>
+      </NavContainer>
 
       <Link to={`/${slugify(author)}/gallery`}>
-        <BackButton>back</BackButton>
+        <Button>back</Button>
       </Link>
     </DetailsContainer>
   )
@@ -98,7 +97,7 @@ const StyledButton = styled.button`
   }
 `
 
-const BackButton = styled(StyledButton)`
+const Button = styled(StyledButton)`
   padding: 0.5rem 1rem;
   background-color: ${props => props.theme.colors.scale_4};
   color: ${props => props.theme.colors.scale_3};
@@ -107,5 +106,13 @@ const BackButton = styled(StyledButton)`
 
   :hover {
     color: ${props => props.theme.colors.scale_6};
+  }
+`
+
+const NavContainer = styled(Flex)`
+  a:first-of-type {
+    @media only screen and (max-width: 960px) {
+      margin-right: 2rem;
+    }
   }
 `

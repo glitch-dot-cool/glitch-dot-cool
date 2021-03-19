@@ -7,6 +7,8 @@ query {
       gallery {
         id
         title
+        description
+        link
         item {
           localFile {
             childImageSharp {

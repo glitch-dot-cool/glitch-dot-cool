@@ -5,21 +5,26 @@ import styled from "styled-components"
 import { UserCard } from "../../../design-system"
 
 const PostHeader = ({ title, authors, publishDate }) => {
+  const avatarSize = authors?.length > 2 ? "micro" : "small"
+  const noAuthors = !authors?.length
+
   return (
     <div>
       <h1>{title}</h1>
-      <Date>{publishDate.toLowerCase()}</Date>
-      <Authors>
-        <h3>by</h3>
-        {authors.map((author, index) => (
-          <UserCard
-            index={index}
-            key={author.id}
-            size={authors.length > 3 ? "micro" : "small"}
-            user={author}
-          />
-        ))}
-      </Authors>
+      <Date noAuthors={noAuthors}>{publishDate.toLowerCase()}</Date>
+      {authors?.length ? (
+        <Authors>
+          <By size={avatarSize}>by</By>
+          {authors?.map((author, index) => (
+            <UserCard
+              index={index}
+              key={author.id}
+              size={avatarSize}
+              user={author}
+            />
+          ))}
+        </Authors>
+      ) : null}
     </div>
   )
 }
@@ -39,14 +44,6 @@ const Authors = styled.div`
   display: flex;
   margin: 1rem 0 4rem 0;
   align-items: center;
-
-  a {
-    margin-right: 1rem;
-  }
-
-  h3 {
-    margin-right: 3.5rem;
-  }
 `
 
 const Date = styled.h5`
@@ -55,4 +52,10 @@ const Date = styled.h5`
   letter-spacing: -0.5px;
   color: ${props => props.theme.colors.scale_2};
   opacity: 0.8;
+  margin: ${({ noAuthors }) => noAuthors && "0 0 4rem 0"};
+`
+
+const By = styled.p`
+  font-weight: bold;
+  margin-right: ${({ size }) => (size === "micro" ? "3.25rem" : "1.5rem")};
 `

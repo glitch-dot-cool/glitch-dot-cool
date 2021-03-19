@@ -1,10 +1,17 @@
-import React from "react"
+import React, { useContext } from "react"
+import { ThemeContext } from "styled-components"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { atelierSavannaDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import {
+  stackoverflowDark,
+  stackoverflowLight,
+} from "react-syntax-highlighter/dist/esm/styles/hljs"
 
 const CodeBlock = ({ language, value }) => {
+  const currentTheme = useContext(ThemeContext)
+  const codeTheme = currentTheme.isDark ? stackoverflowDark : stackoverflowLight
+
   return (
-    <SyntaxHighlighter language={language} style={atelierSavannaDark}>
+    <SyntaxHighlighter language={language} style={codeTheme}>
       {value}
     </SyntaxHighlighter>
   )

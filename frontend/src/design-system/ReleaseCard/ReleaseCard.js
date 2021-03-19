@@ -20,9 +20,11 @@ const ReleaseCard = ({ post, type = "release", zoom = true }) => {
       case "project":
         return `/projects/${slugify(post.title)}`
       case "blog":
-        return `/${slugify(post.authors[0].author_name)}/${slugify(post.title)}`
+        return `/${slugify(post.authors[0]?.author_name)}/${slugify(
+          post.title
+        )}`
       case "release":
-        return `/${slugify(post.authors[0].author_name)}/releases/${slugify(
+        return `/${slugify(post.authors[0]?.author_name)}/releases/${slugify(
           post.title
         )}`
       case "community":
@@ -40,10 +42,11 @@ const ReleaseCard = ({ post, type = "release", zoom = true }) => {
           <Byline align="center">
             <p>by</p>
             <Authors>
-              {post.authors.map((author, index) => (
+              {post.authors?.map((author, index) => (
                 <UserCard
+                  key={author.id}
                   index={index}
-                  size={post.authors.length > 2 ? "micro" : "small"}
+                  size={post.authors?.length > 2 ? "micro" : "small"}
                   user={author}
                   color={theme.colors.scale_5}
                 />
