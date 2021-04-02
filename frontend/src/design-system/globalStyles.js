@@ -36,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h6 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         letter-spacing: -0.5px;
         text-align: center;
         color: ${props => props.theme.colors.scale_2};
@@ -70,12 +70,14 @@ const GlobalStyles = createGlobalStyle`
     pre {
       border-radius: 3px;
       padding: 1.5rem !important;
+      margin-bottom: 2rem !important;
     }
 
     code {
       span {
         font-family: "Roboto Mono", monospace;
         font-size: 1.3rem; 
+        line-height: 1.4;
       }
     }
     
@@ -119,6 +121,10 @@ const GlobalStyles = createGlobalStyle`
 
         iframe.youtube {
         min-height: 40rem;
+    }
+
+    video {
+        margin-bottom: 2rem;
     }
 
     :root {
