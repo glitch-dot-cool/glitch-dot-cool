@@ -8,7 +8,7 @@ const CategoryList = ({ posts }) => {
   return (
     <Container>
       {posts.map(post => (
-        <Post key={post.id} post={post} />
+        <Post key={post.strapiId} post={post} />
       ))}
     </Container>
   )
