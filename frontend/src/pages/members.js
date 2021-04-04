@@ -62,7 +62,9 @@ const Members = () => {
       })
   }
 
-  const members = sortByRecency(data.allStrapiAuthor.nodes)
+  const members = sortByRecency(data.allStrapiAuthor.nodes).filter(
+    author => author.posts.length
+  )
 
   return (
     <Layout>
