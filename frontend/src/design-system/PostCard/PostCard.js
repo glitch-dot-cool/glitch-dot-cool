@@ -1,11 +1,17 @@
 import React, { useContext } from "react"
-import { arrayOf, number, object, oneOf, shape, string } from "prop-types"
+import { arrayOf, bool, number, object, oneOf, shape, string } from "prop-types"
 import styled, { ThemeContext } from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { Flex, Link, UserCard } from ".."
 import { setUrl } from "../../utils"
 
-const PostCard = ({ post, type = "blog", padding, zoom = true }) => {
+const PostCard = ({
+  post,
+  type = "blog",
+  padding,
+  zoom = true,
+  shrink = true,
+}) => {
   const {
     thumbnail: {
       localFile: {
@@ -19,7 +25,7 @@ const PostCard = ({ post, type = "blog", padding, zoom = true }) => {
   const avatarSize = post.authors?.length > 2 ? "micro" : "small"
 
   return (
-    <CardLink to={url} zoom={zoom}>
+    <CardLink to={url} zoom={zoom} shrink={shrink}>
       <Card fluid={thumbnail} padding={padding} type={type}>
         <TextContainer type={type}>
           <Title>{post.title}</Title>
@@ -53,6 +59,8 @@ PostCard.propTypes = {
   }),
   type: oneOf(["blog", "project", "release", "community"]).isRequired,
   padding: string,
+  zoom: bool,
+  shrink: bool,
 }
 
 export default PostCard
@@ -89,7 +97,7 @@ const CardLink = styled(Link)`
 
   :active {
     opacity: 1;
-    transform: scale(0.98) translate(0px, 0px);
+    transform: ${({ shrink }) => shrink && `scale(0.98) translate(0px, 0px)`};
     box-shadow: 0px 0px 0px ${props => props.theme.colors.box_shadow};
   }
 `
