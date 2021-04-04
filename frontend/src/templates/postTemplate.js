@@ -80,10 +80,12 @@ const Links = styled.div`
 
 const LinkGroup = styled.div`
   display: flex;
-  margin: 1rem 0 2rem 0;
+  flex-wrap: wrap;
+  margin: 1rem 0 1rem 0;
 
   a {
     margin-right: 1rem;
+    margin-bottom: 1rem;
   }
 `
 
