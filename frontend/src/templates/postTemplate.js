@@ -14,42 +14,44 @@ const { baseMonoMixin } = theme.text
 const postLayout = ({ data: { strapiPost: post } }) => {
   return (
     <Layout>
-      <Head title={post.title} />
-      <PostHeader
-        authors={post.authors}
-        title={post.title}
-        publishDate={post.published_date}
-      />
+      <PostLayout>
+        <Head title={post.title} />
+        <PostHeader
+          authors={post.authors}
+          title={post.title}
+          publishDate={post.published_date}
+        />
 
-      <PostFormatting>
-        <MarkdownHTML source={post.body} />
-      </PostFormatting>
+        <PostFormatting>
+          <MarkdownHTML source={post.body} />
+        </PostFormatting>
 
-      <Links>
-        {post.links?.length ? (
-          <>
-            <LinkHeader>links:</LinkHeader>
-            <LinkGroup>
-              {post.links?.map(link => (
-                <Button key={link.id} href={link.url}>
-                  {link.title}
-                </Button>
-              ))}
-            </LinkGroup>
-          </>
-        ) : null}
+        <Links>
+          {post.links?.length ? (
+            <>
+              <LinkHeader>links:</LinkHeader>
+              <LinkGroup>
+                {post.links?.map(link => (
+                  <Button key={link.id} href={link.url}>
+                    {link.title}
+                  </Button>
+                ))}
+              </LinkGroup>
+            </>
+          ) : null}
 
-        {post.tags?.length ? (
-          <>
-            <LinkHeader>tags:</LinkHeader>
-            <LinkGroup>
-              {post.tags?.map(({ tag, id }) => (
-                <Tag key={id}>{tag}</Tag>
-              ))}
-            </LinkGroup>
-          </>
-        ) : null}
-      </Links>
+          {post.tags?.length ? (
+            <>
+              <LinkHeader>tags:</LinkHeader>
+              <LinkGroup>
+                {post.tags?.map(({ tag, id }) => (
+                  <Tag key={id}>{tag}</Tag>
+                ))}
+              </LinkGroup>
+            </>
+          ) : null}
+        </Links>
+      </PostLayout>
     </Layout>
   )
 }
@@ -59,6 +61,18 @@ postLayout.propTypes = {
 }
 
 export default postLayout
+
+const PostLayout = styled.div`
+  display: block;
+  width: calc(1920px - (65vw));
+  margin: 0 auto;
+  max-width: 100%;
+  transition: 0.2s ease-out all;
+
+  @media only screen and (min-width: 1921px) {
+    min-width: 600px;
+  }
+`
 
 const Links = styled.div`
   margin-top: 2rem;
