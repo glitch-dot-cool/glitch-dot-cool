@@ -87,16 +87,21 @@ const CategoryLists = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 6rem;
 
   @media (max-width: 1200px) {
     flex-direction: column;
     justify-content: center;
   }
+
+  @media only screen and (max-width: 1200px) {
+    margin-top: 0;
+  }
 `
 
 const Projects = styled(Title)`
   margin-left: calc(20px + (36px + 1.5vw));
+  margin-top: 4rem;
 
   @media only screen and (max-width: 1090px) {
     margin-bottom: 2rem;

@@ -72,6 +72,7 @@ const Card = styled(Link)`
   border-radius: ${props => (props.size === "small" ? `3px` : `0px`)};
   box-shadow: 0px 3px 5px -5px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
+  margin-right: ${({ size }) => size === "small" && "1rem"};
 
   h2 {
     font-size: ${props =>

@@ -8,7 +8,7 @@ import { setUrl } from "../../utils"
 
 const randomDegree = () => `${Math.floor(Math.random() * 360)}deg`
 
-const PostRowCard = ({ post, className }) => {
+const PostRowCard = React.memo(({ post, className }) => {
   const theme = useContext(ThemeContext)
   const postSlug = setUrl(post, post.authors[0]?.author_name)
   const size = post.authors?.length > 2 ? "micro" : "small"
@@ -42,7 +42,7 @@ const PostRowCard = ({ post, className }) => {
       </Card>
     </Link>
   )
-}
+})
 
 PostRowCard.propTypes = {
   post: shape({
