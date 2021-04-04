@@ -143,6 +143,7 @@ const Byline = styled(Flex)`
 
   p:first-child {
     font-weight: bold;
+    margin-right: 2.5rem;
   }
 
   p,
