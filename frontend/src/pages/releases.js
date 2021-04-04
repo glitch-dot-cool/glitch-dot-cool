@@ -16,7 +16,7 @@ const releases = ({
     <Layout>
       <Head title="releases" />
       <Title>releases</Title>
-      <PostsContainer>
+      <PostsContainer releaseCount={safeReleases?.length}>
         {safeReleases.map(release => (
           <ReleaseCard
             post={release}
@@ -33,17 +33,27 @@ const releases = ({
 
 export default releases
 
+const setColumns = numReleases => {
+  switch (numReleases) {
+    case 1:
+    case 2:
+      return "repeat(2, 1fr)"
+    default:
+      return "repeat(3, 1fr)"
+  }
+}
+
 const PostsContainer = styled.div`
   margin: 4rem 0 6rem 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: ${({ releaseCount }) => setColumns(releaseCount)};
   grid-gap: 2rem;
 
   @media only screen and (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `

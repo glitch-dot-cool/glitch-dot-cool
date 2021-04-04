@@ -14,17 +14,8 @@ const Image = ({ src, alt }) => {
 export default Image
 
 const Img = styled.img`
-  max-width: 50%;
+  max-width: 100%;
   margin: 3rem 0;
-  transition: 300ms ease-out max-width;
-
-  @media (max-width: 900px) {
-    max-width: 75%;
-  }
-
-  @media (max-width: 600px) {
-    max-width: 100%;
-  }
 `
 
 const Wrapper = styled.div`

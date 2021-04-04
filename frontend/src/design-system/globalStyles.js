@@ -123,7 +123,7 @@ const GlobalStyles = createGlobalStyle`
         min-height: 40rem;
     }
 
-    video {
+    video, ul, ol {
         margin-bottom: 2rem;
     }
 
