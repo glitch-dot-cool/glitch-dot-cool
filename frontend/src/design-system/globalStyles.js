@@ -97,6 +97,10 @@ const GlobalStyles = createGlobalStyle`
         padding: 0.5em 10px;
     }
 
+    blockquote p {
+        font-size: 1.4rem;
+    }
+
     blockquote:before {
         color: ${props => props.theme.colors.scale_1};
         content: open-quote;
@@ -125,6 +129,10 @@ const GlobalStyles = createGlobalStyle`
 
     video, ul, ol {
         margin-bottom: 2rem;
+    }
+
+    audio {
+        margin: 2rem 0;
     }
 
     :root {
