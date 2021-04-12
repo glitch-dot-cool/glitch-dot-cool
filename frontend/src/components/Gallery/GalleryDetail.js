@@ -59,6 +59,8 @@ const GalleryDetails = ({ author, prev, next, description, title }) => {
 export default GalleryDetails
 
 const DetailsContainer = styled.div`
+  position: sticky;
+  top: 43.5rem;
   display: flex;
   width: calc(100% - 6rem);
   flex-direction: column;
