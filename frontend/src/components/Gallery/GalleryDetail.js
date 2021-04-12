@@ -105,6 +105,7 @@ const Button = styled(StyledButton)`
   color: ${props => props.theme.colors.scale_3};
   margin-top: 2rem;
   width: 100%;
+  border: 1px solid ${({ theme }) => theme.colors.scale_6};
 
   :hover {
     color: ${props => props.theme.colors.scale_6};
