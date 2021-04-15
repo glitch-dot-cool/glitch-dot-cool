@@ -32,10 +32,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
         posts
           .filter(post => post.type === "release")
           .map(post => (
-            <Link
-              to={`/${slugify(name)}/releases/${slugify(post.title)}`}
-              key={post.id}
-            >
+            <Link to={`/releases/${slugify(post.title)}`} key={post.id}>
               <Post>
                 <Flex direction="column">
                   <h3>{post.title}</h3>
