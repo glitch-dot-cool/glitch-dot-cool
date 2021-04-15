@@ -21,7 +21,7 @@ const UserCard = ({
   if (size === "micro") {
     return (
       <MicroCard
-        to={`/${slugify(name)}/posts`}
+        to={`/${slugify(name)}`}
         color={color}
         onMouseOver={() => setIsTooltipVisible(true)}
         onMouseOut={() => setIsTooltipVisible(false)}
@@ -35,7 +35,7 @@ const UserCard = ({
   }
 
   return (
-    <Card size={size} to={`/${slugify(name)}/posts`} color={color}>
+    <Card size={size} to={`/${slugify(name)}`} color={color}>
       <Flex
         align="center"
         justify="space-between"

@@ -12,7 +12,8 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
     <PostsContainer>
       <ProfileNav name={name} gallery={gallery} posts={posts} />
 
-      {path.includes("posts") &&
+      {!path.includes("releases") &&
+        !path.includes("gallery") &&
         posts
           .filter(post => post.type !== "release")
           .map(post => (
