@@ -42,14 +42,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // create release pages
   releases.data.allStrapiPost.nodes.forEach(release => {
-    release.authors.forEach(author => {
-      createPage({
-        component: postTemplate,
-        path: `${slugify(author.author_name)}/releases/${slugify(
-          release.title
-        )}`,
-        context: { id: release.id },
-      })
+    createPage({
+      component: postTemplate,
+      path: `releases/${slugify(release.title)}`,
+      context: { id: release.id },
     })
   })
 

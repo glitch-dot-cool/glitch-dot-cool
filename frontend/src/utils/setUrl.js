@@ -8,7 +8,7 @@ const setUrl = (post, name) => {
     case "blog":
       return `/${slugify(author)}/${slugify(post.title)}`
     case "release":
-      return `/${slugify(author)}/releases/${slugify(post.title)}`
+      return `/releases/${slugify(post.title)}`
     case "community":
       return `/${slugify(post.title)}`
   }

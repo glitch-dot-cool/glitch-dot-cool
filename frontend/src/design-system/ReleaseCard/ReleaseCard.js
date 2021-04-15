@@ -3,7 +3,7 @@ import { arrayOf, number, object, oneOf, shape, string } from "prop-types"
 import styled, { ThemeContext } from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { Flex, Link, UserCard } from ".."
-import { slugify } from "../../utils"
+import { setUrl } from "../../utils"
 
 const ReleaseCard = ({ post, type = "release", zoom = true }) => {
   const {
@@ -14,23 +14,6 @@ const ReleaseCard = ({ post, type = "release", zoom = true }) => {
     },
   } = post
   const theme = useContext(ThemeContext)
-
-  const setUrl = post => {
-    switch (post.type) {
-      case "project":
-        return `/projects/${slugify(post.title)}`
-      case "blog":
-        return `/${slugify(post.authors[0]?.author_name)}/${slugify(
-          post.title
-        )}`
-      case "release":
-        return `/${slugify(post.authors[0]?.author_name)}/releases/${slugify(
-          post.title
-        )}`
-      case "community":
-        return `${slugify(post.title)}`
-    }
-  }
 
   const url = setUrl(post)
 
