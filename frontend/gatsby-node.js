@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
   communityPosts.data.allStrapiPost.nodes.forEach(post => {
     createPage({
       component: postTemplate,
-      path: `${slugify(post.title)}`,
+      path: `community/${slugify(post.title)}`,
       context: { id: post.id },
     })
   })

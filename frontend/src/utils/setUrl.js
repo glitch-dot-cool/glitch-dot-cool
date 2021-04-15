@@ -10,7 +10,7 @@ const setUrl = (post, name) => {
     case "release":
       return `/releases/${slugify(post.title)}`
     case "community":
-      return `/${slugify(post.title)}`
+      return `/community/${slugify(post.title)}`
   }
 }
 
