@@ -123,6 +123,7 @@ const Tooltip = styled.span`
   font-weight: 100;
   font-size: 1.3rem;
   z-index: 2;
+  pointer-events: none;
 
   :hover + div {
     transform: scale(1.2);
