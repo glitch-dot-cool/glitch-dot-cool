@@ -102,6 +102,14 @@ const CarouselContainer = styled.div`
     if (props.dir === PREV) return "translateX(-200%)"
     return "translateX(0%)"
   }};
+
+  @media (max-width: 1100px) {
+    transform: ${props => {
+      if (!props.sliding) return "translateX(calc(-100% - 15px))"
+      if (props.dir === PREV) return "translateX(-200%)"
+      return "translateX(0%)"
+    }};
+  }
 `
 
 const Wrapper = styled.div`
@@ -116,8 +124,8 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(1, 100%);
   }
 
-  @media only screen and (max-width: 1090px) {
-    padding: 0;
+  @media only screen and (max-width: 1100px) {
+    margin: 0;
   }
 `
 
