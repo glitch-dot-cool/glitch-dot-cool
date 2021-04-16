@@ -14,6 +14,9 @@ const IndexPage = ({
     .filter(post => post.type === "release" || post.type === "project")
     .filter((_, idx) => idx <= 20)
 
+  // rotate array by one element to account for carousel offset
+  releasesAndProjects.unshift(releasesAndProjects.pop())
+
   const recent = posts
     .filter(post => post.type === "blog" && post.authors[0])
     .filter((_, idx) => idx <= 50)

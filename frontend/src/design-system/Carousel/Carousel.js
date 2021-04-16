@@ -38,7 +38,7 @@ const Carousel = ({ children }) => {
             {React.Children.map(children, (child, index) => {
               return (
                 <CarouselItem
-                  key={index}
+                  key={child.key}
                   order={getOrder({ index, pos: state.pos, numItems })}
                 >
                   {child}
@@ -98,9 +98,9 @@ const CarouselContainer = styled.div`
   display: flex;
   transition: ${props => (props.sliding ? "none" : "transform 0.35s ease")};
   transform: ${props => {
-    if (!props.sliding) return "translateX(8px)"
-    if (props.dir === PREV) return "translateX(-100%)"
-    return "translateX(100%)"
+    if (!props.sliding) return "translateX(calc(-100% - 24px))"
+    if (props.dir === PREV) return "translateX(-200%)"
+    return "translateX(0%)"
   }};
 `
 
@@ -108,7 +108,7 @@ const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
   display: grid;
-  padding: 2rem;
+  margin: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
 
   @media only screen and (max-width: ${props =>
