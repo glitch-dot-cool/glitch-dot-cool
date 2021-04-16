@@ -30,24 +30,31 @@ const Carousel = ({ children }) => {
   })
 
   return (
-    <StyledCarousel {...handlers}>
-      <TransportChevron type={PREV} onClick={() => slide(PREV)} />
-      <Wrapper>
-        <CarouselContainer dir={state.dir} sliding={state.sliding}>
-          {React.Children.map(children, (child, index) => {
-            return (
-              <CarouselItem
-                key={index}
-                order={getOrder({ index, pos: state.pos, numItems })}
-              >
-                {child}
-              </CarouselItem>
-            )
-          })}
-        </CarouselContainer>
-      </Wrapper>
-      <TransportChevron type={NEXT} onClick={() => slide(NEXT)} />
-    </StyledCarousel>
+    <>
+      <StyledCarousel {...handlers}>
+        <TransportChevron type={PREV} onClick={() => slide(PREV)} />
+        <Wrapper>
+          <CarouselContainer dir={state.dir} sliding={state.sliding}>
+            {React.Children.map(children, (child, index) => {
+              return (
+                <CarouselItem
+                  key={child.key}
+                  order={getOrder({ index, pos: state.pos, numItems })}
+                >
+                  {child}
+                </CarouselItem>
+              )
+            })}
+          </CarouselContainer>
+        </Wrapper>
+        <TransportChevron type={NEXT} onClick={() => slide(NEXT)} />
+      </StyledCarousel>
+      <CarouselIndicators>
+        {React.Children.map(children, (_, index) => {
+          return <Circle index={index} current={state.pos} />
+        })}
+      </CarouselIndicators>
+    </>
   )
 }
 
@@ -91,17 +98,25 @@ const CarouselContainer = styled.div`
   display: flex;
   transition: ${props => (props.sliding ? "none" : "transform 0.35s ease")};
   transform: ${props => {
-    if (!props.sliding) return "translateX(8px)"
-    if (props.dir === PREV) return "translateX(-100%)"
-    return "translateX(100%)"
+    if (!props.sliding) return "translateX(calc(-100% - 24px))"
+    if (props.dir === PREV) return "translateX(-200%)"
+    return "translateX(0%)"
   }};
+
+  @media (max-width: 1100px) {
+    transform: ${props => {
+      if (!props.sliding) return "translateX(calc(-100% - 15px))"
+      if (props.dir === PREV) return "translateX(-200%)"
+      return "translateX(0%)"
+    }};
+  }
 `
 
 const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
   display: grid;
-  padding: 2rem;
+  margin: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
 
   @media only screen and (max-width: ${props =>
@@ -109,8 +124,8 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(1, 100%);
   }
 
-  @media only screen and (max-width: 1090px) {
-    padding: 0;
+  @media only screen and (max-width: 1100px) {
+    margin: 0;
   }
 `
 
@@ -135,5 +150,27 @@ const CarouselItem = styled.div`
       props.theme.measurements.breakpointMobileNav}px) {
     flex-basis: 95vw;
     transform: scale(1) translate(-10px, 0px);
+  }
+`
+
+const Circle = styled.div`
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: ${({ theme, index, current }) =>
+    index === current ? theme.colors.scale_1 : theme.colors.scale_3};
+
+  :not(:last-child) {
+    margin-right: 3px;
+  }
+`
+
+const CarouselIndicators = styled.div`
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: ${props =>
+      props.theme.measurements.breakpointMobileNav}px) {
+    margin-top: 2rem;
   }
 `
