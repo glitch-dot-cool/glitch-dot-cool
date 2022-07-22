@@ -99,6 +99,10 @@ const PostFormatting = styled.div`
   pre {
     margin-bottom: 2rem;
   }
+
+  a {
+    text-decoration: underline;
+  }
 `
 
 export const query = graphql`
