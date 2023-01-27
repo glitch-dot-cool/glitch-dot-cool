@@ -9,6 +9,10 @@ const ProfileNav = ({ name, gallery, posts }) => {
   return (
     <SubNav>
       <Link to={`/${slugify(name)}`} activeStyle={theme.activeNavStyles}>
+        <h1>all</h1>
+      </Link>
+
+      <Link to={`/${slugify(name)}/posts`} activeStyle={theme.activeNavStyles}>
         <h1>posts</h1>
       </Link>
 

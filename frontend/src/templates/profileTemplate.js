@@ -36,7 +36,7 @@ const profileTemplate = ({
           email={email}
           location={location}
           name={author_name}
-        ></ProfileInfo>
+        />
 
         <ProfilePosts
           name={author_name}

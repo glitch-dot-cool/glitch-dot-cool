@@ -75,6 +75,14 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  profiles.data.allStrapiAuthor.nodes.forEach(profile => {
+    createPage({
+      component: profileTemplate,
+      path: `/${slugify(profile.author_name)}/posts`,
+      context: { id: profile.id },
+    })
+  })
+
   // create profile release pages
   profiles.data.allStrapiAuthor.nodes.forEach(profile => {
     createPage({

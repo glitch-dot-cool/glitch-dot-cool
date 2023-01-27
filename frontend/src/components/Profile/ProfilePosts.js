@@ -12,8 +12,22 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
     <PostsContainer>
       <ProfileNav name={name} gallery={gallery} posts={posts} />
 
-      {!path.includes("releases") &&
-        !path.includes("gallery") &&
+      {/* all tab */}
+      {path === `/${name}` &&
+        posts.map(post => (
+          <Link to={setUrl(post, name)} key={post.id}>
+            <Post>
+              <Flex direction="column">
+                <h3>{post.title}</h3>
+                <PublishedAt>{post.published_date}</PublishedAt>
+              </Flex>
+              <Pill type={post.type} />
+            </Post>
+          </Link>
+        ))}
+
+      {/* posts tab */}
+      {path.includes("posts") &&
         posts
           .filter(post => post.type !== "release")
           .map(post => (
@@ -28,6 +42,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
             </Link>
           ))}
 
+      {/* releases tab */}
       {path.includes("releases") &&
         posts
           .filter(post => post.type === "release")
@@ -43,6 +58,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
             </Link>
           ))}
 
+      {/* gallery tab */}
       {path.includes("gallery") && <Gallery gallery={gallery} author={name} />}
     </PostsContainer>
   )
