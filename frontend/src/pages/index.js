@@ -12,7 +12,7 @@ const IndexPage = ({
 }) => {
   const releasesAndProjects = posts
     .filter(post => post.type === "release" || post.type === "project")
-    .filter((_, idx) => idx <= 20)
+    .filter((_, idx) => idx < 10)
 
   // rotate array by one element to account for carousel offset
   releasesAndProjects.unshift(releasesAndProjects.pop())
