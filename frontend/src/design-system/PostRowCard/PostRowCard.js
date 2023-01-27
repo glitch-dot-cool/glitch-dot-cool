@@ -27,7 +27,7 @@ const PostRowCard = React.memo(({ post, className }) => {
           )}
           <Subcontainer>
             <Title>{post.title}</Title>
-            <Byline align="center">
+            <Byline align="center" size={size}>
               {post.authors?.map((author, index) => (
                 <UserCard
                   size={size}
@@ -72,12 +72,15 @@ const Card = styled.div`
 const Title = styled.h2`
   @media (max-width: 600px) {
     margin-bottom: 1rem;
+    font-size: 1.4rem;
   }
 `
 
 const Container = styled(Flex)``
 
-const Byline = styled(Flex)``
+const Byline = styled(Flex)`
+  margin-left: ${props => (props.size === "small" ? "0rem" : "2rem")};
+`
 
 const Subcontainer = styled.div`
   display: flex;
