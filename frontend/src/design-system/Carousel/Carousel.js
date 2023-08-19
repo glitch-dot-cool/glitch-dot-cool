@@ -117,7 +117,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   display: grid;
   margin: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
 
   @media only screen and (max-width: ${props =>
       props.theme.measurements.breakpointMobileNav}px) {
