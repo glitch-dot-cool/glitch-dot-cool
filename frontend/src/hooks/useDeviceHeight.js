@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 const useDeviceHeight = () => {
   const [height, setHeight] = useState(getWindowHeight())
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     setHeight(getWindowHeight())
-  }
+  }, [])
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)

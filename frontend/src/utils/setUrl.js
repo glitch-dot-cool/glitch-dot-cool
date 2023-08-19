@@ -11,6 +11,10 @@ const setUrl = (post, name) => {
       return `/releases/${slugify(post.title)}`
     case "community":
       return `/community/${slugify(post.title)}`
+    default:
+      throw new Error(
+        "Invalid post type, must be one of: project, blog, release, community"
+      )
   }
 }
 

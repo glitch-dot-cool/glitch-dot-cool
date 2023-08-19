@@ -42,12 +42,6 @@ const Container = styled(Flex)`
   text-align: center;
 `
 
-const Back = styled.h2`
-  :hover {
-    cursor: pointer;
-  }
-`
-
 const Glitchy = styled.h1`
   position: relative;
   color: rgba(0, 0, 0, 0);

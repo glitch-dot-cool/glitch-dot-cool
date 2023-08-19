@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useCallback, useEffect } from "react"
 import styled from "styled-components"
 import { Link, navigate } from "gatsby"
 
@@ -6,26 +6,29 @@ import { slugify } from "../../utils"
 import { Flex } from "../../design-system"
 
 const GalleryDetails = ({ author, prev, next, description, title }) => {
-  const goToPreviousItem = () => {
+  const goToPreviousItem = useCallback(() => {
     navigate(`/${slugify(author)}/gallery/${slugify(prev.title)}`)
-  }
+  }, [author, prev.title])
 
-  const goToNextItem = () => {
+  const goToNextItem = useCallback(() => {
     navigate(`/${slugify(author)}/gallery/${slugify(next.title)}`)
-  }
+  }, [author, next.title])
 
-  const keyboardNavigation = e => {
-    switch (e.key) {
-      case "ArrowLeft":
-        goToPreviousItem()
-        break
-      case "ArrowRight":
-        goToNextItem()
-        break
-      default:
-        break
-    }
-  }
+  const keyboardNavigation = useCallback(
+    e => {
+      switch (e.key) {
+        case "ArrowLeft":
+          goToPreviousItem()
+          break
+        case "ArrowRight":
+          goToNextItem()
+          break
+        default:
+          break
+      }
+    },
+    [goToPreviousItem, goToNextItem]
+  )
 
   useEffect(() => {
     document.addEventListener("keydown", keyboardNavigation)
@@ -33,7 +36,7 @@ const GalleryDetails = ({ author, prev, next, description, title }) => {
     return () => {
       document.removeEventListener("keydown", keyboardNavigation)
     }
-  }, [])
+  }, [keyboardNavigation])
 
   return (
     <DetailsContainer>
