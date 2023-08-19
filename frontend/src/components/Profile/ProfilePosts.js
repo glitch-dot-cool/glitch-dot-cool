@@ -13,7 +13,7 @@ const ProfilePosts = ({ posts, name, gallery, path }) => {
       <ProfileNav name={name} gallery={gallery} posts={posts} />
 
       {/* all tab */}
-      {path === `/${name}` &&
+      {path === `/${slugify(name)}` &&
         posts.map(post => (
           <Link to={setUrl(post, name)} key={post.id}>
             <Post>
