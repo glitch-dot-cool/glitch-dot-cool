@@ -8,6 +8,7 @@ import { Head, Layout } from "../components/Layout"
 import MarkdownHTML from "../components/Transforms/MarkdownHTML"
 import { Tag, Button } from "../design-system"
 import { lightTheme as theme } from "../design-system/theme"
+import { deriveDescriptionFromMarkdown } from "../utils"
 
 const { baseMonoMixin } = theme.text
 
@@ -15,7 +16,10 @@ const postLayout = ({ data: { strapiPost: post } }) => {
   return (
     <Layout>
       <PostLayout>
-        <Head title={post.title} />
+        <Head
+          title={post.title}
+          description={deriveDescriptionFromMarkdown(post.body)}
+        />
         <PostHeader
           authors={post.authors}
           title={post.title}
