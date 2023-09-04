@@ -18,7 +18,9 @@ const postLayout = ({ data: { strapiPost: post } }) => {
       <PostLayout>
         <Head
           title={post.title}
-          description={deriveDescriptionFromMarkdown(post.body)}
+          description={
+            post.SEO?.description || deriveDescriptionFromMarkdown(post.body)
+          }
         />
         <PostHeader
           authors={post.authors}
@@ -147,6 +149,9 @@ export const query = graphql`
         id
         title
         url
+      }
+      SEO {
+        description
       }
     }
   }
