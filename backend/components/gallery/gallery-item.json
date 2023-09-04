@@ -24,9 +24,6 @@
     "link": {
       "type": "string"
     },
-    "authors": {
-      "collection": "author"
-    },
     "description": {
       "type": "string"
     }
