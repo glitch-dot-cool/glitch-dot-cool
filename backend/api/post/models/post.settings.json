@@ -66,6 +66,11 @@
       ],
       "default": "blog",
       "required": true
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_seo_seos",
+  "info": {
+    "name": "SEO",
+    "icon": "atlas"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 160
+    }
+  }
+}

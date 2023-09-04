@@ -4,6 +4,8 @@ import { Layout, Head } from "../components/Layout"
 import AboutSection from "../components/About/About"
 import { Flex } from "../design-system"
 
+const description = `glitch.cool is a collective of producers, sound designers, programmers, and visual artists orbiting the glitch aesthetic, founded in 2019.`
+
 const About = ({
   data: {
     allImageSharp: { nodes: images },
@@ -11,7 +13,7 @@ const About = ({
 }) => {
   return (
     <Layout>
-      <Head title="about" />
+      <Head title="about" description={description} />
       <Flex justify="center">
         <AboutSection images={images} />
       </Flex>

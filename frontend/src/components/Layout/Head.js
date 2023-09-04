@@ -72,6 +72,14 @@ function Head({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: "msapplication-TileColor",
+          content: "#191919",
+        },
+        {
+          name: "theme-color",
+          content: currentTheme.colors.scale_5,
+        },
       ].concat(meta)}
     >
       <link
@@ -83,8 +91,6 @@ function Head({ description, lang, meta, title }) {
       <link rel="icon" type="image/png" sizes="16x16" href={faviconSmall} />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#191919" />
-      <meta name="msapplication-TileColor" content="#191919" />
-      <meta name="theme-color" content={currentTheme.colors.scale_5} />
 
       <script type="text/javascript">
         {`
