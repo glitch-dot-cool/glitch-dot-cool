@@ -28,6 +28,14 @@ const NotFound = () => {
             <FormTextArea type="text" name="body" rows="6" required />
           </>
         </Form>
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <p>glitch.cool</p>
+          <p>12 Dudley Street </p>
+          <p>Birmingham</p>
+          <p>B54EA</p>
+          <p>United Kingdom</p>
+        </div>
       </Container>
     </Layout>
   )
