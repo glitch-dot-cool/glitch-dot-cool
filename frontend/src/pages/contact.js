@@ -57,5 +57,4 @@ const AddressContainer = styled.div`
 const AddressLine = styled.p`
   font-size: 1.4rem;
   display: block;
-  line-height: 1rem;
 `
