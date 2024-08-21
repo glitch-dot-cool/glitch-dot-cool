@@ -29,23 +29,13 @@ const NotFound = () => {
           </>
         </Form>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "4rem",
-          }}
-        >
+        <AddressContainer>
           <AddressLine>glitch.cool</AddressLine>
-          <br />
           <AddressLine>12 Dudley Street </AddressLine>
-          <br />
           <AddressLine>Birmingham</AddressLine>
-          <br />
           <AddressLine>B54EA</AddressLine>
-          <br />
           <AddressLine>United Kingdom</AddressLine>
-        </div>
+        </AddressContainer>
       </Container>
     </Layout>
   )
@@ -57,6 +47,15 @@ const Container = styled(Flex)`
   margin: 4rem 0rem;
 `
 
+const AddressContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+`
+
 const AddressLine = styled.p`
   font-size: 1.4rem;
+  display: block;
+  line-height: 1rem;
 `
