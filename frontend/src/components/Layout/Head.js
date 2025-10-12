@@ -91,25 +91,6 @@ function Head({ description, lang, meta, title }) {
       <link rel="icon" type="image/png" sizes="16x16" href={faviconSmall} />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#191919" />
-
-      <script type="text/javascript">
-        {`
-          var _paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setCookieDomain", "*.glitch.cool"]);
-          _paq.push(["setDomains", ["*.glitch.cool"]]);
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//analytics.glitch.cool/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        `}
-      </script>
     </Helmet>
   )
 }
