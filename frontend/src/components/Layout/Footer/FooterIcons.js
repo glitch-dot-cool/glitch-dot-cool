@@ -7,6 +7,7 @@ import {
   faFacebook,
   faInstagram,
   faDiscord,
+  faPatreon,
 } from "@fortawesome/free-brands-svg-icons"
 
 import {
@@ -37,6 +38,10 @@ const LinkIcons = ({ className }) => {
 
         <ExternalLink url="https://discord.gg/SrbjHEk">
           <Icon icon={faDiscord} />
+        </ExternalLink>
+
+        <ExternalLink url="https://www.patreon.com/cw/glitchdotcool">
+          <Icon icon={faPatreon} />
         </ExternalLink>
       </IconsContainer>
     </>
