@@ -7,6 +7,8 @@ import { Link } from "../../../design-system"
 import { lightTheme as theme } from "../../../design-system"
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
   return (
     <StyledFooter>
       <Nav>
@@ -31,6 +33,7 @@ const Footer = () => {
         </Link>
       </Nav>
       <FooterLinks />
+      <CopyrightFooter>© {currentYear} glitch.cool</CopyrightFooter>
     </StyledFooter>
   )
 }
@@ -45,7 +48,6 @@ const StyledFooter = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: ${theme.measurements.footerHeight}rem;
   background-color: ${props => props.theme.colors.footer};
 
   a {
@@ -71,7 +73,7 @@ const StyledFooter = styled.footer`
 `
 
 const Nav = styled.nav`
-  padding: 0.75rem;
+  padding: 0.5rem;
 
   a:not(:last-child) {
     margin-right: 3rem;
@@ -105,4 +107,10 @@ const Nav = styled.nav`
       margin-right: 1rem;
     }
   }
+`
+const CopyrightFooter = styled.p`
+  text-align: center;
+  font-size: 10px;
+  color: ${theme.colors.scale_4};
+  margin-bottom: 0.25rem;
 `

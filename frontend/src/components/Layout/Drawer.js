@@ -115,7 +115,7 @@ const Centered = styled.div`
   flex-direction: ${props => (props.column ? `column` : `row`)};
   justify-content: space-between;
   align-items: left;
-  padding: 4rem;
+  padding: 2rem;
 
   a {
     margin-bottom: 2rem;

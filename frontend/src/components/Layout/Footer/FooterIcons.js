@@ -51,10 +51,13 @@ const LinkIcons = ({ className }) => {
 const IconsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
 
   a {
     text-decoration: none;
+  }
+
+  a svg {
+    margin-bottom: 0.5rem;
   }
 
   a:not(:last-of-type) {
