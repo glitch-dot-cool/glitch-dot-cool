@@ -157,8 +157,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     ::selection {
-        background: #191919;
-        color: #e6e6e6;
+        background: ${props => props.theme.colors.scale_1};
+        color: ${props => props.theme.colors.scale_6};
     }
 `
 
