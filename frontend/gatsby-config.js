@@ -5,8 +5,10 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `glitch.cool`,
-    description: `glitch.cool is an audiovisual collective founded in 2019.`,
+    description: `glitch[dot]cool is a collective of producers, sound designers, programmers, and visual artists orbiting the glitch aesthetic, founded in 2019.`,
     author: `agohorel`,
+    siteUrl: `https://glitch.cool`,
+    image: `/og-image.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
